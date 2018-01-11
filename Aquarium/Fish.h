@@ -1,7 +1,7 @@
 #pragma once
 #include "Organism.h"
-class Fish :
-	public Organism
+
+class Fish : public Organism
 {
 public:
 	virtual void FindFood();
@@ -10,7 +10,8 @@ public:
 	virtual void Reproduction() override;
 	virtual void Move() override;
 	virtual void Update() override;
+
 	Fish();
-	~Fish();
+	virtual ~Fish();
 };
 

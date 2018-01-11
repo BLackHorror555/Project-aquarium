@@ -1,5 +1,6 @@
 #pragma once
 #include "Organism.h"
+
 class Plankton :
 	public Organism
 {
@@ -9,6 +10,6 @@ public:
 	virtual void Move() override;
 	virtual void Update() override;
 	Plankton();
-	~Plankton();
+	virtual ~Plankton();
 };
 

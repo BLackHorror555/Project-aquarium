@@ -1,17 +1,16 @@
-#ifndef ORGANISM_H
-#define ORGANISM_H
+#pragma once
 #include <SFML\Graphics.hpp>
+
 class Organism
 {
 	int age;
 	sf::Vector2f position;
 public:
 	Organism();
-	~Organism();
+	virtual ~Organism();
 
-	virtual void Death();
-	virtual void Reproduction();
-	virtual void Move();
-	virtual void Update();
+	virtual void Death() = 0;
+	virtual void Reproduction() = 0;
+	virtual void Move() = 0;
+	virtual void Update() = 0;
 };
-#endif

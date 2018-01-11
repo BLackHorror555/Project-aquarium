@@ -1,7 +1,7 @@
 #pragma once
 #include "Fish.h"
-class Shark :
-	public Fish
+
+class Shark :public Fish
 {
 public:
 	virtual void FindFood() override;
@@ -11,6 +11,6 @@ public:
 	virtual void Move() override;
 	virtual void Update() override;
 	Shark();
-	~Shark();
+	virtual ~Shark();
 };
 
