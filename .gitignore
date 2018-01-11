@@ -1,0 +1,15 @@
+Debug
+docs
+sfml-*
+*.sdf
+*.aps
+*.vcxproj*
+*.sln
+*v14\
+*.db
+*.opendb
+*.suo
+*.pro
+*.pro.user
+*.vs
+/GUI/x64/Release
