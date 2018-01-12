@@ -26,5 +26,6 @@ public:
 	~Controller();
 
 	void FillAquarium();
+	void Start();
 	void Update();
 };

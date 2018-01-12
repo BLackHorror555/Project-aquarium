@@ -1,8 +1,7 @@
 #pragma once
 #include "Organism.h"
 
-class Plankton :
-	public Organism
+class Plankton: public Organism
 {
 public:
 	virtual void Death() override;

@@ -1,6 +1,7 @@
 #include <iostream>
+#include <SFML\Graphics.hpp>
 
-
+using namespace sf;
 
 void main()
 {
