@@ -7,16 +7,16 @@
 #include "Organism.h"
 #include "Shark.h"
 
-using sf::Vector2f;
+using sf::Vector3f;
 
 class Aquarium
 {
-	Vector2f size;
+	Vector3f size;
 	int plancton_amount;
 	int fish_amount;
 	int shark_amount;
 public:
-	Aquarium(Vector2f _size);
+	Aquarium(Vector3f _size);
 	~Aquarium();
 
 	std::vector<Plankton> plankton;

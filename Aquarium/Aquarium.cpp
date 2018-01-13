@@ -2,7 +2,8 @@
 
 
 
-Aquarium::Aquarium(Vector2f _size)
+Aquarium::Aquarium(Vector3f _size)
+	: size(_size)
 {
 
 }

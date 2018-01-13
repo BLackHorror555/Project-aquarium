@@ -1,10 +1,11 @@
 #pragma once
 #include <SFML\Graphics.hpp>
+#include "Displayable.h"
 
-class Organism
+class Organism : public Displayable
 {
 	int age;
-	sf::Vector2f position;
+	sf::Vector3f position;
 public:
 	Organism();
 	virtual ~Organism();
