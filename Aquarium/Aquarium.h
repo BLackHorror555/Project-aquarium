@@ -8,16 +8,17 @@
 #include "Shark.h"
 #include "Controller.h"
 
-using sf::Vector3f;
+using sf::Vector3i;
 
 class Aquarium
 {
-	Vector3f size;
+	Vector3i size;
 	int plancton_amount;
 	int fish_amount;
 	int shark_amount;
 public:
-	Aquarium(Vector3f _size);
+	Aquarium();
+	Aquarium(Vector3i _size);
 	~Aquarium();
 
 	Controller* controller;
