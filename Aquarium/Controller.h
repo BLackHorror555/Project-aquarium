@@ -1,11 +1,14 @@
 #pragma once
 
 #include "Aquarium.h";
+#include "Visualizer.h"
 
 class Controller
 {
 	int timer; //отсчет времени в 
 	int frequency; //частота обновления состояния биологической системы
+	std::string background;
+	Visualizer visualizer;
 public:
 	int planktonLifetime;
 	int fishLifetime;
@@ -20,7 +23,7 @@ public:
 	int sharkHungerLifetime;
 	int fishViewDistance;
 	int sharkViewDistance;
-	Aquarium* aquarium;
+	Aquarium aquarium;
 
 	Controller();
 	~Controller();
