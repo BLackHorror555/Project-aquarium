@@ -6,6 +6,7 @@
 #include "Fish.h"
 #include "Organism.h"
 #include "Shark.h"
+#include "Controller.h"
 
 using sf::Vector3f;
 
@@ -19,9 +20,10 @@ public:
 	Aquarium(Vector3f _size);
 	~Aquarium();
 
-	std::vector<Plankton> plankton;
-	std::vector<Fish> fish;
-	std::vector<Shark> shark;
+	Controller* controller;
+	std::vector<Plankton*> plankton;
+	std::vector<Fish*> fish;
+	std::vector<Shark*> shark;
 
 	void updateAnimals();
 };
