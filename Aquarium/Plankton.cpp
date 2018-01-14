@@ -48,8 +48,8 @@ void Plankton::Update()
 Plankton::Plankton()
 {
 	age = 0;
-	direction = position + sf::Vector3f(rand() % 1 - 1, rand() % 1 - 1, 0);
 	moveAngle = rand() % 360;
+	aquarium->plankton.push_back(this);
 }
 
 

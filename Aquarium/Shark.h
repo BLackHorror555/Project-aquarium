@@ -3,6 +3,8 @@
 
 class Shark :public Fish
 {
+	std::vector<Fish*>::iterator targetFish;
+	float nearestFish;
 public:
 	virtual void FindFood() override;
 	virtual void Eat() override;

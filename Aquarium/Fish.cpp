@@ -49,27 +49,27 @@ void Fish::Move()
 	{
 		FindFood();
 	}
-	else
-	{
-		position.x += aquarium->controller->fishSpeed * cos(moveAngle * PI / 180);
-		position.y += aquarium->controller->fishSpeed * sin(moveAngle * PI / 180);
-		moveAngle += rand() % aquarium->controller->fishMoveRange / 2 - aquarium->controller->fishMoveRange / 2;
-		if (moveAngle >= 360)
-			moveAngle -= 360;
+	position.x += aquarium->controller->fishSpeed * cos(moveAngle * PI / 180);
+	position.y += aquarium->controller->fishSpeed * sin(moveAngle * PI / 180);
+	moveAngle += rand() % aquarium->controller->fishMoveRange / 2 - aquarium->controller->fishMoveRange / 2;
+	if (moveAngle >= 360)
+		moveAngle -= 360;
 
-		sprite.setPosition(position.x, position.y);
-	}
+	sprite.setPosition(position.x, position.y);
+
 }
 
 void Fish::FindFood()
 {
-	if (sqrt(pow((*targetPlankton)->position.x - position.x, 2) + pow((*targetPlankton)->position.y - position.y, 2) <= eatingDistance))
+	//если планктон на расстоянии поедания, то жрем его
+	if (sqrt(pow((*targetPlankton)->position.x - position.x, 2) + pow((*targetPlankton)->position.y - position.y, 2) <= aquarium->controller->fishEatingDistance))
 	{
 		(*targetPlankton)->Death();
 	}
 	else
 	{
-		//тут перемещение к targetPlankton
+		//если нет, то меняем угол движения
+		moveAngle = atan((*targetPlankton)->position.y / (*targetPlankton)->position.x) * 180 / PI;
 	}
 }
 
@@ -80,6 +80,9 @@ void Fish::Update()
 
 Fish::Fish()
 {
+	age = 0;
+	moveAngle = rand() % 360;
+	aquarium->fish.push_back(this);
 }
 
 

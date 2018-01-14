@@ -5,11 +5,9 @@
 
 class Fish : public Organism
 {
+	std::vector<Plankton*>::iterator targetPlankton;
 	float nearestPlancton;
 public:
-	std::vector<Plankton*>::iterator targetPlankton;
-	float eatingDistance;
-
 	virtual void FindFood();
 	virtual void Eat();
 	virtual void Death() override;

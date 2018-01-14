@@ -34,6 +34,9 @@ public:
 	int fishViewDistance;
 	int sharkViewDistance;
 
+	int fishEatingDistance;
+	int sharkEatingDistanse;
+
 	int planktonMoveRange;
 	int fishMoveRange;
 	int sharkMoveRange;
