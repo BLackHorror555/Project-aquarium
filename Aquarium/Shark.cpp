@@ -28,7 +28,7 @@ void Shark::Death()
 
 void Shark::Reproduction()
 {
-	if (age % aquarium->controller->sharkReproduction_period == 0)
+	if (age % aquarium->controller->sharkReproductionPeriod == 0)
 	{
 		Shark* newShark = new Shark();
 		aquarium->shark.push_back(newShark);
