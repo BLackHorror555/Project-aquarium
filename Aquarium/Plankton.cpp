@@ -48,6 +48,7 @@ Plankton::Plankton()
 	ownIter = aquarium->plankton.end() - 1;
 
 	position = sf::Vector3f(rand() % 1240 + 40, rand() % 700 + 20, 0);
+	sprite.setTexture(res->plankton);
 	sprite.setPosition(position.x, position.y);
 }
 

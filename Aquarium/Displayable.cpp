@@ -2,8 +2,9 @@
 
 
 
-Displayable::Displayable()
+Displayable::Displayable(Aquarium* aquarium_)
 {
+	res = aquarium->controller->visualizer.res;
 }
 
 
@@ -11,7 +12,3 @@ Displayable::~Displayable()
 {
 }
 
-void Displayable::Draw()
-{
-	sprite.setPosition(position);
-}

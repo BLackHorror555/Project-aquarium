@@ -76,6 +76,7 @@ Shark::Shark()
 	ownIter = aquarium->shark.end() - 1;
 
 	position = sf::Vector3f(rand() % 1240 + 40, rand() % 700 + 20, 0);
+	sprite.setTexture(res->shark);
 	sprite.setPosition(position.x, position.y);
 }
 

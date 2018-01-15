@@ -10,7 +10,6 @@ public:
 	virtual ~Organism();
 	int age;
 	float moveAngle;
-	Aquarium *aquarium;
 	virtual void Death() = 0;
 	virtual void Reproduction() = 0;
 	virtual void Move() = 0;

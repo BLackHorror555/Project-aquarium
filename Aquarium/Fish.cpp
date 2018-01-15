@@ -77,6 +77,7 @@ Fish::Fish()
 	ownIter = aquarium->fish.end() - 1;
 
 	position = sf::Vector3f(rand() % 1240 + 40, rand() % 700 + 20, 0);
+	sprite.setTexture(res->fish);
 	sprite.setPosition(position.x, position.y);
 }
 

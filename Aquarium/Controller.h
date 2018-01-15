@@ -9,13 +9,15 @@ class Controller
 	int timer; //отсчет времени в тиках
 	int frequency; //частота обновления состояния биологической системы (количество тиков в секунду)
 	int tickDuration; //длительность тика
-	Visualizer visualizer;
+	
 	Aquarium aquarium;
 
 	void FillAquarium();
 	void Update();
 
 public:
+	Visualizer visualizer;
+
 	int planktonLifetime;
 	int fishLifetime;
 	int sharkLifetime;
@@ -31,6 +33,7 @@ public:
 	int fishHungerLifetime;
 	int sharkHungerLifetime;
 
+	int planktonViewDistance;
 	int fishViewDistance;
 	int sharkViewDistance;
 
@@ -58,7 +61,7 @@ public:
 	void SetReproductionPeriod(int planktonReproductionPeriod_, int fishReproductionPeriod_, int sharkReproductionPeriod_);
 	void SetSpeed(int planktonSpeed_, int fishSpeed_, int sharkSpeed_);
 	void SetHungerLifetime(int fishHungerLifetime_, int sharkHungerLifetime_);
-	void SetViewDistance(int fishViewDistance_, int sharkViewDistance_);
+	void SetViewDistance(int planktonViewDistance_, int fishViewDistance_, int sharkViewDistance_);
 	void SetEatingDistance(int fishEatingDistance_, int sharkEatingDistanse_);
 	void SetMoveRange(int planktonMoveRange_, int fishMoveRange_, int sharkMoveRange_);
 	

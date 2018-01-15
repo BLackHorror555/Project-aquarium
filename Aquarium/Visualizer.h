@@ -5,9 +5,10 @@
 
 class Visualizer
 {
-	Resources* res;
+	
 	sf::RenderWindow* window;
 public:
+	Resources* res;
 
 	Visualizer();
 	Visualizer(int width, int height, Resources* res);
