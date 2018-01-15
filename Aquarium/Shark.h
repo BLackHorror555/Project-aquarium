@@ -1,18 +1,24 @@
 #pragma once
 #include "Fish.h"
 
-class Shark :public Fish
+class Shark: public Organism
 {
+	std::vector<Fish*>* fishs;
+	std::vector<Shark*>* sharks;
+
 	std::vector<Shark*>::iterator ownIter;
 	std::vector<Fish*>::iterator targetFish;
-	float nearestFish;
+	//float nearestFish;
+
+	sf::Vector2f FindFish();
 public:
-	virtual void FindFood() override;
+	Shark();
+	virtual ~Shark();
+
 	virtual void Death() override;
 	virtual void Reproduction() override;
 	virtual void Move() override;
 	virtual void Update() override;
-	Shark(float moveAngle_, Aquarium* aquarium_);
-	virtual ~Shark();
+	
 };
 

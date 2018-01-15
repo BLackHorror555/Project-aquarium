@@ -4,9 +4,19 @@
 
 class Fish : public Organism
 {
+	std::vector<Plankton*>* planktons;
+	std::vector<Fish*>* fishs;
+	std::vector<Shark*>* sharks;
+
 	std::vector<Plankton*>::iterator targetPlankton;
 	std::vector<Fish*>::iterator ownIter;
-	float nearestPlankton;
+	std::vector<Fish*>::iterator nearestShark;
+	//float nearestPlankton;
+
+	//используются в Update 
+	sf::Vector2f FindPlankton(); // если нашла, возвращает позицию ближайшего, иначе нулевой вектор 
+	//TODO
+	sf::Vector2f FindShark(); // если нашла, возвращает позицию ближайшей, иначе нулевой вектор 
 public:
 
 	Fish();
@@ -16,12 +26,5 @@ public:
 	virtual void Reproduction() override;
 	virtual void Move() override;
 	virtual void Update() override;
-
-	sf::Vector2f FindPlankton(); // если нашла, возвращает позицию ближайшего, иначе нулевой вектор 
-	//TODO
-	sf::Vector2f FindShark(); // если нашла, возвращает позицию ближайшей, иначе нулевой вектор 
-
-	
-	
 };
 
