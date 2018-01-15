@@ -34,9 +34,6 @@ public:
 	int fishViewDistance;
 	int sharkViewDistance;
 
-<<<<<<< HEAD
-	
-=======
 	int fishEatingDistance;
 	int sharkEatingDistanse;
 
@@ -45,7 +42,6 @@ public:
 	int sharkMoveRange;
 
 	Controller(int frequency, std::string background, int planktonNumber, int fishNumber, int sharkNumber,
->>>>>>> 8d6e9a0e26ada58d5cc068dc4826b6a64426edec
 				int windowWidth, int windowHeight, 
 				int aquariumWidth, int aquariumHeight);
 	~Controller();
