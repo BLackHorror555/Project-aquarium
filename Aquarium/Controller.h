@@ -54,6 +54,13 @@ public:
 		int fishEatingDistance_, int sharkEatingDistanse_,
 		int planktonMoveRange_, int fishMoveRange_, int sharkMoveRange_);
 
+	void SetLifeTime(int planktonLifetime_, int fishLifetime_, int sharkLifetime_);
+	void SetReproductionPeriod(int planktonReproductionPeriod_, int fishReproductionPeriod_, int sharkReproductionPeriod_);
+	void SetSpeed(int planktonSpeed_, int fishSpeed_, int sharkSpeed_);
+	void SetHungerLifetime(int fishHungerLifetime_, int sharkHungerLifetime_);
+	void SetViewDistance(int fishViewDistance_, int sharkViewDistance_);
+	void SetEatingDistance(int fishEatingDistance_, int sharkEatingDistanse_);
+	void SetMoveRange(int planktonMoveRange_, int fishMoveRange_, int sharkMoveRange_);
 	
 	void Start();
 	

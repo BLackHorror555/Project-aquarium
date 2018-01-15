@@ -21,8 +21,8 @@ public:
 
 	int planctonAmount;
 	int fishAmount;
-
 	int sharkAmount;
+
 	Controller* controller;
 	std::vector<Plankton*> plankton;
 	std::vector<Fish*> fish;

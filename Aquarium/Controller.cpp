@@ -55,6 +55,52 @@ void Controller::SetParametres(int planktonLifetime_, int fishLifetime_, int sha
 	sharkMoveRange = sharkMoveRange_;
 }
 
+void Controller::SetLifeTime(int planktonLifetime_, int fishLifetime_, int sharkLifetime_)
+{
+	planktonLifetime = planktonLifetime_;
+	fishLifetime = fishLifetime_;
+	sharkLifetime = sharkLifetime_;
+}
+
+void Controller::SetReproductionPeriod(int planktonReproductionPeriod_, int fishReproductionPeriod_, int sharkReproductionPeriod_)
+{
+	planktonReproductionPeriod = planktonReproductionPeriod_;
+	fishReproductionPeriod = fishReproductionPeriod_;
+	sharkReproductionPeriod = sharkReproductionPeriod_;
+}
+
+void Controller::SetSpeed(int planktonSpeed_, int fishSpeed_, int sharkSpeed_)
+{
+	planktonSpeed = planktonSpeed_;
+	fishSpeed = fishSpeed_;
+	sharkSpeed = sharkSpeed_;
+}
+
+void Controller::SetHungerLifetime(int fishHungerLifetime_, int sharkHungerLifetime_)
+{
+	fishHungerLifetime = fishHungerLifetime_;
+	sharkHungerLifetime = sharkHungerLifetime_;
+}
+
+void Controller::SetViewDistance(int fishViewDistance_, int sharkViewDistance_)
+{
+	fishViewDistance = fishViewDistance_;
+	sharkViewDistance = sharkViewDistance_;
+}
+
+void Controller::SetEatingDistance(int fishEatingDistance_, int sharkEatingDistanse_)
+{
+	fishEatingDistance = sharkEatingDistanse_;
+}
+
+void Controller::SetMoveRange(int planktonMoveRange_, int fishMoveRange_, int sharkMoveRange_)
+{
+	planktonMoveRange = planktonMoveRange_;
+	fishMoveRange = fishMoveRange_;
+	sharkMoveRange = sharkMoveRange_;
+}
+
+
 void Controller::Start()
 {
 	while (1) //game loop
