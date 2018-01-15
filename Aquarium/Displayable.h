@@ -1,7 +1,7 @@
 #pragma once
 #include "SFML\Graphics.hpp"
-#include "Controller.h"
 #include "Resources.h"
+#include "Aquarium.h"
 
 class Displayable
 {

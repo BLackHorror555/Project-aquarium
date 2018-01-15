@@ -4,13 +4,19 @@
 
 class Plankton: public Organism
 {
+	std::vector<Plankton*>* planktons;
+	std::vector<Fish*>* fishs;
 	std::vector<Plankton*>::iterator ownIter;
 public:
+	Plankton();
 	virtual void Death() override;
 	virtual void Reproduction() override;
 	virtual void Move() override;
 	virtual void Update() override;
-	Plankton(float moveAngle_, Aquarium* aquarium_);
+	
 	virtual ~Plankton();
+
+	//TODO
+	sf::Vector2f FindFish(); // если нашла, возвращает позицию ближайшей, иначе нулевой вектор 
 };
 

@@ -1,17 +1,17 @@
 #pragma once
 #include <SFML\Graphics.hpp>
-#include "Displayable.h"
-#include "Aquarium.h"
+#include <vector>
 
-class Organism : public Displayable
+class Organism
 {
 public:
-	Organism(float moveAngle_, Aquarium* aquarium_);
+	Organism();
 	virtual ~Organism();
 	int age;
-	float moveAngle;
+	//float moveAngle;
+	sf::Vector2f direction;
 	virtual void Death() = 0;
 	virtual void Reproduction() = 0;
-	virtual void Move() = 0;
+	virtual void Move() = 0; 
 	virtual void Update() = 0;
 };

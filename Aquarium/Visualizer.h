@@ -1,20 +1,29 @@
 #pragma once
 #include <SFML\Graphics.hpp>
-#include "Displayable.h"
 #include "Resources.h"
+#include "Controller.h"
 
 class Visualizer
 {
-	
-	sf::RenderWindow* window;
-public:
-	Resources* res;
+	void Start(); //запуск игрового цикла
 
-	Visualizer();
-	Visualizer(int width, int height, Resources* res);
+public:
+	Visualizer(int width, int height, Resources* resources_);
 	~Visualizer();
 
-	void Draw(Displayable object);
+	void DrawPlankton(Plankton& p);
+	void DrawFish(Fish& p);
+	void DrawShark(Shark& s);
+
 	void Display(); //выводит все отрисованные объекты на экран
+	void Update(); //вызывается каждый кадр
+
+	Controller* controller;
+	Resources* resources;
+	sf::RenderWindow* window;
+	sf::Sprite planktonSprite;
+	sf::Sprite fishSprite;
+	sf::Sprite sharkSprite;
+	sf::Sprite background;
 };
 

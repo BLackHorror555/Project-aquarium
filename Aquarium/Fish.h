@@ -1,6 +1,5 @@
 #pragma once
 #include "Organism.h"
-#include "Aquarium.h"
 #include <iterator>
 
 class Fish : public Organism
@@ -9,13 +8,20 @@ class Fish : public Organism
 	std::vector<Fish*>::iterator ownIter;
 	float nearestPlankton;
 public:
-	virtual void FindFood();
+
+	Fish();
+	virtual ~Fish();
+
 	virtual void Death() override;
 	virtual void Reproduction() override;
 	virtual void Move() override;
 	virtual void Update() override;
 
-	Fish(float moveAngle_, Aquarium* aquarium_);
-	virtual ~Fish();
+	sf::Vector2f FindPlankton(); // если нашла, возвращает позицию ближайшего, иначе нулевой вектор 
+	//TODO
+	sf::Vector2f FindShark(); // если нашла, возвращает позицию ближайшей, иначе нулевой вектор 
+
+	
+	
 };
 
