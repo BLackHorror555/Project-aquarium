@@ -72,6 +72,7 @@ Shark::Shark()
 	age = 0;
 	moveAngle = rand() % 360;
 	aquarium->shark.push_back(this);
+	aquarium->sharkAmount++;
 	ownIter = aquarium->shark.end() - 1;
 
 	position = sf::Vector3f(rand() % 1240 + 40, rand() % 700 + 20, 0);

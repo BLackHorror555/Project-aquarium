@@ -73,6 +73,7 @@ Fish::Fish()
 	age = 0;
 	moveAngle = rand() % 360;
 	aquarium->fish.push_back(this);
+	aquarium->fishAmount++;
 	ownIter = aquarium->fish.end() - 1;
 
 	position = sf::Vector3f(rand() % 1240 + 40, rand() % 700 + 20, 0);

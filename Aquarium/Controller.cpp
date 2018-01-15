@@ -12,7 +12,10 @@ Controller::Controller(int frequency, Resources* res,
 
 	visualizer = Visualizer(windowWidth, windowHeight, res);
 	aquarium = Aquarium(sf::Vector3i(windowWidth, windowHeight, 0));
-	FillAquarium(planktonNumber, fishNumber, sharkNumber);
+	aquarium.planctonAmount = planktonNumber;
+	aquarium.fishAmount = fishNumber;
+	aquarium.sharkAmount = sharkNumber;
+	FillAquarium();
 }
 
 
@@ -63,7 +66,7 @@ void Controller::Start()
 	}
 }
 
-void Controller::FillAquarium(int planktonNumber, int fishNumber, int sharkNumber)
+void Controller::FillAquarium()
 {
 	for (int i = 0; i < aquarium.planctonAmount; i++)
 	{

@@ -12,7 +12,7 @@ class Controller
 	Visualizer visualizer;
 	Aquarium aquarium;
 
-	void FillAquarium(int planktonNumber, int fishNumber, int sharkNumber);
+	void FillAquarium();
 	void Update();
 
 public:

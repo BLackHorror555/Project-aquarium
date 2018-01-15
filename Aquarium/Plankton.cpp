@@ -44,6 +44,7 @@ Plankton::Plankton()
 	age = 0;
 	moveAngle = rand() % 360;
 	aquarium->plankton.push_back(this);
+	aquarium->planctonAmount++;
 	ownIter = aquarium->plankton.end() - 1;
 
 	position = sf::Vector3f(rand() % 1240 + 40, rand() % 700 + 20, 0);
