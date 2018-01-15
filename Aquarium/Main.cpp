@@ -5,7 +5,6 @@ using namespace sf;
 
 void main()
 {
-
 	printf("hello world!");
 	getchar();
 	
