@@ -2,13 +2,13 @@
 
 #include "Aquarium.h";
 #include "Visualizer.h"
+#include "Resources.h"
 
 class Controller
 {
 	int timer; //отсчет времени в тиках
 	int frequency; //частота обновления состояния биологической системы (количество тиков в секунду)
 	int tickDuration; //длительность тика
-	std::string background;
 	Visualizer visualizer;
 	Aquarium aquarium;
 
@@ -41,7 +41,7 @@ public:
 	int fishMoveRange;
 	int sharkMoveRange;
 
-	Controller(int frequency, std::string background, int planktonNumber, int fishNumber, int sharkNumber,
+	Controller(int frequency, Resources* resources, int planktonNumber, int fishNumber, int sharkNumber,
 				int windowWidth, int windowHeight, 
 				int aquariumWidth, int aquariumHeight);
 	~Controller();

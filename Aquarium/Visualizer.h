@@ -1,14 +1,16 @@
 #pragma once
 #include <SFML\Graphics.hpp>
 #include "Displayable.h"
+#include "Resources.h"
+
 class Visualizer
 {
-	sf::Texture background;
+	Resources* res;
 	sf::RenderWindow* window;
 public:
 
 	Visualizer();
-	Visualizer(int width, int height, std::string background);
+	Visualizer(int width, int height, Resources* res);
 	~Visualizer();
 
 	void Draw(Displayable object);

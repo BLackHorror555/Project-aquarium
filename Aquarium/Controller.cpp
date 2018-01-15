@@ -2,16 +2,15 @@
 
 
 
-Controller::Controller(int frequency, std::string background, 
+Controller::Controller(int frequency, Resources* res, 
 	int planktonNumber, int fishNumber, int sharkNumber,
 	int windowWidth, int windowHeight,
 	int aquariumWidth, int aquariumHeight)
 {
 	this->frequency = frequency;
-	this->background = background;
 	tickDuration = 1 / frequency;
 
-	visualizer = Visualizer(windowWidth, windowHeight, background);
+	visualizer = Visualizer(windowWidth, windowHeight, res);
 	aquarium = Aquarium(sf::Vector3i(windowWidth, windowHeight, 0));
 	FillAquarium(planktonNumber, fishNumber, sharkNumber);
 }
@@ -71,4 +70,5 @@ void Controller::Update()
 		visualizer.Draw(*aquarium.shark[i]);
 	}
 	visualizer.Display();
+	timer++;
 }
