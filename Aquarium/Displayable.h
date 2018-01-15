@@ -5,7 +5,7 @@
 class Displayable
 {
 public:
-	sf::Vector2f position;
+	sf::Vector3f position;
 	sf::Sprite sprite;
 	Displayable();
 	~Displayable();

@@ -5,12 +5,11 @@
 
 class Organism : public Displayable
 {
-	sf::Vector3f position;
 public:
 	Organism();
 	virtual ~Organism();
-	int id;
 	int age;
+	float moveAngle;
 	Aquarium *aquarium;
 	virtual void Death() = 0;
 	virtual void Reproduction() = 0;

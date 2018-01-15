@@ -1,9 +1,12 @@
 #pragma once
 #include "Organism.h"
 #include "Aquarium.h"
+#include <iterator>
 
 class Fish : public Organism
 {
+	std::vector<Plankton*>::iterator targetPlankton;
+	float nearestPlancton;
 public:
 	virtual void FindFood();
 	virtual void Eat();
