@@ -12,7 +12,7 @@ class Controller
 	Visualizer visualizer;
 	Aquarium aquarium;
 
-	void FillAquarium();
+	void FillAquarium(int planktonNumber, int fishNumber, int sharkNumber);
 	void Update();
 
 public:
@@ -34,7 +34,12 @@ public:
 	int fishViewDistance;
 	int sharkViewDistance;
 
-	Controller(int frequency, std::string background, int planktonNumber, int fishNumber, int sharkNumber,
+	float planktonMoveRange;
+	float fishMoveRange;
+	float sharkMoveRange;
+
+	Controller(int frequency, std::string background, 
+				int planktonNumber, int fishNumber, int sharkNumber,
 				int windowWidth, int windowHeight, 
 				int aquariumWidth, int aquariumHeight);
 	~Controller();

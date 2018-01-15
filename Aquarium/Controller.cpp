@@ -12,7 +12,8 @@ Controller::Controller(int frequency, std::string background,
 	tickDuration = 1 / frequency;
 
 	visualizer = Visualizer(windowWidth, windowHeight, background);
-	aquarium = Aquarium(sf::Vector3i)
+	aquarium = Aquarium(sf::Vector3i(windowWidth, windowHeight, 0));
+	FillAquarium(planktonNumber, fishNumber, sharkNumber);
 }
 
 
@@ -48,15 +49,26 @@ void Controller::SetParametres(int planktonLifetime_, int fishLifetime_, int sha
 
 void Controller::Start()
 {
-	while (1) //game loop ûûûûûûûûûû
+	while (1) //game loop
 	{
 		Update();
-
 	}
-	
 }
 
 void Controller::Update()
 {
-
+	aquarium.updateAnimals();
+	for (int i = 0; i < aquarium.plankton.size(); i++)
+	{
+		visualizer.Draw(*aquarium.plankton[i]);
+	}
+	for (int i = 0; i < aquarium.fish.size(); i++)
+	{
+		visualizer.Draw(*aquarium.fish[i]);
+	}
+	for (int i = 0; i < aquarium.shark.size(); i++)
+	{
+		visualizer.Draw(*aquarium.shark[i]);
+	}
+	visualizer.Display();
 }
