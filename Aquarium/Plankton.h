@@ -4,6 +4,7 @@
 
 class Plankton: public Organism
 {
+	std::vector<Plankton*>::iterator ownIter;
 public:
 	virtual void Death() override;
 	virtual void Reproduction() override;

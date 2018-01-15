@@ -4,22 +4,12 @@
 
 #define PI 3.14159265
 
-void Shark::Eat()
-{
-}
 
 void Shark::Death()
 {
 	if (age >= aquarium->controller->sharkLifetime)
 	{
-		for (auto org = aquarium->shark.begin(); org != aquarium->shark.end(); ++org)
-		{
-			if (id == (*org)->id)
-			{
-				aquarium->shark.erase(org);
-				break;
-			}
-		}
+		aquarium->shark.erase(ownIter);
 	}
 	delete this;
 }
@@ -29,7 +19,6 @@ void Shark::Reproduction()
 	if (age % aquarium->controller->sharkReproductionPeriod == 0)
 	{
 		Shark* newShark = new Shark();
-		aquarium->shark.push_back(newShark);
 	}
 }
 
@@ -74,6 +63,8 @@ void Shark::FindFood()
 
 void Shark::Update()
 {
+	age++;
+	Move();
 }
 
 Shark::Shark()
@@ -81,6 +72,10 @@ Shark::Shark()
 	age = 0;
 	moveAngle = rand() % 360;
 	aquarium->shark.push_back(this);
+	ownIter = aquarium->shark.end() - 1;
+
+	position = sf::Vector3f(rand() % 1240 + 40, rand() % 700 + 20, 0);
+	sprite.setPosition(position.x, position.y);
 }
 
 
