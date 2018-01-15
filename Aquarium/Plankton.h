@@ -10,7 +10,7 @@ public:
 	virtual void Reproduction() override;
 	virtual void Move() override;
 	virtual void Update() override;
-	Plankton();
+	Plankton(float moveAngle_, Aquarium* aquarium_);
 	virtual ~Plankton();
 };
 

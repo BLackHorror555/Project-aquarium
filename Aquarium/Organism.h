@@ -6,7 +6,7 @@
 class Organism : public Displayable
 {
 public:
-	Organism();
+	Organism(float moveAngle_, Aquarium* aquarium_);
 	virtual ~Organism();
 	int age;
 	float moveAngle;

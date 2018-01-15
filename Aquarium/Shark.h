@@ -12,7 +12,7 @@ public:
 	virtual void Reproduction() override;
 	virtual void Move() override;
 	virtual void Update() override;
-	Shark();
+	Shark(float moveAngle_, Aquarium* aquarium_);
 	virtual ~Shark();
 };
 

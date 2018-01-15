@@ -6,42 +6,41 @@
 
 void Plankton::Death()
 {
-	if (age >= aquarium->controller->planktonLifetime)
+	/*if (age >= aquarium->controller->planktonLifetime)
 	{
 		aquarium->plankton.erase(ownIter);
 	}
-	delete this;
+	delete this;*/
 }
 
 void Plankton::Reproduction()
 {
-	if (age % aquarium->controller->planktonReproductionPeriod == 0)
+	/*if (age % aquarium->controller->planktonReproductionPeriod == 0)
 	{
 		Plankton* newPlancton = new Plankton();
-	}
+	}*/
 }
 
 void Plankton::Move()
 {
-	position.x += aquarium->controller->planktonSpeed * cos(moveAngle * PI / 180);
+	/*position.x += aquarium->controller->planktonSpeed * cos(moveAngle * PI / 180);
 	position.y += aquarium->controller->planktonSpeed * sin(moveAngle * PI / 180);
 	moveAngle += rand() % aquarium->controller->planktonMoveRange / 2 - aquarium->controller->planktonMoveRange / 2;
 	if (moveAngle >= 360)
 		moveAngle -= 360;
 
-	sprite.setPosition(position.x, position.y);
+	sprite.setPosition(position.x, position.y);*/
 }
 
 void Plankton::Update()
 {
-	age++;
-	Move();
+	/*age++;
+	Move();*/
 }
 
-Plankton::Plankton()
+Plankton::Plankton(float moveAngle_, Aquarium* aquarium_): Organism(moveAngle_, aquarium_)
 {
-	
-	age = 0;
+	/*age = 0;
 	moveAngle = rand() % 360;
 	aquarium->plankton.push_back(this);
 	aquarium->planctonAmount++;
@@ -49,7 +48,7 @@ Plankton::Plankton()
 
 	position = sf::Vector3f(rand() % 1240 + 40, rand() % 700 + 20, 0);
 	sprite.setTexture(res->plankton);
-	sprite.setPosition(position.x, position.y);
+	sprite.setPosition(position.x, position.y);*/
 }
 
 

@@ -7,24 +7,24 @@
 
 void Shark::Death()
 {
-	if (age >= aquarium->controller->sharkLifetime)
+	/*if (age >= aquarium->controller->sharkLifetime)
 	{
 		aquarium->shark.erase(ownIter);
 	}
-	delete this;
+	delete this;*/
 }
 
 void Shark::Reproduction()
 {
-	if (age % aquarium->controller->sharkReproductionPeriod == 0)
+	/*if (age % aquarium->controller->sharkReproductionPeriod == 0)
 	{
 		Shark* newShark = new Shark();
-	}
+	}*/
 }
 
 void Shark::Move()
 {
-	targetFish = aquarium->fish.end();
+	/*targetFish = aquarium->fish.end();
 	for (auto org = aquarium->fish.begin(); org != aquarium->fish.end(); ++org)
 	{
 		if (sqrt(pow((*org)->position.x - position.x, 2) + pow((*org)->position.y - position.y, 2) <= aquarium->controller->sharkViewDistance)
@@ -44,13 +44,13 @@ void Shark::Move()
 	if (moveAngle >= 360)
 		moveAngle -= 360;
 
-	sprite.setPosition(position.x, position.y);
+	sprite.setPosition(position.x, position.y);*/
 }
 
 void Shark::FindFood()
 {
 	//если рыба на расстоянии поедания, то жрем его
-	if (sqrt(pow((*targetFish)->position.x - position.x, 2) + pow((*targetFish)->position.y - position.y, 2) <= aquarium->controller->sharkEatingDistanse))
+	/*if (sqrt(pow((*targetFish)->position.x - position.x, 2) + pow((*targetFish)->position.y - position.y, 2) <= aquarium->controller->sharkEatingDistanse))
 	{
 		(*targetFish)->Death();
 	}
@@ -58,18 +58,18 @@ void Shark::FindFood()
 	{
 		//если нет, то меняем угол движения
 		moveAngle = atan((*targetFish)->position.y / (*targetFish)->position.x) * 180 / PI;
-	}
+	}*/
 }
 
 void Shark::Update()
 {
-	age++;
-	Move();
+	/*age++;
+	Move();*/
 }
 
-Shark::Shark()
+Shark::Shark(float moveAngle_, Aquarium* aquarium_): Fish(moveAngle_, aquarium_)
 {
-	age = 0;
+	/*age = 0;
 	moveAngle = rand() % 360;
 	aquarium->shark.push_back(this);
 	aquarium->sharkAmount++;
@@ -77,7 +77,7 @@ Shark::Shark()
 
 	position = sf::Vector3f(rand() % 1240 + 40, rand() % 700 + 20, 0);
 	sprite.setTexture(res->shark);
-	sprite.setPosition(position.x, position.y);
+	sprite.setPosition(position.x, position.y);*/
 }
 
 

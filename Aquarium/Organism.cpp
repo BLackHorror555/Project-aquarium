@@ -2,7 +2,7 @@
 #include <random>
 
 
-Organism::Organism()
+Organism::Organism():Displayable()
 {
 }
 

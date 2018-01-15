@@ -7,7 +7,7 @@ class Fish : public Organism
 {
 	std::vector<Plankton*>::iterator targetPlankton;
 	std::vector<Fish*>::iterator ownIter;
-	float nearestPlancton;
+	float nearestPlankton;
 public:
 	virtual void FindFood();
 	virtual void Death() override;
@@ -15,7 +15,7 @@ public:
 	virtual void Move() override;
 	virtual void Update() override;
 
-	Fish();
+	Fish(float moveAngle_, Aquarium* aquarium_);
 	virtual ~Fish();
 };
 

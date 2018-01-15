@@ -7,24 +7,24 @@
 
 void Fish::Death()
 {
-	if (age >= aquarium->controller->fishLifetime)
+	/*if (age >= aquarium->controller->fishLifetime)
 	{
 		aquarium->fish.erase(ownIter);
 	}
-	delete this;
+	delete this;*/
 }
 
 void Fish::Reproduction()
 {
-	if (age % aquarium->controller->fishReproductionPeriod == 0)
+	/*if (age % aquarium->controller->fishReproductionPeriod == 0)
 	{
 		Fish* newFish = new Fish();
-	}
+	}*/
 }
 
 void Fish::Move()
 {
-	targetPlankton = aquarium->plankton.end();
+	/*targetPlankton = aquarium->plankton.end();
 	for (auto org = aquarium->plankton.begin(); org != aquarium->plankton.end(); ++org)
 	{
 		if (sqrt(pow((*org)->position.x - position.x, 2) + pow((*org)->position.y - position.y, 2) <= aquarium->controller->fishViewDistance)
@@ -45,11 +45,11 @@ void Fish::Move()
 		moveAngle -= 360;
 
 	sprite.setPosition(position.x, position.y);
-
+	*/
 }
 
 void Fish::FindFood()
-{
+{/*
 	//если планктон на расстоянии поедания, то жрем его
 	if (sqrt(pow((*targetPlankton)->position.x - position.x, 2) + pow((*targetPlankton)->position.y - position.y, 2) <= aquarium->controller->fishEatingDistance))
 	{
@@ -59,18 +59,18 @@ void Fish::FindFood()
 	{
 		//если нет, то меняем угол движения
 		moveAngle = atan((*targetPlankton)->position.y / (*targetPlankton)->position.x) * 180 / PI;
-	}
+	}*/
 }
 
 void Fish::Update()
-{
+{/*
 	age++;
-	Move();
+	Move();*/
 }
 
-Fish::Fish()
+Fish::Fish(float moveAngle_, Aquarium* aquarium_): Organism(moveAngle_, aquarium_)
 {
-	age = 0;
+	/*age = 0;
 	moveAngle = rand() % 360;
 	aquarium->fish.push_back(this);
 	aquarium->fishAmount++;
@@ -78,7 +78,7 @@ Fish::Fish()
 
 	position = sf::Vector3f(rand() % 1240 + 40, rand() % 700 + 20, 0);
 	sprite.setTexture(res->fish);
-	sprite.setPosition(position.x, position.y);
+	sprite.setPosition(position.x, position.y);*/
 }
 
 
