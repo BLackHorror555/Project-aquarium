@@ -13,14 +13,16 @@ using sf::Vector3i;
 class Aquarium
 {
 	Vector3i size;
-	int plancton_amount;
-	int fish_amount;
-	int shark_amount;
+	
 public:
 	Aquarium();
 	Aquarium(Vector3i _size);
 	~Aquarium();
 
+	int planctonAmount;
+	int fishAmount;
+
+	int sharkAmount;
 	Controller* controller;
 	std::vector<Plankton*> plankton;
 	std::vector<Fish*> fish;

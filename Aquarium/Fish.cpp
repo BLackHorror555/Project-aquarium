@@ -4,22 +4,12 @@
 #define PI 3.14159265
 
 
-void Fish::Eat()
-{
-}
 
 void Fish::Death()
 {
 	if (age >= aquarium->controller->fishLifetime)
 	{
-		for (auto org = aquarium->fish.begin(); org != aquarium->fish.end(); ++org)
-		{
-			if (id == (*org)->id)
-			{
-				aquarium->fish.erase(org);
-				break;
-			}
-		}
+		aquarium->fish.erase(ownIter);
 	}
 	delete this;
 }
@@ -29,7 +19,6 @@ void Fish::Reproduction()
 	if (age % aquarium->controller->fishReproductionPeriod == 0)
 	{
 		Fish* newFish = new Fish();
-		aquarium->fish.push_back(newFish);
 	}
 }
 
@@ -75,6 +64,7 @@ void Fish::FindFood()
 
 void Fish::Update()
 {
+	age++;
 	Move();
 }
 
@@ -83,6 +73,10 @@ Fish::Fish()
 	age = 0;
 	moveAngle = rand() % 360;
 	aquarium->fish.push_back(this);
+	ownIter = aquarium->fish.end() - 1;
+
+	position = sf::Vector3f(rand() % 1240 + 40, rand() % 700 + 20, 0);
+	sprite.setPosition(position.x, position.y);
 }
 
 

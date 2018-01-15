@@ -46,10 +46,13 @@ public:
 				int aquariumWidth, int aquariumHeight);
 	~Controller();
 
-	void SetParametres(int planktonLifetime_, int fishLifetime_, int sharkLifetime_, 
-		int planktonReproductionPeriod_, int fishReproductionPeriod_, int sharkReproductionPeriod_, 
-		int planktonSpeed_, int fishSpeed_, int sharkSpeed_, int fishHungerLifetime_, 
-		int sharkHungerLifetime_, int fishViewDistance_, int sharkViewDistance_);
+	void SetParametres(int planktonLifetime_, int fishLifetime_, int sharkLifetime_,
+		int planktonReproductionPeriod_, int fishReproductionPeriod_, int sharkReproductionPeriod_,
+		int planktonSpeed_, int fishSpeed_, int sharkSpeed_,
+		int fishHungerLifetime_, int sharkHungerLifetime_,
+		int fishViewDistance_, int sharkViewDistance_,
+		int fishEatingDistance_, int sharkEatingDistanse_,
+		int planktonMoveRange_, int fishMoveRange_, int sharkMoveRange_);
 
 	
 	void Start();

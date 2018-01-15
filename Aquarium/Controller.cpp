@@ -21,11 +21,13 @@ Controller::~Controller()
 
 }
 
-void Controller::SetParametres(int planktonLifetime_, int fishLifetime_, int sharkLifetime_, 
-	int planktonReproductionPeriod_, int fishReproductionPeriod_, int sharkReproductionPeriod_, 
-	int planktonSpeed_, int fishSpeed_, int sharkSpeed_, 
-	int fishHungerLifetime_, int sharkHungerLifetime_, 
-	int fishViewDistance_, int sharkViewDistance_)
+void Controller::SetParametres(int planktonLifetime_, int fishLifetime_, int sharkLifetime_,
+	int planktonReproductionPeriod_, int fishReproductionPeriod_, int sharkReproductionPeriod_,
+	int planktonSpeed_, int fishSpeed_, int sharkSpeed_,
+	int fishHungerLifetime_, int sharkHungerLifetime_,
+	int fishViewDistance_, int sharkViewDistance_,
+	int fishEatingDistance_, int sharkEatingDistanse_,
+	int planktonMoveRange_, int fishMoveRange_, int sharkMoveRange_)
 {
 	planktonLifetime = planktonLifetime_;
 	fishHungerLifetime = fishHungerLifetime_;
@@ -44,6 +46,13 @@ void Controller::SetParametres(int planktonLifetime_, int fishLifetime_, int sha
 
 	fishViewDistance = fishViewDistance_;
 	sharkViewDistance = sharkViewDistance_;
+
+	fishEatingDistance = fishEatingDistance_;
+	sharkEatingDistanse = sharkEatingDistanse_;
+
+	planktonMoveRange = planktonMoveRange_;
+	fishMoveRange = fishMoveRange_;
+	sharkMoveRange = sharkMoveRange_;
 }
 
 void Controller::Start()
@@ -51,6 +60,25 @@ void Controller::Start()
 	while (1) //game loop
 	{
 		Update();
+	}
+}
+
+void Controller::FillAquarium(int planktonNumber, int fishNumber, int sharkNumber)
+{
+	for (int i = 0; i < aquarium.planctonAmount; i++)
+	{
+		Plankton* newPlancton = new Plankton;
+		newPlancton->aquarium = &aquarium;
+	}
+	for (int i = 0; i < aquarium.fishAmount; i++)
+	{
+		Fish* newFish = new Fish;
+		newFish->aquarium = &aquarium;
+	}
+	for (int i = 0; i < aquarium.sharkAmount; i++)
+	{
+		Shark* newShark = new Shark;
+		newShark->aquarium = &aquarium;
 	}
 }
 
