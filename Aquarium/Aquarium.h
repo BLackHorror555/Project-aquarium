@@ -20,10 +20,9 @@ public:
 	Aquarium(Vector3i _size);
 	~Aquarium();
 
-	int GetPlanctonNumber();
+	int GetPlanktonNumber();
 	int GetFishNumber();
 	int GetSharkNumber();
 
-	void updateAnimals();
+	void UpdateAnimals();
 };
-

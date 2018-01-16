@@ -16,6 +16,10 @@ Aquarium::~Aquarium()
 
 }
 
+void Aquarium::UpdateAnimals()
+{
+}
+
 /*
 void Aquarium::updateAnimals()
 {

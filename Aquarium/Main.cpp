@@ -12,7 +12,7 @@ using namespace sf;
 void main()
 {
 	Resources res("background.jpg", "plankton.png", "fish.png", "shark.png");
-	Controller controller(10, 40, 10, 3, WIDTH, HEIGHT);
+	Controller controller(5, 40, 10, 3, WIDTH, HEIGHT);
 	Visualizer visualizer(WIDTH, HEIGHT, &controller, &res);
 	//установка параметров системы
 	{

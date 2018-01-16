@@ -110,3 +110,20 @@ Controller::Controller(int frequency,
 {
 
 }
+
+void Controller::Update()
+{
+	//обновляем таймеры
+	GetLocalTime(&sysTime);
+	millisTimer = sysTime.wMilliseconds + sysTime.wSecond * 1000 + 
+				  sysTime.wMinute * 60000 + sysTime.wHour * 3600000 - startTime;
+	if ()
+
+
+	aquarium.UpdateAnimals();
+}
+
+void Controller::SetStartTime(int startTime_)
+{
+	startTime = startTime_;
+}

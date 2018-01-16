@@ -5,6 +5,7 @@
 
 class Visualizer
 {
+	sf::Vector2i screenSize;
 	Controller* controller;
 	Resources* resources;
 	sf::RenderWindow* window;
