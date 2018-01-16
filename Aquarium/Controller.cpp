@@ -1,4 +1,5 @@
 #include "Controller.h"
+#include <iostream>
 
 
 /*
@@ -104,10 +105,13 @@ void Controller::Update()
 }
 */
 
-Controller::Controller(int frequency, 
+Controller::Controller(int frequency_, 
 	int planktonNumber, int fishNumber, int sharkNumber, 
 	int aquariumWidth, int aquariumHeight)
 {
+	frequency = frequency_;
+	tickDuration = 1.0f / frequency;
+	aquarium = Aquarium(sf::Vector2i(aquariumWidth, aquariumHeight));
 
 }
 
@@ -115,15 +119,27 @@ void Controller::Update()
 {
 	//обновляем таймеры
 	GetLocalTime(&sysTime);
-	millisTimer = sysTime.wMilliseconds + sysTime.wSecond * 1000 + 
-				  sysTime.wMinute * 60000 + sysTime.wHour * 3600000 - startTime;
-	if ()
-
-
-	aquarium.UpdateAnimals();
+	millisTimer = sysTime.wMilliseconds + sysTime.wSecond * 1000 +
+		sysTime.wMinute * 60000 + sysTime.wHour * 3600000 - startTime - 10800000;
+	int _ticktimer = round(millisTimer * frequency * timeScale / 1000);
+	//время тикнуть
+	if (_ticktimer > tickTimer)
+	{
+		tickTimer = _ticktimer;
+		system("cls");
+		std::cout << "milliseconds: " << millisTimer << "\nticks (frequency=" << frequency << "): " << tickTimer 
+				  << "\ntime scale: " << timeScale << std::endl;
+		aquarium.UpdateAnimals();
+	}
+	aquarium.MoveAnimals();
 }
 
 void Controller::SetStartTime(int startTime_)
 {
 	startTime = startTime_;
+}
+
+void Controller::SetTimeScale(float timeScale_)
+{
+	timeScale = timeScale_;
 }

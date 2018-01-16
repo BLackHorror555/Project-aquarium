@@ -6,7 +6,7 @@ Aquarium::Aquarium()
 {
 }
 
-Aquarium::Aquarium(Vector3i _size)
+Aquarium::Aquarium(sf::Vector2i _size)
 {
 
 }
@@ -18,6 +18,11 @@ Aquarium::~Aquarium()
 
 void Aquarium::UpdateAnimals()
 {
+}
+
+void Aquarium::MoveAnimals()
+{
+
 }
 
 /*

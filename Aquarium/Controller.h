@@ -7,18 +7,18 @@
 class Controller
 {
 	SYSTEMTIME sysTime;
-	int startTime;     // время запуска программы
-	int millisTimer;   // отсчет времени в миллисекундах
-	int tickTimer;     // отсчет времени в тиках
-	int frequency;     // частота обновления состояния биологической системы (количество тиков в секунду)
-	int tickDuration;  // длительность тика
-	int timeScale;     //общая скорость работы программы
-
+	int startTime;       // время запуска программы
+	int millisTimer = 0; // отсчет времени в миллисекундах
+	int tickTimer   = 0; // отсчет времени в тиках
+	int frequency;       // частота обновления состояния биологической системы (количество тиков в секунду)
+	float tickDuration;  // длительность тика
+	float timeScale = 1; // общая скорость работы программы (все скорости передвижений домножать на это)
+						 // используется для ускорения и замедления времени 
 	Bioparametres bioparametres;  //параметры биологической системы
 	Aquarium aquarium;
 
 	void FillAquarium();
-	void Tick(); //вызывается в соответствии с параметром frequency из метода Update()
+	void Tick();  //вызывается в соответствии с параметром frequency из метода Update()
 public:
 	
 	Controller( int frequency, 
@@ -37,4 +37,5 @@ public:
 
 	void Update();
 	void SetStartTime(int startTime_);
+	void SetTimeScale(float timeScale_);
 };

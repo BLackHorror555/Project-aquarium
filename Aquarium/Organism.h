@@ -10,10 +10,11 @@ class Organism
 	int age;
 	int index; //индекс в векторе аквариума
 	sf::Vector2f direction;
+	float* timeScale; //общая скорость работы программы (все скорости передвижений домножать на это)
 	//float moveAngle;
 
 public:
-	Organism(Bioparametres* bioparametres_, sf::Vector2i aquariumSize_, int index);
+	Organism(Bioparametres* bioparametres_, sf::Vector2i aquariumSize_, int index_, float* timeScale_);
 
 	void SetIndex(int index_);
 	void SetParametres(Bioparametres* bioparametres_);

@@ -1,28 +1,26 @@
 #pragma once
-
 #include <SFML\Graphics.hpp>
 #include <vector>
 #include "Plankton.h"
 #include "Fish.h"
 #include "Shark.h"
 
-using sf::Vector3i;
-
 class Aquarium
 {
-	Vector3i size;
+	sf::Vector2i size;
 	std::vector<Plankton*> plankton;
 	std::vector<Fish*> fish;
 	std::vector<Shark*> shark;
 
 public:
 	Aquarium();
-	Aquarium(Vector3i _size);
+	Aquarium(sf::Vector2i _size);
 	~Aquarium();
 
 	int GetPlanktonNumber();
 	int GetFishNumber();
 	int GetSharkNumber();
 
-	void UpdateAnimals();
+	void UpdateAnimals();  // обновляется направление, и вызываются методы FindFood(), Eat(), и тд
+	void MoveAnimals();    // все организмы передвигаются в соответствии с записанным в них направлением
 };

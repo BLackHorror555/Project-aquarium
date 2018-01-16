@@ -12,8 +12,9 @@ using namespace sf;
 void main()
 {
 	Resources res("background.jpg", "plankton.png", "fish.png", "shark.png");
-	Controller controller(5, 40, 10, 3, WIDTH, HEIGHT);
+	Controller controller(3, 40, 10, 3, WIDTH, HEIGHT);
 	Visualizer visualizer(WIDTH, HEIGHT, &controller, &res);
+	//controller.SetTimeScale(0.5);
 	//установка параметров системы
 	{
 		//controller.SetEatingDistance(5, 5);
