@@ -1,12 +1,9 @@
 #include "Organism.h"
 #include <random>
 
-
-Organism::Organism():Displayable()
+/*
+Organism::Organism(Bioparametres* bioparametres_, sf::Vector2i aquariumSize_, int index)
 {
-}
 
+}*/
 
-Organism::~Organism()
-{
-}

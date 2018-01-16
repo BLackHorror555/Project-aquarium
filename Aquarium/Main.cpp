@@ -2,6 +2,7 @@
 #include <SFML\Graphics.hpp>
 #include "Controller.h"
 #include "Resources.h"
+#include "Visualizer.h"
 
 using namespace sf;
 
@@ -10,9 +11,9 @@ using namespace sf;
 
 void main()
 {
-	
 	Resources res("background.jpg", "plankton.png", "fish.png", "shark.png");
 	Controller controller(10, 40, 10, 3, WIDTH, HEIGHT);
+	Visualizer visualizer(WIDTH, HEIGHT, &controller, &res);
 	//установка параметров системы
 	{
 		//controller.SetEatingDistance(5, 5);
@@ -22,12 +23,8 @@ void main()
 		//controller.SetReproductionPeriod(100, 250, 400);
 		//controller.SetSpeed(2, 3, 4);
 		//controller.SetViewDistance(15, 40, 55);
-		//controller.Start();
+		visualizer.Start();
 	}
 	
-	
-
-
 	getchar();
-	
 }

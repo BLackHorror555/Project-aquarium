@@ -5,11 +5,13 @@
 
 class Visualizer
 {
-	void Start(); //запуск игрового цикла
-
-public:
-	Visualizer(int width, int height, Resources* resources_);
-	~Visualizer();
+	Controller* controller;
+	Resources* resources;
+	sf::RenderWindow* window;
+	sf::Sprite planktonSprite;
+	sf::Sprite fishSprite;
+	sf::Sprite sharkSprite;
+	sf::Sprite background;
 
 	void DrawPlankton(Plankton& p);
 	void DrawFish(Fish& p);
@@ -18,12 +20,11 @@ public:
 	void Display(); //выводит все отрисованные объекты на экран
 	void Update(); //вызывается каждый кадр
 
-	Controller* controller;
-	Resources* resources;
-	sf::RenderWindow* window;
-	sf::Sprite planktonSprite;
-	sf::Sprite fishSprite;
-	sf::Sprite sharkSprite;
-	sf::Sprite background;
+public:
+	Visualizer(int width, int height, Controller* controller_, Resources* resources_);
+	~Visualizer();
+
+	void Start(); //запуск игрового цикла
+	void SetResourcepack();
 };
 
