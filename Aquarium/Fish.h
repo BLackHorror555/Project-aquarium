@@ -1,6 +1,8 @@
 #pragma once
 #include "Organism.h"
-#include <iterator>
+
+class Plankton;
+class Shark;
 
 class Fish : public Organism
 {
@@ -20,7 +22,7 @@ class Fish : public Organism
 public:
 
 	Fish();
-	virtual ~Fish();
+	~Fish();
 
 	virtual void Death() override;
 	virtual void Reproduction() override;

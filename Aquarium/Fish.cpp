@@ -48,8 +48,19 @@ void Fish::Move()
 	*/
 }
 
-void Fish::FindFood()
+void Fish::Update()
 {/*
+	age++;
+	Move();*/
+}
+
+Fish::~Fish()
+{
+}
+
+/*
+sf::Vector2f Fish::FindPlankton()
+{
 	//если планктон на расстоянии поедания, то жрем его
 	if (sqrt(pow((*targetPlankton)->position.x - position.x, 2) + pow((*targetPlankton)->position.y - position.y, 2) <= aquarium->controller->fishEatingDistance))
 	{
@@ -59,18 +70,17 @@ void Fish::FindFood()
 	{
 		//если нет, то меняем угол движения
 		moveAngle = atan((*targetPlankton)->position.y / (*targetPlankton)->position.x) * 180 / PI;
-	}*/
+	}
 }
 
-void Fish::Update()
-{/*
-	age++;
-	Move();*/
-}
-
-Fish::Fish(float moveAngle_, Aquarium* aquarium_): Organism(moveAngle_, aquarium_)
+sf::Vector2f Fish::FindShark()
 {
-	/*age = 0;
+
+}
+
+Fish::Fish()
+{
+	age = 0;
 	moveAngle = rand() % 360;
 	aquarium->fish.push_back(this);
 	aquarium->fishAmount++;
@@ -78,10 +88,9 @@ Fish::Fish(float moveAngle_, Aquarium* aquarium_): Organism(moveAngle_, aquarium
 
 	position = sf::Vector3f(rand() % 1240 + 40, rand() % 700 + 20, 0);
 	sprite.setTexture(res->fish);
-	sprite.setPosition(position.x, position.y);*/
+	sprite.setPosition(position.x, position.y);
 }
 
+*/
 
-Fish::~Fish()
-{
-}
+

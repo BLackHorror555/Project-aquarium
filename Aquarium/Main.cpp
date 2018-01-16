@@ -1,15 +1,19 @@
 #include <iostream>
 #include <SFML\Graphics.hpp>
 #include "Controller.h"
-#include <SFML\Graphics.hpp>
+#include "Resources.h"
 
 using namespace sf;
+
+#define WIDTH 1280
+#define HEIGHT 720
 
 void main()
 {
 	
-	//Resources res("background.jpeg", "plankton.png", "fish.png", "shark.png");
-	//Controller controller(10, &res, 40, 10, 3, 1280, 720, 100, 100*720/1280);
+	Resources res("background.jpg", "plankton.png", "fish.png", "shark.png");
+	Controller controller(10, 40, 10, 3, WIDTH, HEIGHT);
+	//установка параметров системы
 	{
 		//controller.SetEatingDistance(5, 5);
 		//controller.SetHungerLifetime(150, 120);

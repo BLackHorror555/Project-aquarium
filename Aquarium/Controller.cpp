@@ -1,10 +1,9 @@
 #include "Controller.h"
 
 
-
-Controller::Controller(int frequency, Resources* res, 
-	int planktonNumber, int fishNumber, int sharkNumber,
-	int windowWidth, int windowHeight,
+/*
+Controller::Controller(int frequency,
+	int planktonNumber, int fishNumber, int sharkNumber
 	int aquariumWidth, int aquariumHeight)
 {
 	this->frequency = frequency;
@@ -16,48 +15,9 @@ Controller::Controller(int frequency, Resources* res,
 	aquarium.fishAmount = fishNumber;
 	aquarium.sharkAmount = sharkNumber;
 	FillAquarium();
-}
+}*/
 
-
-Controller::~Controller()
-{
-
-}
-
-void Controller::SetParametres(int planktonLifetime_, int fishLifetime_, int sharkLifetime_,
-	int planktonReproductionPeriod_, int fishReproductionPeriod_, int sharkReproductionPeriod_,
-	int planktonSpeed_, int fishSpeed_, int sharkSpeed_,
-	int fishHungerLifetime_, int sharkHungerLifetime_,
-	int fishViewDistance_, int sharkViewDistance_,
-	int fishEatingDistance_, int sharkEatingDistanse_,
-	int planktonMoveRange_, int fishMoveRange_, int sharkMoveRange_)
-{
-	planktonLifetime = planktonLifetime_;
-	fishHungerLifetime = fishHungerLifetime_;
-	sharkLifetime = sharkLifetime_;
-
-	planktonReproductionPeriod = planktonReproductionPeriod_;
-	fishReproductionPeriod = fishReproductionPeriod_;
-	sharkReproductionPeriod = sharkReproductionPeriod_;
-	
-	planktonSpeed = planktonSpeed_;
-	fishSpeed = fishSpeed_;
-	sharkSpeed = sharkSpeed_;
-
-	fishHungerLifetime = fishHungerLifetime_;
-	sharkHungerLifetime = sharkHungerLifetime_;
-
-	fishViewDistance = fishViewDistance_;
-	sharkViewDistance = sharkViewDistance_;
-
-	fishEatingDistance = fishEatingDistance_;
-	sharkEatingDistanse = sharkEatingDistanse_;
-
-	planktonMoveRange = planktonMoveRange_;
-	fishMoveRange = fishMoveRange_;
-	sharkMoveRange = sharkMoveRange_;
-}
-
+/*
 void Controller::SetLifeTime(int planktonLifetime_, int fishLifetime_, int sharkLifetime_)
 {
 	planktonLifetime = planktonLifetime_;
@@ -105,14 +65,6 @@ void Controller::SetMoveRange(int planktonMoveRange_, int fishMoveRange_, int sh
 }
 
 
-void Controller::Start()
-{
-	while (1) //game loop
-	{
-		Update();
-	}
-}
-
 void Controller::FillAquarium()
 {
 	for (int i = 0; i < aquarium.planctonAmount; i++)
@@ -149,4 +101,12 @@ void Controller::Update()
 	}
 	visualizer.Display();
 	timer++;
+}
+*/
+
+Controller::Controller(int frequency, 
+	int planktonNumber, int fishNumber, int sharkNumber, 
+	int aquariumWidth, int aquariumHeight)
+{
+
 }

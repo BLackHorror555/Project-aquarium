@@ -47,10 +47,21 @@ void Shark::Move()
 	sprite.setPosition(position.x, position.y);*/
 }
 
+void Shark::Update()
+{
+	/*age++;
+	Move();*/
+}
+
+Shark::~Shark()
+{
+}
+
+/*
 void Shark::FindFood()
 {
 	//если рыба на расстоянии поедания, то жрем его
-	/*if (sqrt(pow((*targetFish)->position.x - position.x, 2) + pow((*targetFish)->position.y - position.y, 2) <= aquarium->controller->sharkEatingDistanse))
+	if (sqrt(pow((*targetFish)->position.x - position.x, 2) + pow((*targetFish)->position.y - position.y, 2) <= aquarium->controller->sharkEatingDistanse))
 	{
 		(*targetFish)->Death();
 	}
@@ -58,18 +69,12 @@ void Shark::FindFood()
 	{
 		//если нет, то меняем угол движения
 		moveAngle = atan((*targetFish)->position.y / (*targetFish)->position.x) * 180 / PI;
-	}*/
-}
-
-void Shark::Update()
-{
-	/*age++;
-	Move();*/
+	}
 }
 
 Shark::Shark(float moveAngle_, Aquarium* aquarium_): Fish(moveAngle_, aquarium_)
 {
-	/*age = 0;
+	age = 0;
 	moveAngle = rand() % 360;
 	aquarium->shark.push_back(this);
 	aquarium->sharkAmount++;
@@ -77,10 +82,8 @@ Shark::Shark(float moveAngle_, Aquarium* aquarium_): Fish(moveAngle_, aquarium_)
 
 	position = sf::Vector3f(rand() % 1240 + 40, rand() % 700 + 20, 0);
 	sprite.setTexture(res->shark);
-	sprite.setPosition(position.x, position.y);*/
+	sprite.setPosition(position.x, position.y);
 }
+*/
 
 
-Shark::~Shark()
-{
-}

@@ -1,6 +1,7 @@
 #pragma once
 #include "Organism.h"
-#include "Aquarium.h"
+
+class Fish;
 
 class Plankton: public Organism
 {
@@ -14,7 +15,7 @@ class Plankton: public Organism
 	sf::Vector2f FindFish(); // если нашла, возвращает позицию ближайшей, иначе нулевой вектор 
 public:
 	Plankton();
-	virtual ~Plankton();
+	~Plankton();
 
 	virtual void Death() override;
 	virtual void Reproduction() override;

@@ -1,5 +1,7 @@
 #pragma once
-#include "Fish.h"
+#include "Organism.h"
+
+class Fish;
 
 class Shark: public Organism
 {
@@ -11,9 +13,10 @@ class Shark: public Organism
 	//float nearestFish;
 
 	sf::Vector2f FindFish();
+
 public:
 	Shark();
-	virtual ~Shark();
+	~Shark();
 
 	virtual void Death() override;
 	virtual void Reproduction() override;

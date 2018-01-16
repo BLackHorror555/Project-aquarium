@@ -38,9 +38,14 @@ void Plankton::Update()
 	Move();*/
 }
 
+Plankton::~Plankton()
+{
+}
+
+/*
 Plankton::Plankton(float moveAngle_, Aquarium* aquarium_): Organism(moveAngle_, aquarium_)
 {
-	/*age = 0;
+	age = 0;
 	moveAngle = rand() % 360;
 	aquarium->plankton.push_back(this);
 	aquarium->planctonAmount++;
@@ -48,10 +53,7 @@ Plankton::Plankton(float moveAngle_, Aquarium* aquarium_): Organism(moveAngle_, 
 
 	position = sf::Vector3f(rand() % 1240 + 40, rand() % 700 + 20, 0);
 	sprite.setTexture(res->plankton);
-	sprite.setPosition(position.x, position.y);*/
-}
+	sprite.setPosition(position.x, position.y);
+}*/
 
 
-Plankton::~Plankton()
-{
-}

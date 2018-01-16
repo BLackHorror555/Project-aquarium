@@ -6,9 +6,7 @@
 class Organism
 {
 public:
-	Organism();
-	virtual ~Organism();
-
+	
 	Bioparametres* bioparametres;
 	int age;
 	int index; //индекс в векторе аквариума

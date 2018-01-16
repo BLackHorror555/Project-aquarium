@@ -7,17 +7,16 @@ Aquarium::Aquarium()
 }
 
 Aquarium::Aquarium(Vector3i _size)
-	: size(_size)
 {
 
 }
-
 
 Aquarium::~Aquarium()
 {
 
 }
 
+/*
 void Aquarium::updateAnimals()
 {
 	for (int i = 0; i < plankton.size(); i++)
@@ -32,4 +31,4 @@ void Aquarium::updateAnimals()
 	{
 		shark[i]->Update();
 	}
-}
+}*/
