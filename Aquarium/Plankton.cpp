@@ -31,8 +31,8 @@ void Plankton::Reproduction()
 void Plankton::Update()
 {
 	
-	direction.x += 1 * cos(moveAngle * PI / 180);
-	direction.y += 1 * sin(moveAngle * PI / 180);
+	direction.x = 1 * cos(moveAngle * PI / 180);
+	direction.y = 1 * sin(moveAngle * PI / 180);
 	/*if (position.y >= 705)
 	{
 		if (position.x <= 15)
@@ -74,7 +74,7 @@ void Plankton::Update()
 	{
 		moveAngle = 0;
 	}
-	else if (position.x <= 1270)
+	else if (position.x >= 1270)
 	{
 		moveAngle = 180;
 	}

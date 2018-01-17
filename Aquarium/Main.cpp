@@ -20,9 +20,9 @@ void main()
 		controller.SetEatingDistance(5, 5);
 		controller.SetHungerLifetime(150, 120);
 		controller.SetLifeTime(200, 500, 700);
-		controller.SetMoveRange(500, 10, 10);
+		controller.SetMoveRange(10, 10, 10);
 		controller.SetReproductionPeriod(100, 250, 400);
-		controller.SetSpeed(0.05, 0.2, 0.3);
+		controller.SetSpeed(0.5, 0.2, 0.3);
 		controller.SetViewDistance(15, 40, 55);
 		visualizer.Start();
 	}
