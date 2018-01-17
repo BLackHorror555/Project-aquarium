@@ -18,52 +18,52 @@ Controller::Controller(int frequency,
 	FillAquarium();
 }*/
 
-/*
+
 void Controller::SetLifeTime(int planktonLifetime_, int fishLifetime_, int sharkLifetime_)
 {
-	planktonLifetime = planktonLifetime_;
-	fishLifetime = fishLifetime_;
-	sharkLifetime = sharkLifetime_;
+	bioparametres.planktonLifetime = planktonLifetime_;
+	bioparametres.fishLifetime = fishLifetime_;
+	bioparametres.sharkLifetime = sharkLifetime_;
 }
 
 void Controller::SetReproductionPeriod(int planktonReproductionPeriod_, int fishReproductionPeriod_, int sharkReproductionPeriod_)
 {
-	planktonReproductionPeriod = planktonReproductionPeriod_;
-	fishReproductionPeriod = fishReproductionPeriod_;
-	sharkReproductionPeriod = sharkReproductionPeriod_;
+	bioparametres.planktonReproductionPeriod = planktonReproductionPeriod_;
+	bioparametres.fishReproductionPeriod = fishReproductionPeriod_;
+	bioparametres.sharkReproductionPeriod = sharkReproductionPeriod_;
 }
 
 void Controller::SetSpeed(int planktonSpeed_, int fishSpeed_, int sharkSpeed_)
 {
-	planktonSpeed = planktonSpeed_;
-	fishSpeed = fishSpeed_;
-	sharkSpeed = sharkSpeed_;
+	bioparametres.planktonSpeed = planktonSpeed_;
+	bioparametres.fishSpeed = fishSpeed_;
+	bioparametres.sharkSpeed = sharkSpeed_;
 }
 
 void Controller::SetHungerLifetime(int fishHungerLifetime_, int sharkHungerLifetime_)
 {
-	fishHungerLifetime = fishHungerLifetime_;
-	sharkHungerLifetime = sharkHungerLifetime_;
+	bioparametres.fishHungerLifetime = fishHungerLifetime_;
+	bioparametres.sharkHungerLifetime = sharkHungerLifetime_;
 }
 
 void Controller::SetViewDistance(int planktonViewDistance_, int fishViewDistance_, int sharkViewDistance_)
 {
-	planktonViewDistance = planktonViewDistance_;
-	fishViewDistance = fishViewDistance_;
-	sharkViewDistance = sharkViewDistance_;
+	bioparametres.planktonViewDistance = planktonViewDistance_;
+	bioparametres.fishViewDistance = fishViewDistance_;
+	bioparametres.sharkViewDistance = sharkViewDistance_;
 }
 
 void Controller::SetEatingDistance(int fishEatingDistance_, int sharkEatingDistanse_)
 {
-	fishEatingDistance = sharkEatingDistanse_;
+	bioparametres.fishEatingDistance = sharkEatingDistanse_;
 }
 
 void Controller::SetMoveRange(int planktonMoveRange_, int fishMoveRange_, int sharkMoveRange_)
 {
-	planktonMoveRange = planktonMoveRange_;
-	fishMoveRange = fishMoveRange_;
-	sharkMoveRange = sharkMoveRange_;
-}*/
+	bioparametres.planktonMoveRange = planktonMoveRange_;
+	bioparametres.fishMoveRange = fishMoveRange_;
+	bioparametres.sharkMoveRange = sharkMoveRange_;
+}
 
 
 void Controller::FillAquarium()
@@ -111,6 +111,7 @@ Controller::Controller(int frequency_,
 	aquarium = Aquarium(sf::Vector2i(aquariumWidth, aquariumHeight));
 
 }
+
 
 void Controller::Update()
 {
