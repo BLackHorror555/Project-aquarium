@@ -6,9 +6,11 @@ Aquarium::Aquarium()
 {
 }
 
-Aquarium::Aquarium(sf::Vector2i _size, Bioparametres* bioparametres_)
+Aquarium::Aquarium(sf::Vector2i _size, Bioparametres* bioparametres_, float* timeScale_)
 {
 	bioparametres = bioparametres_;
+	timeScale = timeScale_;
+	size = _size;
 }
 
 Aquarium::~Aquarium()
@@ -54,14 +56,19 @@ sf::Vector2i Aquarium::GetSize()
 
 void Aquarium::UpdateAnimals()
 {
-	for (auto pl = plankton.begin(); pl != plankton.end(); ++pl)
+	for (size_t i = 0; i < plankton.size(); ++i)
 	{
-		(*pl)->Update();
+		plankton[i]->Update();
 	}
 
-	for (auto pl = fish.begin(); pl != fish.end(); ++pl)
+	for (size_t i = 0; i < fish.size(); ++i)
 	{
-		(*pl)->Update();
+		fish[i]->Update();
+	}
+
+	for (size_t i = 0; i < shark.size(); ++i)
+	{
+		shark[i]->Update();
 	}
 }
 
@@ -73,31 +80,20 @@ void Aquarium::MoveAnimals()
 	{
 		position = (*pl)->GetPosition();
 		direction = (*pl)->GetDirection();
-		(*pl)->SetPosition(position + sf::Vector2f(direction.x * bioparametres->planktonSpeed, direction.y * bioparametres->planktonSpeed));
+		(*pl)->SetPosition(position + sf::Vector2f(direction.x * bioparametres->planktonSpeed * *timeScale, direction.y * bioparametres->planktonSpeed * *timeScale));
 	}
 
-	for (auto pl = fish.begin(); pl != fish.end(); ++pl)
+	for (auto f = fish.begin(); f != fish.end(); ++f)
 	{
-		position = (*pl)->GetPosition();
-		direction = (*pl)->GetDirection();
-		(*pl)->SetPosition(position + sf::Vector2f(direction.x * bioparametres->fishSpeed, direction.y * bioparametres->fishSpeed));
+		position = (*f)->GetPosition();
+		direction = (*f)->GetDirection();
+		(*f)->SetPosition(position + sf::Vector2f(direction.x * bioparametres->fishSpeed * *timeScale, direction.y * bioparametres->fishSpeed * *timeScale));
+	}
+
+	for (auto sh = shark.begin(); sh != shark.end(); ++sh)
+	{
+		position = (*sh)->GetPosition();
+		direction = (*sh)->GetDirection();
+		(*sh)->SetPosition(position + sf::Vector2f(direction.x * bioparametres->sharkSpeed * *timeScale, direction.y * bioparametres->sharkSpeed * *timeScale));
 	}
 }
-
-
-/*
-void Aquarium::updateAnimals()
-{
-	for (int i = 0; i < plankton.size(); i++)
-	{
-		plankton[i]->Update();
-	}
-	for (int i = 0; i < fish.size(); i++)
-	{
-		fish[i]->Update();
-	}
-	for (int i = 0; i < shark.size(); i++)
-	{
-		shark[i]->Update();
-	}
-}*/

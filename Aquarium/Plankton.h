@@ -5,11 +5,9 @@ class Fish;
 
 class Plankton: public Organism
 {
-	std::vector<Plankton*>* planktons;
-	std::vector<Fish*>* fishs;
+	std::vector<Plankton*> * planktons;
+	std::vector<Fish*> * fishs;
 
-
-	std::vector<Plankton*>::iterator ownIter;
 	std::vector<Fish*>::iterator nearestFish;
 
 	//TODO
@@ -19,9 +17,9 @@ public:
 	~Plankton();
 
 	void SetOrganisms(std::vector<Plankton*>* planktons_, std::vector<Fish*>* fishs_);
+	void SetOwnIterator(std::vector<Plankton*>::iterator ownIter_);
 	virtual void Death() override;
 	virtual void Reproduction() override;
-	//virtual void Move() override;
 	virtual void Update() override;
 };
 

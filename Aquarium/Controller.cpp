@@ -1,6 +1,6 @@
 #include "Controller.h"
 #include <iostream>
-#include <random>
+#include <ctime>
 
 
 /*
@@ -69,15 +69,16 @@ void Controller::SetMoveRange(int planktonMoveRange_, int fishMoveRange_, int sh
 
 void Controller::FillAquarium(int planktonNumber, int fishNumber, int sharkNumber)
 {
+	srand(time(0));
 	for (int i = 0; i < planktonNumber; i++)
 	{
-		Plankton* newPlankton = new Plankton(&bioparametres, aquarium.GetSize(), 0, &timeScale, sf::Vector2f(rand() % 1240 + 40, rand() % 700 + 20));
+		Plankton* newPlankton = new Plankton(&bioparametres, aquarium.GetSize(),0, &timeScale, sf::Vector2f(rand() % 1240 + 40, rand() % 700 + 20));
 		newPlankton->SetOrganisms(aquarium.GetPlanktons(), aquarium.GetFishs());
 		aquarium.GetPlanktons()->push_back(newPlankton);
 	}
 	for (int i = 0; i < fishNumber; i++)
 	{
-		Fish* newFish = new Fish(&bioparametres, aquarium.GetSize(), 0, &timeScale, sf::Vector2f(rand() % 1240 + 40, rand() % 700 + 20));
+		Fish* newFish = new Fish(&bioparametres, aquarium.GetSize(),0, &timeScale, sf::Vector2f(rand() % 1240 + 40, rand() % 700 + 20));
 		newFish->SetOrganisms(aquarium.GetPlanktons(), aquarium.GetFishs(), aquarium.GetSharks());
 		aquarium.GetFishs()->push_back(newFish);
 	}
@@ -88,26 +89,6 @@ void Controller::FillAquarium(int planktonNumber, int fishNumber, int sharkNumbe
 		aquarium.GetSharks()->push_back(newShark);
 	}
 }
-/*
-void Controller::Update()
-{
-	aquarium.updateAnimals();
-	for (int i = 0; i < aquarium.plankton.size(); i++)
-	{
-		visualizer.Draw(*aquarium.plankton[i]);
-	}
-	for (int i = 0; i < aquarium.fish.size(); i++)
-	{
-		visualizer.Draw(*aquarium.fish[i]);
-	}
-	for (int i = 0; i < aquarium.shark.size(); i++)
-	{
-		visualizer.Draw(*aquarium.shark[i]);
-	}
-	visualizer.Display();
-	timer++;
-}
-*/
 
 Controller::Controller(int frequency_, 
 	int planktonNumber, int fishNumber, int sharkNumber, 
@@ -115,7 +96,7 @@ Controller::Controller(int frequency_,
 {
 	frequency = frequency_;
 	tickDuration = 1.0f / frequency;
-	aquarium = Aquarium(sf::Vector2i(aquariumWidth, aquariumHeight), &bioparametres);
+	aquarium = Aquarium(sf::Vector2i(aquariumWidth, aquariumHeight), &bioparametres, &timeScale);
 	FillAquarium(planktonNumber, fishNumber, sharkNumber);
 	int i;
 }

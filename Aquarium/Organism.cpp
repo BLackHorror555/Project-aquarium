@@ -16,6 +16,11 @@ void Organism::SetParametres(Bioparametres * bioparametres_)
 	bioparametres = bioparametres_;
 }
 
+sf::Vector2i Organism::GetAquariumSize()
+{
+	return aquariumSize;
+}
+
 sf::Vector2f Organism::GetDirection()
 {
 	return direction;

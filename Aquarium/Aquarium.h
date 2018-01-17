@@ -15,9 +15,11 @@ class Aquarium
 
 	Bioparametres* bioparametres;
 
+	float* timeScale;
+
 public:
 	Aquarium();
-	Aquarium(sf::Vector2i _size, Bioparametres* bioparametres_);
+	Aquarium(sf::Vector2i _size, Bioparametres* bioparametres_, float* timeScale_);
 	~Aquarium();
 
 	int GetPlanktonNumber();

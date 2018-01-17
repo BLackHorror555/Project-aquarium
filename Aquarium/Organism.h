@@ -21,6 +21,7 @@ public:
 	void SetIndex(int index_);
 	void SetParametres(Bioparametres* bioparametres_);
 	void SetAquariumSize(sf::Vector2i aquariumSize_);
+	sf::Vector2i GetAquariumSize();
 	sf::Vector2f GetDirection();
 	sf::Vector2f GetPosition();
 

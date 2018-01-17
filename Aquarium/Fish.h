@@ -1,7 +1,7 @@
 #pragma once
 #include "Organism.h"
-
-class Plankton;
+#include "Plankton.h"
+//class Plankton;
 class Shark;
 
 class Fish : public Organism
@@ -13,7 +13,7 @@ class Fish : public Organism
 	std::vector<Plankton*>::iterator targetPlankton;
 	std::vector<Fish*>::iterator ownIter;
 	std::vector<Fish*>::iterator nearestShark;
-	//float nearestPlankton;
+	float nearestPlankton = 1000;
 
 	//используются в Update 
 	sf::Vector2f FindPlankton(); // если нашла, возвращает позицию ближайшего, иначе нулевой вектор 
@@ -27,7 +27,6 @@ public:
 	void SetOrganisms(std::vector<Plankton*>* planktons_, std::vector<Fish*>* fishs_, std::vector<Shark*>* sharks_);
 	virtual void Death() override;
 	virtual void Reproduction() override;
-	//virtual void Move() override;
 	virtual void Update() override;
 };
 

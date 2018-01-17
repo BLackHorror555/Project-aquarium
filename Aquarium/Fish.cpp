@@ -3,6 +3,7 @@
 
 #define PI 3.14159265
 
+#define FRAME 45
 
 
 void Fish::SetOrganisms(std::vector<Plankton*>* planktons_, std::vector<Fish*>* fishs_, std::vector<Shark*>* sharks_)
@@ -14,24 +15,35 @@ void Fish::SetOrganisms(std::vector<Plankton*>* planktons_, std::vector<Fish*>* 
 
 void Fish::Death()
 {
-	/*if (age >= aquarium->controller->fishLifetime)
-	{
-		aquarium->fish.erase(ownIter);
-	}
-	delete this;*/
+	auto it = std::find(fishs->begin(), fishs->end(), this);
+	if (it != fishs->end()) fishs->erase(it);
+	delete this;
 }
 
 void Fish::Reproduction()
 {
-	/*if (age % aquarium->controller->fishReproductionPeriod == 0)
+	if ((age % bioparametres->fishReproductionPeriod == 0) && (age > 0))
 	{
-		Fish* newFish = new Fish();
-	}*/
+		Fish* newFish = new Fish(bioparametres, aquariumSize, 0, timeScale, position);
+		newFish->SetOrganisms(planktons, fishs, sharks);
+		fishs->push_back(newFish);
+	}
 }
 
 
 void Fish::Update()
 {
+	/*sf::Vector2f plancPos = FindPlankton();
+	if (plancPos.x != 0)
+	{
+		moveAngle = plancPos.x;
+	}*/
+	if (age >= bioparametres->fishLifetime)
+	{
+		Death();
+		return;
+	}
+	Reproduction();
 	direction.x = 1 * cos(moveAngle * PI / 180);
 	direction.y = 1 * sin(moveAngle * PI / 180);
 	/*if (position.y >= 705)
@@ -70,25 +82,25 @@ void Fish::Update()
 	else
 	moveAngle = rand() % 270 + 90;
 	}*/
-	if (position.x <= 20)
+	if (position.x <= 0)
 	{
 		moveAngle = 0;
 	}
-	else if (position.x >= 1270)
+	else if (position.x >= GetAquariumSize().x - FRAME)
 	{
 		moveAngle = 180;
 	}
-	else if (position.y <= 20)
+	else if (position.y <= 0)
 	{
 		moveAngle = 90;
 	}
-	else if (position.y >= 710)
+	else if (position.y >= GetAquariumSize().y - FRAME)
 	{
 		moveAngle = 270;
 	}
 	else
 	{
-		moveAngle += rand() % bioparametres->planktonMoveRange - bioparametres->planktonMoveRange / 2;
+		moveAngle += rand() % bioparametres->fishMoveRange - bioparametres->sharkMoveRange / 2;
 	}
 
 	if (moveAngle >= 360)
@@ -97,8 +109,6 @@ void Fish::Update()
 	{
 		moveAngle += 360;
 	}
-
-
 	age++;
 }
 
@@ -113,6 +123,39 @@ Fish::~Fish()
 {
 }
 
+sf::Vector2f Fish::FindPlankton()
+{
+	nearestPlankton = 1300;
+	for (auto i = planktons->begin(); i != planktons->end(); ++i)
+	{
+		
+		if (nearestPlankton >= sqrt(pow(position.x - (*i)->GetPosition().x, 2) 
+			+ pow(position.y - (*i)->GetPosition().y, 2)))
+		{
+			nearestPlankton = sqrt(pow(position.x - (*i)->GetPosition().x, 2)
+				+ pow(position.y - (*i)->GetPosition().y, 2));\
+
+			targetPlankton = i;
+		}
+	}
+	if (nearestPlankton <= bioparametres->fishEatingDistance)
+	{
+		(*targetPlankton)->Death();
+		return sf::Vector2f(0, 0);
+	}
+	else if (nearestPlankton == 1300)
+	{
+		return sf::Vector2f(0, 0);
+	}
+	else
+	{
+		sf::Vector2f plPos = (*targetPlankton)->GetPosition();
+		//if (plPos.x >= position.x)
+			return sf::Vector2f(360 - atan((plPos.y - position.y) / (plPos.x - position.x)) * 180 / PI, 0);
+		//if (plPos.x < position.x)
+			//return sf::Vector2f(180 + atan((plPos.y - position.y) / (plPos.x - position.x)) * 180 / PI, 0);
+	}
+}
 /*
 sf::Vector2f Fish::FindPlankton()
 {
@@ -132,20 +175,6 @@ sf::Vector2f Fish::FindShark()
 {
 
 }
-
-Fish::Fish()
-{
-	age = 0;
-	moveAngle = rand() % 360;
-	aquarium->fish.push_back(this);
-	aquarium->fishAmount++;
-	ownIter = aquarium->fish.end() - 1;
-
-	position = sf::Vector3f(rand() % 1240 + 40, rand() % 700 + 20, 0);
-	sprite.setTexture(res->fish);
-	sprite.setPosition(position.x, position.y);
-}
-
 */
 
 
