@@ -5,6 +5,13 @@
 
 
 
+void Fish::SetOrganisms(std::vector<Plankton*>* planktons_, std::vector<Fish*>* fishs_, std::vector<Shark*>* sharks_)
+{
+	planktons = planktons_;
+	fishs = fishs_;
+	sharks = sharks_;
+}
+
 void Fish::Death()
 {
 	/*if (age >= aquarium->controller->fishLifetime)

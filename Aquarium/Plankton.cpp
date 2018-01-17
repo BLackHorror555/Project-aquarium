@@ -4,6 +4,12 @@
 
 #define PI 3.14159265
 
+void Plankton::SetOrganisms(std::vector<Plankton*>* planktons_, std::vector<Fish*>* fishs_)
+{
+	planktons = planktons_;
+	fishs = fishs_;
+}
+
 void Plankton::Death()
 {
 	/*if (age >= aquarium->controller->planktonLifetime)
@@ -49,6 +55,7 @@ Plankton::Plankton(Bioparametres* bioparametres_, sf::Vector2i aquariumSize_, in
 Plankton::~Plankton()
 {
 }
+
 
 /*
 Plankton::Plankton(float moveAngle_, Aquarium* aquarium_): Organism(moveAngle_, aquarium_)

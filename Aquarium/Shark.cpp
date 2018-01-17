@@ -58,6 +58,12 @@ Shark::~Shark()
 {
 }
 
+void Shark::SetOrganisms(std::vector<Fish*>* fishs_, std::vector<Shark*>* sharks_)
+{
+	fishs = fishs_;
+	sharks = sharks_;
+}
+
 /*
 void Shark::FindFood()
 {

@@ -8,6 +8,7 @@ class Plankton: public Organism
 	std::vector<Plankton*>* planktons;
 	std::vector<Fish*>* fishs;
 
+
 	std::vector<Plankton*>::iterator ownIter;
 	std::vector<Fish*>::iterator nearestFish;
 
@@ -17,6 +18,7 @@ public:
 	Plankton(Bioparametres* bioparametres_, sf::Vector2i aquariumSize_, int index_, float* timeScale_, sf::Vector2f position_);
 	~Plankton();
 
+	void SetOrganisms(std::vector<Plankton*>* planktons_, std::vector<Fish*>* fishs_);
 	virtual void Death() override;
 	virtual void Reproduction() override;
 	//virtual void Move() override;
