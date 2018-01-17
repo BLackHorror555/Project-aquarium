@@ -142,3 +142,8 @@ void Controller::SetTimeScale(float timeScale_)
 {
 	timeScale = timeScale_;
 }
+
+Aquarium * Controller::GetAquarium()
+{
+	return &aquarium;
+}
