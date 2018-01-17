@@ -53,6 +53,11 @@ void Shark::Update()
 	Move();*/
 }
 
+Shark::Shark(Bioparametres * bioparametres_, sf::Vector2i aquariumSize_, int index_, float * timeScale_)
+	:Organism(bioparametres_, aquariumSize_, index_, timeScale_)
+{
+}
+
 Shark::~Shark()
 {
 }

@@ -16,11 +16,41 @@ Aquarium::~Aquarium()
 
 }
 
+int Aquarium::GetPlanktonNumber()
+{
+	return plankton.size();
+}
+
+int Aquarium::GetFishNumber()
+{
+	return fish.size();
+}
+
+int Aquarium::GetSharkNumber()
+{
+	return shark.size();
+}
+
+std::vector<Plankton*>* Aquarium::GetPlanktons()
+{
+	return &plankton;
+}
+
+std::vector<Fish*>* Aquarium::GetFishs()
+{
+	return &fish;
+}
+
+std::vector<Shark*>* Aquarium::GetSharks()
+{
+	return &shark;
+}
+
 void Aquarium::UpdateAnimals()
 {
 }
 
-void Aquarium::MoveAnimals()
+void Aquarium::p()
 {
 
 }

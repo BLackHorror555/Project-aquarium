@@ -54,6 +54,11 @@ void Fish::Update()
 	Move();*/
 }
 
+Fish::Fish(Bioparametres * bioparametres_, sf::Vector2i aquariumSize_, int index_, float * timeScale_)
+	: Organism(bioparametres_, aquariumSize_, index_, timeScale_)
+{
+}
+
 Fish::~Fish()
 {
 }

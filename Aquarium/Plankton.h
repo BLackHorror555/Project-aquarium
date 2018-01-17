@@ -14,7 +14,7 @@ class Plankton: public Organism
 	//TODO
 	sf::Vector2f FindFish(); // если нашла, возвращает позицию ближайшей, иначе нулевой вектор 
 public:
-	Plankton();
+	Plankton(Bioparametres* bioparametres_, sf::Vector2i aquariumSize_, int index_, float* timeScale_);
 	~Plankton();
 
 	virtual void Death() override;

@@ -38,6 +38,11 @@ void Plankton::Update()
 	Move();*/
 }
 
+Plankton::Plankton(Bioparametres* bioparametres_, sf::Vector2i aquariumSize_, int index_, float* timeScale_)
+	: Organism(bioparametres_, aquariumSize_, index_, timeScale_)
+{
+}
+
 Plankton::~Plankton()
 {
 }
