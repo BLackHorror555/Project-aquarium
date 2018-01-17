@@ -115,7 +115,7 @@ Controller::Controller(int frequency_,
 {
 	frequency = frequency_;
 	tickDuration = 1.0f / frequency;
-	aquarium = Aquarium(sf::Vector2i(aquariumWidth, aquariumHeight));
+	aquarium = Aquarium(sf::Vector2i(aquariumWidth, aquariumHeight), &bioparametres);
 	FillAquarium(planktonNumber, fishNumber, sharkNumber);
 	int i;
 }

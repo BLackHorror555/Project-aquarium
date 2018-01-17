@@ -6,9 +6,9 @@ Aquarium::Aquarium()
 {
 }
 
-Aquarium::Aquarium(sf::Vector2i _size)
+Aquarium::Aquarium(sf::Vector2i _size, Bioparametres* bioparametres_)
 {
-
+	bioparametres = bioparametres_;
 }
 
 Aquarium::~Aquarium()
@@ -46,6 +46,7 @@ std::vector<Shark*>* Aquarium::GetSharks()
 	return &shark;
 }
 
+
 sf::Vector2i Aquarium::GetSize()
 {
 	return size;
@@ -57,6 +58,10 @@ void Aquarium::UpdateAnimals()
 
 void Aquarium::MoveAnimals()
 {
+	for (auto pl = plankton.begin(); pl != plankton.end(); ++pl)
+	{
+		(*pl)->SetPosition((*pl)->GetPosition() + sf::Vector2f((*pl)->GetDirection().x * bioparametres->planktonSpeed, (*pl)->GetDirection().y * bioparametres->planktonSpeed));
+	}
 }
 
 

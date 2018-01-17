@@ -4,6 +4,7 @@
 #include "Plankton.h"
 #include "Fish.h"
 #include "Shark.h"
+#include "Bioparametres.h"
 
 class Aquarium
 {
@@ -12,9 +13,11 @@ class Aquarium
 	std::vector<Fish*> fish;
 	std::vector<Shark*> shark;
 
+	Bioparametres* bioparametres;
+
 public:
 	Aquarium();
-	Aquarium(sf::Vector2i _size);
+	Aquarium(sf::Vector2i _size, Bioparametres* bioparametres_);
 	~Aquarium();
 
 	int GetPlanktonNumber();

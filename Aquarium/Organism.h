@@ -24,6 +24,10 @@ public:
 	sf::Vector2f GetDirection();
 	sf::Vector2f GetPosition();
 
+	Bioparametres* GetParametres();
+
+	void SetPosition(sf::Vector2f position_);
+
 	virtual void Death() = 0;
 	virtual void Reproduction() = 0;
 	//virtual void Move() = 0; 

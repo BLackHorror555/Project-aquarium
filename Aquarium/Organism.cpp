@@ -25,3 +25,13 @@ sf::Vector2f Organism::GetPosition()
 {
 	return position;
 }
+
+Bioparametres * Organism::GetParametres()
+{
+	return bioparametres;
+}
+
+void Organism::SetPosition(sf::Vector2f position_)
+{
+	position = position_;
+}

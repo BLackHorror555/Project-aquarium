@@ -31,8 +31,8 @@ void Plankton::Reproduction()
 void Plankton::Update()
 {
 	
-	direction.x += bioparametres->planktonSpeed * cos(moveAngle * PI / 180);
-	direction.y += bioparametres->planktonSpeed * sin(moveAngle * PI / 180);
+	direction.x += 1 * cos(moveAngle * PI / 180);
+	direction.y += 1 * sin(moveAngle * PI / 180);
 	if (position.y >= 705)
 	{
 		if (position.x <= 15)

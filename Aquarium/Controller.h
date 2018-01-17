@@ -19,7 +19,7 @@ class Controller
 	Aquarium aquarium;
 
 	void FillAquarium(int planctonNumber, int fishNumber, int sharkNumber);
-	void Tick();  //вызывается в соответствии с параметром frequency из метода Update()
+	//void Tick();  //вызывается в соответствии с параметром frequency из метода Update()
 public:
 	
 	Controller( int frequency, 
