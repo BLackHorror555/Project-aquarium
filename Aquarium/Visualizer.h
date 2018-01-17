@@ -14,12 +14,18 @@ class Visualizer
 	sf::Sprite sharkSprite;
 	sf::Sprite background;
 
+	//отсюда будут вытаскиваться координаты всех организмов для отрисовки
+	std::vector<Plankton*>* plankton;
+	std::vector<Fish*>* fish;
+	std::vector<Shark*>* shark;
+
 	void DrawPlankton(Plankton& p);
 	void DrawFish(Fish& p);
 	void DrawShark(Shark& s);
 
 	void Display(); //выводит все отрисованные объекты на экран
-	void Update(); //вызывается каждый кадр
+	void Update();  //вызывается каждый кадр
+	void DrawAll(); //отрисовывает все организмы в аквариуме
 
 public:
 	Visualizer(int width, int height, Controller* controller_, Resources* resources_);

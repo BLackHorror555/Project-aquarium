@@ -39,4 +39,5 @@ public:
 	void Update();
 	void SetStartTime(int startTime_);
 	void SetTimeScale(float timeScale_);
+	Aquarium* GetAquarium();
 };
