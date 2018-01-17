@@ -42,7 +42,7 @@ void Visualizer::Start()
 
 		//отрисовка
 		window->draw(background);
-
+		DrawAll();
 		Display();
 	}
 }
