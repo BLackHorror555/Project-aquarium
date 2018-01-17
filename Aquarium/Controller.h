@@ -9,6 +9,7 @@ class Controller
 	SYSTEMTIME sysTime;
 	int startTime;       // время запуска программы
 	int millisTimer = 0; // отсчет времени в миллисекундах
+	int deltaTime;       // время прошедшее между предыдущей и настоящей итерацией игрового цикла
 	int tickTimer   = 0; // отсчет времени в тиках
 	int frequency;       // частота обновления состояния биологической системы (количество тиков в секунду)
 	float tickDuration;  // длительность тика

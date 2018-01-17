@@ -119,8 +119,10 @@ void Controller::Update()
 {
 	//обновляем таймеры
 	GetLocalTime(&sysTime);
-	millisTimer = sysTime.wMilliseconds + sysTime.wSecond * 1000 +
+	int newMillisTimer = sysTime.wMilliseconds + sysTime.wSecond * 1000 +
 		sysTime.wMinute * 60000 + sysTime.wHour * 3600000 - startTime - 10800000;
+	deltaTime = newMillisTimer - millisTimer;
+	millisTimer = newMillisTimer;
 	int _ticktimer = round(millisTimer * frequency * timeScale / 1000);
 	//время тикнуть
 	if (_ticktimer > tickTimer)
