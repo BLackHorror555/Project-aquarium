@@ -46,6 +46,11 @@ std::vector<Shark*>* Aquarium::GetSharks()
 	return &shark;
 }
 
+sf::Vector2i Aquarium::GetSize()
+{
+	return size;
+}
+
 void Aquarium::UpdateAnimals()
 {
 }

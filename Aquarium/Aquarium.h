@@ -25,6 +25,8 @@ public:
 	std::vector<Fish*>* GetFishs();
 	std::vector<Shark*>* GetSharks();
 
+	sf::Vector2i GetSize();
+
 	void UpdateAnimals();  // обновляется направление, и вызываются методы FindFood(), Eat(), и тд
 	void MoveAnimals();    // все организмы передвигаются в соответствии с записанным в них направлением
 };

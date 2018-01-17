@@ -70,15 +70,15 @@ void Controller::FillAquarium()
 {
 	for (int i = 0; i < aquarium.GetPlanktonNumber; i++)
 	{
-		Plankton* newPlancton = new Plankton;
+		Plankton* newPlancton = new Plankton(&bioparametres, aquarium.GetSize(), 0, &timeScale);
 	}
 	for (int i = 0; i < aquarium.GetFishNumber; i++)
 	{
-		Fish* newFish = new Fish;
+		Fish* newFish = new Fish(&bioparametres, aquarium.GetSize(), 0, &timeScale);
 	}
 	for (int i = 0; i < aquarium.GetSharkNumber; i++)
 	{
-		Shark* newShark = new Shark;
+		Shark* newShark = new Shark(&bioparametres, aquarium.GetSize(), 0, &timeScale);
 	}
 }
 /*
