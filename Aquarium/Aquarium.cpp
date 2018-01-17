@@ -55,6 +55,10 @@ void Aquarium::UpdateAnimals()
 {
 }
 
+void Aquarium::MoveAnimals()
+{
+}
+
 
 /*
 void Aquarium::updateAnimals()
