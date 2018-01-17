@@ -63,7 +63,7 @@ void Controller::SetMoveRange(int planktonMoveRange_, int fishMoveRange_, int sh
 	planktonMoveRange = planktonMoveRange_;
 	fishMoveRange = fishMoveRange_;
 	sharkMoveRange = sharkMoveRange_;
-}
+}*/
 
 
 void Controller::FillAquarium()
@@ -84,7 +84,7 @@ void Controller::FillAquarium()
 		newShark->aquarium = &aquarium;
 	}
 }
-
+/*
 void Controller::Update()
 {
 	aquarium.updateAnimals();

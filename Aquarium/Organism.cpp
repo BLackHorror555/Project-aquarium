@@ -9,3 +9,18 @@ Organism::Organism(Bioparametres* bioparametres_, sf::Vector2i aquariumSize_, in
 	index = index_;
 	timeScale = timeScale_;
 }
+
+void Organism::SetParametres(Bioparametres * bioparametres_)
+{
+	bioparametres = bioparametres_;
+}
+
+sf::Vector2f Organism::GetDirection()
+{
+	return direction;
+}
+
+sf::Vector2f Organism::GetPosition()
+{
+	return position;
+}
