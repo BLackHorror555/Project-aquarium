@@ -49,7 +49,7 @@ void Shark::Update()
 	sprite.setPosition(position.x, position.y);*/
 }
 
-Shark::Shark(Bioparametres * bioparametres_, sf::Vector2i aquariumSize_, int index_, float * timeScale_)
+Shark::Shark(Bioparametres * bioparametres_, sf::Vector2i aquariumSize_, int index_, float * timeScale_, sf::Vector2f position_)
 	:Organism(bioparametres_, aquariumSize_, index_, timeScale_, position_)
 {
 }

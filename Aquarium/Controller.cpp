@@ -70,15 +70,15 @@ void Controller::FillAquarium()
 {
 	for (int i = 0; i < aquarium.GetPlanktonNumber(); i++)
 	{
-		Plankton* newPlancton = new Plankton(&bioparametres, aquarium.GetSize(), 0, &timeScale);
+		Plankton* newPlancton = new Plankton(&bioparametres, aquarium.GetSize(), 0, &timeScale, sf::Vector2f(rand() % 1240 + 40, rand() % 700 + 20));
 	}
 	for (int i = 0; i < aquarium.GetFishNumber(); i++)
 	{
-		Fish* newFish = new Fish(&bioparametres, aquarium.GetSize(), 0, &timeScale);
+		Fish* newFish = new Fish(&bioparametres, aquarium.GetSize(), 0, &timeScale, sf::Vector2f(rand() % 1240 + 40, rand() % 700 + 20));
 	}
 	for (int i = 0; i < aquarium.GetSharkNumber(); i++)
 	{
-		Shark* newShark = new Shark(&bioparametres, aquarium.GetSize(), 0, &timeScale);
+		Shark* newShark = new Shark(&bioparametres, aquarium.GetSize(), 0, &timeScale, sf::Vector2f(rand() % 1240 + 40, rand() % 700 + 20));
 	}
 }
 /*
