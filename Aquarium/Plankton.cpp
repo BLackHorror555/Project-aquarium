@@ -88,7 +88,8 @@ void Plankton::Update()
 	}
 	else
 	{ 
-		moveAngle += rand() % bioparametres->planktonMoveRange / 2 - bioparametres->planktonMoveRange / 2;
+		int a = rand() % bioparametres->planktonMoveRange  - bioparametres->planktonMoveRange / 2;
+		moveAngle += rand() % bioparametres->planktonMoveRange - bioparametres->planktonMoveRange / 2;
 	}
 
 	if (moveAngle >= 360)
