@@ -17,6 +17,10 @@ Visualizer::Visualizer(int width, int height, Controller* controller_, Resources
 	//фон
 	background.setTexture(resources->background);
 	background.setPosition(0, 0);
+
+	planktonSprite.setTexture(resources->plankton);
+	fishSprite.setTexture(resources->fish);
+	sharkSprite.setTexture(resources->shark);
 }
 
 Visualizer::~Visualizer()
@@ -42,6 +46,8 @@ void Visualizer::Start()
 
 		//отрисовка
 		window->draw(background);
+		planktonSprite.setPosition(100, 100);
+		window->draw(planktonSprite);
 		DrawAll();
 		Display();
 	}

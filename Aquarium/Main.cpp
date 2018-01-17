@@ -17,13 +17,13 @@ void main()
 	//controller.SetTimeScale(0.5);
 	//установка параметров системы
 	{
-		//controller.SetEatingDistance(5, 5);
-		//controller.SetHungerLifetime(150, 120);
-		//controller.SetLifeTime(200, 500, 700);
-		//controller.SetMoveRange(20, 10, 10);
-		//controller.SetReproductionPeriod(100, 250, 400);
-		//controller.SetSpeed(2, 3, 4);
-		//controller.SetViewDistance(15, 40, 55);
+		controller.SetEatingDistance(5, 5);
+		controller.SetHungerLifetime(150, 120);
+		controller.SetLifeTime(200, 500, 700);
+		controller.SetMoveRange(20, 10, 10);
+		controller.SetReproductionPeriod(100, 250, 400);
+		controller.SetSpeed(2, 3, 4);
+		controller.SetViewDistance(15, 40, 55);
 		visualizer.Start();
 	}
 	
