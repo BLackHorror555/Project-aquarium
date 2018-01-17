@@ -22,8 +22,10 @@ void Fish::Reproduction()
 	}*/
 }
 
-void Fish::Move()
+
+void Fish::Update()
 {
+	age++;
 	/*targetPlankton = aquarium->plankton.end();
 	for (auto org = aquarium->plankton.begin(); org != aquarium->plankton.end(); ++org)
 	{
@@ -48,14 +50,8 @@ void Fish::Move()
 	*/
 }
 
-void Fish::Update()
-{/*
-	age++;
-	Move();*/
-}
-
-Fish::Fish(Bioparametres * bioparametres_, sf::Vector2i aquariumSize_, int index_, float * timeScale_)
-	: Organism(bioparametres_, aquariumSize_, index_, timeScale_)
+Fish::Fish(Bioparametres * bioparametres_, sf::Vector2i aquariumSize_, int index_, float * timeScale_, sf::Vector2f position_)
+	: Organism(bioparametres_, aquariumSize_, index_, timeScale_, position_)
 {
 }
 

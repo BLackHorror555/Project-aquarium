@@ -2,7 +2,7 @@
 #include <random>
 
 
-Organism::Organism(Bioparametres* bioparametres_, sf::Vector2i aquariumSize_, int index_, float* timeScale_)
+Organism::Organism(Bioparametres* bioparametres_, sf::Vector2i aquariumSize_, int index_, float* timeScale_, sf::Vector2f position_)
 {
 	bioparametres = bioparametres_;
 	aquariumSize = aquariumSize_;

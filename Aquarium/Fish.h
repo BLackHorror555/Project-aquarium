@@ -21,12 +21,12 @@ class Fish : public Organism
 	sf::Vector2f FindShark(); // если нашла, возвращает позицию ближайшей, иначе нулевой вектор 
 public:
 
-	Fish(Bioparametres* bioparametres_, sf::Vector2i aquariumSize_, int index_, float* timeScale_);
+	Fish(Bioparametres* bioparametres_, sf::Vector2i aquariumSize_, int index_, float* timeScale_, sf::Vector2f position_);
 	~Fish();
 
 	virtual void Death() override;
 	virtual void Reproduction() override;
-	virtual void Move() override;
+	//virtual void Move() override;
 	virtual void Update() override;
 };
 

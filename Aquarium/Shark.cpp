@@ -22,8 +22,10 @@ void Shark::Reproduction()
 	}*/
 }
 
-void Shark::Move()
+
+void Shark::Update()
 {
+	age++;
 	/*targetFish = aquarium->fish.end();
 	for (auto org = aquarium->fish.begin(); org != aquarium->fish.end(); ++org)
 	{
@@ -47,14 +49,8 @@ void Shark::Move()
 	sprite.setPosition(position.x, position.y);*/
 }
 
-void Shark::Update()
-{
-	/*age++;
-	Move();*/
-}
-
 Shark::Shark(Bioparametres * bioparametres_, sf::Vector2i aquariumSize_, int index_, float * timeScale_)
-	:Organism(bioparametres_, aquariumSize_, index_, timeScale_)
+	:Organism(bioparametres_, aquariumSize_, index_, timeScale_, position_)
 {
 }
 

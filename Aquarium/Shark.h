@@ -15,12 +15,12 @@ class Shark: public Organism
 	sf::Vector2f FindFish();
 
 public:
-	Shark(Bioparametres* bioparametres_, sf::Vector2i aquariumSize_, int index_, float* timeScale_);
+	Shark(Bioparametres* bioparametres_, sf::Vector2i aquariumSize_, int index_, float* timeScale_, sf::Vector2f position_);
 	~Shark();
 
 	virtual void Death() override;
 	virtual void Reproduction() override;
-	virtual void Move() override;
+	//virtual void Move() override;
 	virtual void Update() override;
 	
 };

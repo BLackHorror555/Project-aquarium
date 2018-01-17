@@ -21,26 +21,30 @@ void Plankton::Reproduction()
 	}*/
 }
 
-void Plankton::Move()
-{
-	/*position.x += aquarium->controller->planktonSpeed * cos(moveAngle * PI / 180);
-	position.y += aquarium->controller->planktonSpeed * sin(moveAngle * PI / 180);
-	moveAngle += rand() % aquarium->controller->planktonMoveRange / 2 - aquarium->controller->planktonMoveRange / 2;
-	if (moveAngle >= 360)
-		moveAngle -= 360;
-
-	sprite.setPosition(position.x, position.y);*/
-}
 
 void Plankton::Update()
 {
-	/*age++;
-	Move();*/
+	
+	direction.x += bioparametres->planktonSpeed * cos(moveAngle * PI / 180);
+	direction.y += bioparametres->planktonSpeed * sin(moveAngle * PI / 180);
+	if ((position.y <= 15) && (position.x <= 15))
+	{
+		moveAngle = rand() % 90
+	}
+	moveAngle += rand() % bioparametres->planktonMoveRange / 2 - bioparametres->planktonMoveRange / 2;
+	if (moveAngle >= 360)
+		moveAngle -= 360;
+	
+	age++;
 }
 
 Plankton::Plankton(Bioparametres* bioparametres_, sf::Vector2i aquariumSize_, int index_, float* timeScale_)
 	: Organism(bioparametres_, aquariumSize_, index_, timeScale_)
 {
+	age = 0;
+	moveAngle = rand() % 360;
+	planktons->push_back(this);
+	position = sf::Vector2f(rand() % 1240 + 40, rand() % 700 + 20);
 }
 
 Plankton::~Plankton()
@@ -50,15 +54,8 @@ Plankton::~Plankton()
 /*
 Plankton::Plankton(float moveAngle_, Aquarium* aquarium_): Organism(moveAngle_, aquarium_)
 {
-	age = 0;
-	moveAngle = rand() % 360;
-	aquarium->plankton.push_back(this);
 	aquarium->planctonAmount++;
 	ownIter = aquarium->plankton.end() - 1;
-
-	position = sf::Vector3f(rand() % 1240 + 40, rand() % 700 + 20, 0);
-	sprite.setTexture(res->plankton);
-	sprite.setPosition(position.x, position.y);
 }*/
 
 
