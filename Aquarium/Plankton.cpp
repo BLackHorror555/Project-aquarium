@@ -30,46 +30,44 @@ void Plankton::Reproduction()
 
 void Plankton::Update()
 {
-	
 	direction.x = 1 * cos(moveAngle * PI / 180);
 	direction.y = 1 * sin(moveAngle * PI / 180);
 	/*if (position.y >= 705)
 	{
-		if (position.x <= 15)
+		if (position.x <= 30)
 			moveAngle = rand() % 360 + 270;
-		else if (position.x >= 1265)
+		else if (position.x >= 1200)
 			moveAngle = rand() % 270 + 180;
 		else
 			moveAngle = rand() % 360 + 180;
 	}
-	else if (position.x <= 15)
+	else if (position.x <= 30)
 	{
-		if (position.y >= 705)
+		if (position.y >= 680)
 			moveAngle = rand() % 360 + 270;
-		else if (position.y <= 15)
+		else if (position.y <= 30)
 			moveAngle = rand() % 90; 
 		else
 			moveAngle = rand() % 450 + 270;
 	}
-	else if (position.y <= 15)
+	else if (position.y <= 30)
 	{
-		if (position.x <= 15)
+		if (position.x <= 30)
 			moveAngle = rand() % 450 + 270;
-		else if (position.x >= 1265)
+		else if (position.x >= 1200)
 			moveAngle = rand() % 180 + 90;
 		else
 			moveAngle = rand() % 180;
 	}
-	else if(position.x >= 1275)
+	else if(position.x >= 1200)
 	{
-		if (position.y >= 705)
+		if (position.y >= 680)
 			moveAngle = rand() % 270 + 180;
-		else if (position.y <= 15)
+		else if (position.y <= 30)
 			moveAngle = rand() % 180 + 90;
 		else
 			moveAngle = rand() % 270 + 90;
-	}
-	else*/
+	}*/
 	if (position.x <= 20)
 	{
 		moveAngle = 0;
@@ -88,7 +86,6 @@ void Plankton::Update()
 	}
 	else
 	{ 
-		int a = rand() % bioparametres->planktonMoveRange  - bioparametres->planktonMoveRange / 2;
 		moveAngle += rand() % bioparametres->planktonMoveRange - bioparametres->planktonMoveRange / 2;
 	}
 

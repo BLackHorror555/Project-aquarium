@@ -58,6 +58,11 @@ void Aquarium::UpdateAnimals()
 	{
 		(*pl)->Update();
 	}
+
+	for (auto pl = fish.begin(); pl != fish.end(); ++pl)
+	{
+		(*pl)->Update();
+	}
 }
 
 void Aquarium::MoveAnimals()
@@ -69,6 +74,13 @@ void Aquarium::MoveAnimals()
 		position = (*pl)->GetPosition();
 		direction = (*pl)->GetDirection();
 		(*pl)->SetPosition(position + sf::Vector2f(direction.x * bioparametres->planktonSpeed, direction.y * bioparametres->planktonSpeed));
+	}
+
+	for (auto pl = fish.begin(); pl != fish.end(); ++pl)
+	{
+		position = (*pl)->GetPosition();
+		direction = (*pl)->GetDirection();
+		(*pl)->SetPosition(position + sf::Vector2f(direction.x * bioparametres->fishSpeed, direction.y * bioparametres->fishSpeed));
 	}
 }
 
