@@ -68,20 +68,17 @@ void Controller::SetMoveRange(int planktonMoveRange_, int fishMoveRange_, int sh
 
 void Controller::FillAquarium()
 {
-	for (int i = 0; i < aquarium.planctonAmount; i++)
+	for (int i = 0; i < aquarium.GetPlanktonNumber; i++)
 	{
 		Plankton* newPlancton = new Plankton;
-		newPlancton->aquarium = &aquarium;
 	}
-	for (int i = 0; i < aquarium.fishAmount; i++)
+	for (int i = 0; i < aquarium.GetFishNumber; i++)
 	{
 		Fish* newFish = new Fish;
-		newFish->aquarium = &aquarium;
 	}
-	for (int i = 0; i < aquarium.sharkAmount; i++)
+	for (int i = 0; i < aquarium.GetSharkNumber; i++)
 	{
 		Shark* newShark = new Shark;
-		newShark->aquarium = &aquarium;
 	}
 }
 /*
