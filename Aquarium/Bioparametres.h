@@ -12,9 +12,9 @@ struct Bioparametres
 	int fishReproductionPeriod;
 	int sharkReproductionPeriod;
 	//скорость передвижения
-	int planktonSpeed;
-	int fishSpeed;
-	int sharkSpeed;
+	float planktonSpeed;
+	float fishSpeed;
+	float sharkSpeed;
 	//сколько может прожить без еды
 	int fishHungerLifetime;
 	int sharkHungerLifetime;

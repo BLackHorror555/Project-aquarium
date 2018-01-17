@@ -34,7 +34,7 @@ void Controller::SetReproductionPeriod(int planktonReproductionPeriod_, int fish
 	bioparametres.sharkReproductionPeriod = sharkReproductionPeriod_;
 }
 
-void Controller::SetSpeed(int planktonSpeed_, int fishSpeed_, int sharkSpeed_)
+void Controller::SetSpeed(float planktonSpeed_, float fishSpeed_, float sharkSpeed_)
 {
 	bioparametres.planktonSpeed = planktonSpeed_;
 	bioparametres.fishSpeed = fishSpeed_;

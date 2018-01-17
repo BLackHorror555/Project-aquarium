@@ -54,13 +54,21 @@ sf::Vector2i Aquarium::GetSize()
 
 void Aquarium::UpdateAnimals()
 {
+	for (auto pl = plankton.begin(); pl != plankton.end(); ++pl)
+	{
+		(*pl)->Update();
+	}
 }
 
 void Aquarium::MoveAnimals()
 {
+	sf::Vector2f position;
+	sf::Vector2f direction;
 	for (auto pl = plankton.begin(); pl != plankton.end(); ++pl)
 	{
-		(*pl)->SetPosition((*pl)->GetPosition() + sf::Vector2f((*pl)->GetDirection().x * bioparametres->planktonSpeed, (*pl)->GetDirection().y * bioparametres->planktonSpeed));
+		position = (*pl)->GetPosition();
+		direction = (*pl)->GetDirection();
+		(*pl)->SetPosition(position + sf::Vector2f(direction.x * bioparametres->planktonSpeed, direction.y * bioparametres->planktonSpeed));
 	}
 }
 
