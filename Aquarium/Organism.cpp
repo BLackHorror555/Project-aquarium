@@ -8,6 +8,7 @@ Organism::Organism(Bioparametres* bioparametres_, sf::Vector2i aquariumSize_, in
 	aquariumSize = aquariumSize_;
 	index = index_;
 	timeScale = timeScale_;
+	position = position_;
 }
 
 void Organism::SetParametres(Bioparametres * bioparametres_)
