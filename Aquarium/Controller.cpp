@@ -66,17 +66,17 @@ void Controller::SetMoveRange(int planktonMoveRange_, int fishMoveRange_, int sh
 }
 
 
-void Controller::FillAquarium()
+void Controller::FillAquarium(int planktonNumber, int fishNumber, int sharkNumber)
 {
-	for (int i = 0; i < aquarium.GetPlanktonNumber(); i++)
+	for (int i = 0; i < planktonNumber; i++)
 	{
-		Plankton* newPlancton = new Plankton(&bioparametres, aquarium.GetSize(), 0, &timeScale, sf::Vector2f(rand() % 1240 + 40, rand() % 700 + 20));
+		Plankton* newPlankton = new Plankton(&bioparametres, aquarium.GetSize(), 0, &timeScale, sf::Vector2f(rand() % 1240 + 40, rand() % 700 + 20));
 	}
-	for (int i = 0; i < aquarium.GetFishNumber(); i++)
+	for (int i = 0; i < fishNumber; i++)
 	{
 		Fish* newFish = new Fish(&bioparametres, aquarium.GetSize(), 0, &timeScale, sf::Vector2f(rand() % 1240 + 40, rand() % 700 + 20));
 	}
-	for (int i = 0; i < aquarium.GetSharkNumber(); i++)
+	for (int i = 0; i < sharkNumber; i++)
 	{
 		Shark* newShark = new Shark(&bioparametres, aquarium.GetSize(), 0, &timeScale, sf::Vector2f(rand() % 1240 + 40, rand() % 700 + 20));
 	}
@@ -109,7 +109,7 @@ Controller::Controller(int frequency_,
 	frequency = frequency_;
 	tickDuration = 1.0f / frequency;
 	aquarium = Aquarium(sf::Vector2i(aquariumWidth, aquariumHeight));
-
+	FillAquarium(planktonNumber, fishNumber, sharkNumber);
 }
 
 

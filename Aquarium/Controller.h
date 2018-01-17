@@ -18,7 +18,7 @@ class Controller
 	Bioparametres bioparametres;  //параметры биологической системы
 	Aquarium aquarium;
 
-	void FillAquarium();
+	void FillAquarium(int planctonNumber, int fishNumber, int sharkNumber);
 	void Tick();  //вызывается в соответствии с параметром frequency из метода Update()
 public:
 	

@@ -25,7 +25,7 @@ void Plankton::Reproduction()
 void Plankton::Update()
 {
 	
-	direction.x += bioparametres->planktonSpeed * cos(moveAngle * PI / 180);
+	/*direction.x += bioparametres->planktonSpeed * cos(moveAngle * PI / 180);
 	direction.y += bioparametres->planktonSpeed * sin(moveAngle * PI / 180);
 	if ((position.y <= 15) && (position.x <= 15))
 	{
@@ -35,7 +35,7 @@ void Plankton::Update()
 	if (moveAngle >= 360)
 		moveAngle -= 360;
 	
-	age++;
+	age++;*/
 }
 
 Plankton::Plankton(Bioparametres* bioparametres_, sf::Vector2i aquariumSize_, int index_, float* timeScale_, sf::Vector2f position_)
@@ -43,7 +43,6 @@ Plankton::Plankton(Bioparametres* bioparametres_, sf::Vector2i aquariumSize_, in
 {
 	age = 0;
 	moveAngle = rand() % 360;
-	planktons->push_back(this);
 	
 }
 
