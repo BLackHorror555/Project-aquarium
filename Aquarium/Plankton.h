@@ -1,6 +1,5 @@
 #pragma once
 #include "Organism.h"
-
 class Fish;
 
 class Plankton: public Organism
@@ -17,7 +16,6 @@ public:
 	~Plankton();
 
 	void SetOrganisms(std::vector<Plankton*>* planktons_, std::vector<Fish*>* fishs_);
-	void SetOwnIterator(std::vector<Plankton*>::iterator ownIter_);
 	virtual void Death() override;
 	virtual void Reproduction() override;
 	virtual void Update() override;
