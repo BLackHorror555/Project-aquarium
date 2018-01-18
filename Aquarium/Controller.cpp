@@ -54,9 +54,10 @@ void Controller::SetViewDistance(int planktonViewDistance_, int fishViewDistance
 	bioparametres.sharkViewDistance = sharkViewDistance_;
 }
 
-void Controller::SetEatingDistance(int fishEatingDistance_, int sharkEatingDistanse_)
+void Controller::SetEatingDistance(int fishEatingDistance_, int sharkEatingDistance_)
 {
-	bioparametres.fishEatingDistance = sharkEatingDistanse_;
+	bioparametres.fishEatingDistance = fishEatingDistance_;
+	bioparametres.sharkEatingDistance = sharkEatingDistance_;
 }
 
 void Controller::SetMoveRange(int planktonMoveRange_, int fishMoveRange_, int sharkMoveRange_)

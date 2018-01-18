@@ -112,7 +112,7 @@ sf::Vector2f Shark::FindFish()
 	for (auto i = fishs->begin(); i != fishs->end(); ++i)
 	{
 
-		if (nearestFish >= sqrt(pow(position.x - (*i)->GetPosition().x, 2)
+		if (nearestFish > sqrt(pow(position.x - (*i)->GetPosition().x, 2)
 			+ pow(position.y - (*i)->GetPosition().y, 2)))
 		{
 			nearestFish = sqrt(pow(position.x - (*i)->GetPosition().x, 2)

@@ -12,18 +12,18 @@ using namespace sf;
 void main()
 {
 	Resources res("background.jpg", "plankton.png", "fish.png", "shark.png");
-	Controller controller(15, 10, 5, 2, WIDTH, HEIGHT);
+	Controller controller(15, 15, 7, 2, WIDTH, HEIGHT);
 	Visualizer visualizer(WIDTH, HEIGHT, &controller, &res);
 	//controller.SetTimeScale(0.5);
 	//установка параметров системы
 	{
 		controller.SetEatingDistance(5, 15);
-		controller.SetHungerLifetime(60, 70);
+		controller.SetHungerLifetime(70, 70);
 		controller.SetLifeTime(60, 90, 100);
-		controller.SetMoveRange(50, 30, 10);
-		controller.SetReproductionPeriod(50, 60, 71);
+		controller.SetMoveRange(50, 30, 20);
+		controller.SetReproductionPeriod(40, 60, 71);
 		controller.SetSpeed(0.12, 0.17, 0.2);
-		controller.SetViewDistance(50, 120, 155);
+		controller.SetViewDistance(50, 120, 120);
 		visualizer.Start();
 	}
 	

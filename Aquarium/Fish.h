@@ -11,7 +11,6 @@ class Fish : public Organism
 	std::vector<Shark*>* sharks;
 
 	std::vector<Plankton*>::iterator targetPlankton;
-	std::vector<Fish*>::iterator ownIter;
 	std::vector<Fish*>::iterator nearestShark;
 
 	float nearestPlankton = 1000;
