@@ -13,7 +13,9 @@ class Fish : public Organism
 	std::vector<Plankton*>::iterator targetPlankton;
 	std::vector<Fish*>::iterator ownIter;
 	std::vector<Fish*>::iterator nearestShark;
+
 	float nearestPlankton = 1000;
+	float timeWithoutEat = 0;
 
 	//используются в Update 
 	sf::Vector2f FindPlankton(); // если нашла, возвращает позицию ближайшего, иначе нулевой вектор 

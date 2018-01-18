@@ -27,6 +27,11 @@ void Shark::Reproduction()
 
 void Shark::Update()
 {
+	sf::Vector2f plancPos = FindFish();
+	if (plancPos.x != 0)
+	{
+		moveAngle = plancPos.x;
+	}
 	if (age >= bioparametres->sharkLifetime)
 	{
 		Death();
@@ -101,6 +106,63 @@ void Shark::Update()
 	age++;
 }
 
+sf::Vector2f Shark::FindFish()
+{
+	nearestFish = 1300;
+	for (auto i = fishs->begin(); i != fishs->end(); ++i)
+	{
+
+		if (nearestFish >= sqrt(pow(position.x - (*i)->GetPosition().x, 2)
+			+ pow(position.y - (*i)->GetPosition().y, 2)))
+		{
+			nearestFish = sqrt(pow(position.x - (*i)->GetPosition().x, 2)
+				+ pow(position.y - (*i)->GetPosition().y, 2)); \
+
+				targetFish = i;
+		}
+	}
+	if (nearestFish == 1300)
+	{
+		return sf::Vector2f(0, 0);
+	}
+	if (nearestFish >= bioparametres->sharkViewDistance)
+	{
+		return sf::Vector2f(0, 0);
+	}
+	if (nearestFish <= bioparametres->sharkEatingDistance)
+	{
+		(*targetFish)->Death();
+		timeWithoutEat = 0;
+		return sf::Vector2f(0, 0);
+	}
+	else if (nearestFish == 1300)
+	{
+		return sf::Vector2f(0, 0);
+	}
+	else
+	{
+		sf::Vector2f plPos = (*targetFish)->GetPosition();
+		if (plPos.x >= position.x)
+		{
+			if (plPos.y <= position.y)
+			{
+				return sf::Vector2f(360 - atan(abs(plPos.y - position.y) / abs(plPos.x - position.x)) * 180 / PI, 0);
+			}
+			return sf::Vector2f(atan(abs(plPos.y - position.y) / abs(plPos.x - position.x)) * 180 / PI, 0);
+		}
+		if (plPos.x < position.x)
+		{
+			if (plPos.y <= position.y)
+			{
+				return sf::Vector2f(180 + atan(abs(plPos.y - position.y) / abs(plPos.x - position.x)) * 180 / PI, 0);
+			}
+			return sf::Vector2f(180 - atan(abs(plPos.y - position.y) / abs(plPos.x - position.x)) * 180 / PI, 0);
+		}
+
+
+	}
+}
+
 Shark::Shark(Bioparametres * bioparametres_, sf::Vector2i aquariumSize_, int index_, float * timeScale_, sf::Vector2f position_)
 	:Organism(bioparametres_, aquariumSize_, index_, timeScale_, position_)
 {
@@ -122,7 +184,7 @@ void Shark::SetOrganisms(std::vector<Fish*>* fishs_, std::vector<Shark*>* sharks
 void Shark::FindFood()
 {
 	//если рыба на расстоянии поедания, то жрем его
-	if (sqrt(pow((*targetFish)->position.x - position.x, 2) + pow((*targetFish)->position.y - position.y, 2) <= aquarium->controller->sharkEatingDistanse))
+	if (sqrt(pow((*targetFish)->position.x - position.x, 2) + pow((*targetFish)->position.y - position.y, 2) <= aquarium->controller->sharkEatingDistance))
 	{
 		(*targetFish)->Death();
 	}

@@ -1,16 +1,16 @@
 #pragma once
 #include "Organism.h"
-
-class Fish;
+#include "Fish.h"
+//class Fish;
 
 class Shark: public Organism
 {
 	std::vector<Fish*>* fishs;
 	std::vector<Shark*>* sharks;
 
-	std::vector<Shark*>::iterator ownIter;
 	std::vector<Fish*>::iterator targetFish;
-	//float nearestFish;
+	float nearestFish;
+	float timeWithoutEat = 0;
 
 	sf::Vector2f FindFish();
 

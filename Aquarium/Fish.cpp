@@ -33,12 +33,12 @@ void Fish::Reproduction()
 
 void Fish::Update()
 {
-	/*sf::Vector2f plancPos = FindPlankton();
+	sf::Vector2f plancPos = FindPlankton();
 	if (plancPos.x != 0)
 	{
 		moveAngle = plancPos.x;
-	}*/
-	if (age >= bioparametres->fishLifetime)
+	}
+	if ((age >= bioparametres->fishLifetime) || (timeWithoutEat >= bioparametres->fishHungerLifetime))
 	{
 		Death();
 		return;
@@ -46,42 +46,7 @@ void Fish::Update()
 	Reproduction();
 	direction.x = 1 * cos(moveAngle * PI / 180);
 	direction.y = 1 * sin(moveAngle * PI / 180);
-	/*if (position.y >= 705)
-	{
-	if (position.x <= 30)
-	moveAngle = rand() % 360 + 270;
-	else if (position.x >= 1200)
-	moveAngle = rand() % 270 + 180;
-	else
-	moveAngle = rand() % 360 + 180;
-	}
-	else if (position.x <= 30)
-	{
-	if (position.y >= 680)
-	moveAngle = rand() % 360 + 270;
-	else if (position.y <= 30)
-	moveAngle = rand() % 90;
-	else
-	moveAngle = rand() % 450 + 270;
-	}
-	else if (position.y <= 30)
-	{
-	if (position.x <= 30)
-	moveAngle = rand() % 450 + 270;
-	else if (position.x >= 1200)
-	moveAngle = rand() % 180 + 90;
-	else
-	moveAngle = rand() % 180;
-	}
-	else if(position.x >= 1200)
-	{
-	if (position.y >= 680)
-	moveAngle = rand() % 270 + 180;
-	else if (position.y <= 30)
-	moveAngle = rand() % 180 + 90;
-	else
-	moveAngle = rand() % 270 + 90;
-	}*/
+
 	if (position.x <= 0)
 	{
 		moveAngle = 0;
@@ -110,6 +75,7 @@ void Fish::Update()
 		moveAngle += 360;
 	}
 	age++;
+	timeWithoutEat++;
 }
 
 Fish::Fish(Bioparametres * bioparametres_, sf::Vector2i aquariumSize_, int index_, float * timeScale_, sf::Vector2f position_)
@@ -138,9 +104,18 @@ sf::Vector2f Fish::FindPlankton()
 			targetPlankton = i;
 		}
 	}
+	if (nearestPlankton == 1300)
+	{
+		return sf::Vector2f(0, 0);
+	}
+	if (nearestPlankton >= bioparametres->fishViewDistance)
+	{
+		return sf::Vector2f(0, 0);
+	}
 	if (nearestPlankton <= bioparametres->fishEatingDistance)
 	{
 		(*targetPlankton)->Death();
+		timeWithoutEat = 0;
 		return sf::Vector2f(0, 0);
 	}
 	else if (nearestPlankton == 1300)
@@ -150,10 +125,24 @@ sf::Vector2f Fish::FindPlankton()
 	else
 	{
 		sf::Vector2f plPos = (*targetPlankton)->GetPosition();
-		//if (plPos.x >= position.x)
-			return sf::Vector2f(360 - atan((plPos.y - position.y) / (plPos.x - position.x)) * 180 / PI, 0);
-		//if (plPos.x < position.x)
-			//return sf::Vector2f(180 + atan((plPos.y - position.y) / (plPos.x - position.x)) * 180 / PI, 0);
+		if (plPos.x >= position.x)
+		{
+			if (plPos.y <= position.y)
+			{
+				return sf::Vector2f(360 - atan(abs(plPos.y - position.y) / abs(plPos.x - position.x)) * 180 / PI, 0);
+			}
+			return sf::Vector2f(atan(abs(plPos.y - position.y) / abs(plPos.x - position.x)) * 180 / PI, 0);
+		}
+		if (plPos.x < position.x)
+		{
+			if (plPos.y <= position.y)
+			{
+				return sf::Vector2f(180 + atan(abs(plPos.y - position.y) / abs(plPos.x - position.x)) * 180 / PI, 0);
+			}
+			return sf::Vector2f(180 - atan(abs(plPos.y - position.y) / abs(plPos.x - position.x)) * 180 / PI, 0);
+		}
+			
+		
 	}
 }
 /*
