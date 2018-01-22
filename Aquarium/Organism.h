@@ -3,7 +3,11 @@
 #include <vector>
 #include "Bioparametres.h"
 
-
+enum OrganismTypes {
+	PLANKTON = 0,
+	FISH = 1,
+	SHARK = 2
+};
 
 class Organism
 {
@@ -20,7 +24,7 @@ protected:
 
 public:
 	Organism(Bioparametres* bioparametres_, sf::Vector2i aquariumSize_, int index_, float* timeScale_, sf::Vector2f position_);
-
+	
 	void SetIndex(int index_);
 	void SetParametres(Bioparametres* bioparametres_);
 	void SetAquariumSize(sf::Vector2i aquariumSize_);
@@ -35,11 +39,5 @@ public:
 	virtual void Death() = 0;
 	virtual void Reproduction() = 0;
 	virtual void Update() = 0;
-	virtual void GetType() = 0; //возвращает тип огранизма
-
-	static enum PrganismTypes {
-		PLANKTON = 0,
-		FISH = 1,
-		SHARK = 2
-	};
+	virtual OrganismTypes GetType() = 0; //возвращает тип огранизма
 };

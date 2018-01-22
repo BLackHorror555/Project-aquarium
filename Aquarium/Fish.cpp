@@ -78,6 +78,11 @@ void Fish::Update()
 	timeWithoutEat++;
 }
 
+OrganismTypes Fish::GetType()
+{
+	return OrganismTypes::FISH;
+}
+
 Fish::Fish(Bioparametres * bioparametres_, sf::Vector2i aquariumSize_, int index_, float * timeScale_, sf::Vector2f position_)
 	: Organism(bioparametres_, aquariumSize_, index_, timeScale_, position_)
 {
