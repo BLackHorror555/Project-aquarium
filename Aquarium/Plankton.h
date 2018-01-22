@@ -1,12 +1,12 @@
 #pragma once
 #include "Organism.h"
 
-class Fish;
+//class Fish;
 
 class Plankton: public Organism
 {
-	std::vector<Plankton*> * planktons;
-	std::vector<Fish*> * fishs;
+	//std::vector<Plankton*> * planktons;
+	//std::vector<Fish*> * fishs;
 
 	std::vector<Fish*>::iterator nearestFish;
 
@@ -17,9 +17,10 @@ public:
 	~Plankton();
 
 	void SetOrganisms(std::vector<Plankton*>* planktons_, std::vector<Fish*>* fishs_);
-	void SetOwnIterator(std::vector<Plankton*>::iterator ownIter_);
+	//void SetOwnIterator(std::vector<Plankton*>::iterator ownIter_);
 	virtual void Death() override;
 	virtual void Reproduction() override;
 	virtual void Update() override;
+	virtual void GetType() override;
 };
 

@@ -14,7 +14,7 @@ void main()
 	Resources res("background.jpg", "plankton.png", "fish.png", "shark.png");
 	Controller controller(15, 15, 7, 2, WIDTH, HEIGHT);
 	Visualizer visualizer(WIDTH, HEIGHT, &controller, &res);
-	//controller.SetTimeScale(0.5);
+	controller.SetTimeScale(1);
 	//установка параметров системы
 	{
 		controller.SetEatingDistance(5, 15);

@@ -3,6 +3,8 @@
 #include <vector>
 #include "Bioparametres.h"
 
+
+
 class Organism
 {
 protected:
@@ -14,6 +16,7 @@ protected:
 	sf::Vector2f direction;
 	float* timeScale; //общая скорость работы программы (все скорости передвижений домножать на это)
 	float moveAngle;
+	std::vector<Organism*>* organisms;
 
 public:
 	Organism(Bioparametres* bioparametres_, sf::Vector2i aquariumSize_, int index_, float* timeScale_, sf::Vector2f position_);
@@ -33,4 +36,11 @@ public:
 	virtual void Reproduction() = 0;
 	//virtual void Move() = 0; 
 	virtual void Update() = 0;
+	virtual void GetType() = 0; //возвращает тип огранизма
+
+	static enum PrganismTypes {
+		PLANKTON = 0,
+		FISH = 1,
+		SHARK = 2
+	};
 };

@@ -9,9 +9,10 @@
 class Aquarium
 {
 	sf::Vector2i size;
-	std::vector<Plankton*> plankton;
-	std::vector<Fish*> fish;
-	std::vector<Shark*> shark;
+	//std::vector<Plankton*> plankton;
+	//std::vector<Fish*> fish;
+	//std::vector<Shark*> shark;
+	std::vector<Organism*> organism;
 
 	Bioparametres* bioparametres;
 
@@ -29,6 +30,7 @@ public:
 	std::vector<Plankton*>* GetPlanktons();
 	std::vector<Fish*>* GetFishs();
 	std::vector<Shark*>* GetSharks();
+
 
 	sf::Vector2i GetSize();
 

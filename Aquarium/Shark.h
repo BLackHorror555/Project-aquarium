@@ -5,8 +5,8 @@
 
 class Shark: public Organism
 {
-	std::vector<Fish*>* fishs;
-	std::vector<Shark*>* sharks;
+	//std::vector<Fish*>* fishs;
+	//std::vector<Shark*>* sharks;
 
 	std::vector<Fish*>::iterator targetFish;
 	float nearestFish;
@@ -24,6 +24,6 @@ public:
 	virtual void Reproduction() override;
 	//virtual void Move() override;
 	virtual void Update() override;
-	
+	virtual void GetType() override;
 };
 

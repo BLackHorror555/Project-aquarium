@@ -1,17 +1,17 @@
 #pragma once
 #include "Organism.h"
-#include "Plankton.h"
+//#include "Plankton.h"
 //class Plankton;
-class Shark;
+//class Shark;
 
 class Fish : public Organism
 {
-	std::vector<Plankton*>* planktons;
-	std::vector<Fish*>* fishs;
-	std::vector<Shark*>* sharks;
+	//std::vector<Plankton*>* planktons;
+	//std::vector<Fish*>* fishs;
+	//std::vector<Shark*>* sharks;
 
-	std::vector<Plankton*>::iterator targetPlankton;
-	std::vector<Fish*>::iterator nearestShark;
+	//std::vector<Plankton*>::iterator targetPlankton;
+	//std::vector<Fish*>::iterator nearestShark;
 
 	float nearestPlankton = 1000;
 	float timeWithoutEat = 0;
@@ -29,5 +29,6 @@ public:
 	virtual void Death() override;
 	virtual void Reproduction() override;
 	virtual void Update() override;
+	virtual void GetType() override;
 };
 
