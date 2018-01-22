@@ -3,7 +3,11 @@
 #include <vector>
 #include "Bioparametres.h"
 
-
+static enum OrganismTypes {
+	PLANKTON = 0,
+	FISH = 1,
+	SHARK = 2
+};
 
 class Organism
 {
@@ -35,11 +39,6 @@ public:
 	virtual void Death() = 0;
 	virtual void Reproduction() = 0;
 	virtual void Update() = 0;
-	virtual void GetType() = 0; //возвращает тип огранизма
+	virtual OrganismTypes GetType() = 0; //возвращает тип огранизма
 
-	static enum PrganismTypes {
-		PLANKTON = 0,
-		FISH = 1,
-		SHARK = 2
-	};
 };

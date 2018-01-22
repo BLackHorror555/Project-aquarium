@@ -1,5 +1,4 @@
 #include "Visualizer.h"
-#include "Visualizer.h"
 
 
 Visualizer::Visualizer(int width, int height, Controller* controller_, Resources* resources_)
@@ -10,9 +9,10 @@ Visualizer::Visualizer(int width, int height, Controller* controller_, Resources
 	window = new sf::RenderWindow(sf::VideoMode(width, height), "Aquarium");
 
 	controller = controller_;
-	plankton = controller->GetAquarium()->GetPlanktons();
-	fish = controller->GetAquarium()->GetFishs();
-	shark = controller->GetAquarium()->GetSharks();
+	//plankton = controller->GetAquarium()->GetPlanktons();
+	//fish = controller->GetAquarium()->GetFishs();
+	//shark = controller->GetAquarium()->GetSharks();
+	organisms = controller->GetAquarium()->GetOrganisms();
 
 	//фон
 	background.setTexture(resources->background);
@@ -65,19 +65,23 @@ void Visualizer::Update()
 
 void Visualizer::DrawAll()
 {
-	for (int i = 0; i < plankton->size(); i++)
+	for (int i = 0; i < organisms->size(); i++)
 	{
-		planktonSprite.setPosition((*plankton)[i]->GetPosition());
-		window->draw(planktonSprite);
+		if ((*organisms)[i]->GetType() == OrganismTypes::PLANKTON)
+		{
+			planktonSprite.setPosition((*organisms)[i]->GetPosition());
+			window->draw(planktonSprite);
+		}
+		else if ((*organisms)[i]->GetType() == OrganismTypes::FISH)
+		{
+			planktonSprite.setPosition((*organisms)[i]->GetPosition());
+			window->draw(fishSprite);
+		} 
+		else if ((*organisms)[i]->GetType() == OrganismTypes::SHARK)
+		{
+			planktonSprite.setPosition((*organisms)[i]->GetPosition());
+			window->draw(sharkSprite);
+		}
 	}
-	for (int i = 0; i < fish->size(); i++)
-	{
-		fishSprite.setPosition((*fish)[i]->GetPosition());
-		window->draw(fishSprite);
-	}
-	for (int i = 0; i < shark->size(); i++)
-	{
-		sharkSprite.setPosition((*shark)[i]->GetPosition());
-		window->draw(sharkSprite);
-	}
+
 }

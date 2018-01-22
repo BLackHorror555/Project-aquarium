@@ -15,13 +15,14 @@ class Visualizer
 	sf::Sprite background;
 
 	//отсюда будут вытаскиваться координаты всех организмов для отрисовки
-	std::vector<Plankton*>* plankton;
-	std::vector<Fish*>* fish;
-	std::vector<Shark*>* shark;
+	//std::vector<Plankton*>* plankton;
+	//std::vector<Fish*>* fish;
+	//std::vector<Shark*>* shark;
+	std::vector<Organism*>* organisms;
 
-	void DrawPlankton(Plankton& p);
-	void DrawFish(Fish& p);
-	void DrawShark(Shark& s);
+	//void DrawPlankton(Plankton& p);
+	//void DrawFish(Fish& p);
+	//void DrawShark(Shark& s);
 
 	void Display(); //выводит все отрисованные объекты на экран
 	void Update();  //вызывается каждый кадр

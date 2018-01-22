@@ -1,9 +1,10 @@
 #pragma once
 #include <SFML\Graphics.hpp>
 #include <vector>
-#include "Plankton.h"
-#include "Fish.h"
-#include "Shark.h"
+//#include "Plankton.h"
+//#include "Fish.h"
+//#include "Shark.h"
+#include "Organism.h"
 #include "Bioparametres.h"
 
 class Aquarium
@@ -27,10 +28,10 @@ public:
 	int GetFishNumber();
 	int GetSharkNumber();
 
-	std::vector<Plankton*>* GetPlanktons();
-	std::vector<Fish*>* GetFishs();
-	std::vector<Shark*>* GetSharks();
-
+	//std::vector<Plankton*>* GetPlanktons();
+	//std::vector<Fish*>* GetFishs();
+	//std::vector<Shark*>* GetSharks();
+	std::vector<Organism*>* GetOrganisms();
 
 	sf::Vector2i GetSize();
 
