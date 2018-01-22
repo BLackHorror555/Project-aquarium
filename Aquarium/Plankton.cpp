@@ -7,17 +7,16 @@
 
 #define PI 3.14159265
 
-void Plankton::SetOrganisms(std::vector<Plankton*>* planktons_, std::vector<Fish*>* fishs_)
+void Plankton::SetOrganisms(std::vector<Organism*>* organisms_)
 {
-	planktons = planktons_;
-	fishs = fishs_;
+	organisms = organisms_;
 }
 
 
 void Plankton::Death()
 {
-	auto it = std::find(planktons->begin(), planktons->end(), this);
-	if (it != planktons->end()) planktons->erase(it);
+	auto it = std::find(organisms->begin(), organisms->end(), this);
+	if (it != organisms->end()) organisms->erase(it);
 	delete this;
 
 }
@@ -27,8 +26,8 @@ void Plankton::Reproduction()
 	if ((age % bioparametres->planktonReproductionPeriod == 0) && (age > 0))
 	{
 		Plankton* newPlankton = new Plankton(bioparametres, aquariumSize, 0, timeScale, position);
-		newPlankton->SetOrganisms(planktons, fishs);
-		planktons->push_back(newPlankton);
+		newPlankton->SetOrganisms(organisms);
+		organisms->push_back(newPlankton);
 	}
 }
 
@@ -111,6 +110,11 @@ void Plankton::Update()
 	age++;
 }
 
+OrganismTypes Plankton::GetType()
+{
+	return OrganismTypes::PLANKTON;
+}
+
 
 Plankton::Plankton(Bioparametres* bioparametres_, sf::Vector2i aquariumSize_, int index_, float* timeScale_, sf::Vector2f position_)
 	: Organism(bioparametres_, aquariumSize_, index_, timeScale_, position_)
@@ -124,12 +128,5 @@ Plankton::~Plankton()
 {
 }
 
-
-/*
-Plankton::Plankton(float moveAngle_, Aquarium* aquarium_): Organism(moveAngle_, aquarium_)
-{
-	aquarium->planctonAmount++;
-	ownIter = aquarium->plankton.end() - 1;
-}*/
 
 

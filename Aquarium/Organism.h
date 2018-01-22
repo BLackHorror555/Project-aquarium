@@ -3,7 +3,9 @@
 #include <vector>
 #include "Bioparametres.h"
 
-static enum OrganismTypes {
+
+enum OrganismTypes 
+{
 	PLANKTON = 0,
 	FISH = 1,
 	SHARK = 2
@@ -24,7 +26,7 @@ protected:
 
 public:
 	Organism(Bioparametres* bioparametres_, sf::Vector2i aquariumSize_, int index_, float* timeScale_, sf::Vector2f position_);
-
+	
 	void SetIndex(int index_);
 	void SetParametres(Bioparametres* bioparametres_);
 	void SetAquariumSize(sf::Vector2i aquariumSize_);
