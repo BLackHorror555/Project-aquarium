@@ -1,7 +1,6 @@
 #include "Aquarium.h"
 
 
-
 Aquarium::Aquarium()
 {
 }
@@ -42,6 +41,7 @@ void Aquarium::MoveAnimals()
 {
 	sf::Vector2f position;
 	sf::Vector2f direction;
+
 	for (auto org = organisms.begin(); org != organisms.end(); ++org)
 	{
 		position = (*org)->GetPosition();

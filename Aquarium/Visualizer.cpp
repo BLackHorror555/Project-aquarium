@@ -46,8 +46,8 @@ void Visualizer::Start()
 
 		//отрисовка
 		window->draw(background);
-		planktonSprite.setPosition(100, 100);
-		window->draw(planktonSprite);
+		//planktonSprite.setPosition(100, 100);
+		//window->draw(planktonSprite);
 		DrawAll();
 		Display();
 	}

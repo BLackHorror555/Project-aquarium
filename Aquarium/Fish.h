@@ -22,6 +22,7 @@ public:
 	~Fish();
 
 	void SetOrganisms(std::vector<Organism*>* organisms_);
+
 	virtual void Death() override;
 	virtual void Reproduction() override;
 	virtual void Update() override;
