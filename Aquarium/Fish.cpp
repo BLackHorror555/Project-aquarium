@@ -6,17 +6,15 @@
 #define FRAME 45
 
 
-void Fish::SetOrganisms(std::vector<Plankton*>* planktons_, std::vector<Fish*>* fishs_, std::vector<Shark*>* sharks_)
+void Fish::SetOrganisms(std::vector<Organism*>* organisms_)
 {
-	planktons = planktons_;
-	fishs = fishs_;
-	sharks = sharks_;
+	organisms = organisms_;
 }
 
 void Fish::Death()
 {
-	auto it = std::find(fishs->begin(), fishs->end(), this);
-	if (it != fishs->end()) fishs->erase(it);
+	auto it = std::find(organisms->begin(), organisms->end(), this);
+	if (it != organisms->end()) organisms->erase(it);
 	delete this;
 }
 
@@ -25,8 +23,8 @@ void Fish::Reproduction()
 	if ((age % bioparametres->fishReproductionPeriod == 0) && (age > 0))
 	{
 		Fish* newFish = new Fish(bioparametres, aquariumSize, 0, timeScale, position);
-		newFish->SetOrganisms(planktons, fishs, sharks);
-		fishs->push_back(newFish);
+		newFish->SetOrganisms(organisms);
+		organisms->push_back(newFish);
 	}
 }
 
@@ -97,16 +95,18 @@ Fish::~Fish()
 sf::Vector2f Fish::FindPlankton()
 {
 	nearestPlankton = 1300;
-	for (auto i = planktons->begin(); i != planktons->end(); ++i)
+	for (auto i = organisms->begin(); i != organisms->end(); ++i)
 	{
-		
-		if (nearestPlankton >= sqrt(pow(position.x - (*i)->GetPosition().x, 2) 
-			+ pow(position.y - (*i)->GetPosition().y, 2)))
+		if ((*i)->GetType() == OrganismTypes::PLANKTON)
 		{
-			nearestPlankton = sqrt(pow(position.x - (*i)->GetPosition().x, 2)
-				+ pow(position.y - (*i)->GetPosition().y, 2));\
+			if (nearestPlankton >= sqrt(pow(position.x - (*i)->GetPosition().x, 2)
+				+ pow(position.y - (*i)->GetPosition().y, 2)))
+			{
+				nearestPlankton = sqrt(pow(position.x - (*i)->GetPosition().x, 2)
+					+ pow(position.y - (*i)->GetPosition().y, 2)); \
 
-			targetPlankton = i;
+					targetPlankton = i;
+			}
 		}
 	}
 	if (nearestPlankton == 1300)
@@ -150,25 +150,5 @@ sf::Vector2f Fish::FindPlankton()
 		
 	}
 }
-/*
-sf::Vector2f Fish::FindPlankton()
-{
-	//если планктон на расстоянии поедания, то жрем его
-	if (sqrt(pow((*targetPlankton)->position.x - position.x, 2) + pow((*targetPlankton)->position.y - position.y, 2) <= aquarium->controller->fishEatingDistance))
-	{
-		(*targetPlankton)->Death();
-	}
-	else
-	{
-		//если нет, то меняем угол движения
-		moveAngle = atan((*targetPlankton)->position.y / (*targetPlankton)->position.x) * 180 / PI;
-	}
-}
-
-sf::Vector2f Fish::FindShark()
-{
-
-}
-*/
 
 

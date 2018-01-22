@@ -15,38 +15,14 @@ Aquarium::Aquarium(sf::Vector2i _size, Bioparametres* bioparametres_, float* tim
 
 Aquarium::~Aquarium()
 {
-
 }
 
-int Aquarium::GetPlanktonNumber()
+
+std::vector<Organism*>* Aquarium::GetOrganisms()
 {
-	return plankton.size();
+	return &organisms;
 }
 
-int Aquarium::GetFishNumber()
-{
-	return fish.size();
-}
-
-int Aquarium::GetSharkNumber()
-{
-	return shark.size();
-}
-
-std::vector<Plankton*>* Aquarium::GetPlanktons()
-{
-	return &plankton;
-}
-
-std::vector<Fish*>* Aquarium::GetFishs()
-{
-	return &fish;
-}
-
-std::vector<Shark*>* Aquarium::GetSharks()
-{
-	return &shark;
-}
 
 
 sf::Vector2i Aquarium::GetSize()
@@ -56,19 +32,9 @@ sf::Vector2i Aquarium::GetSize()
 
 void Aquarium::UpdateAnimals()
 {
-	for (size_t i = 0; i < plankton.size(); ++i)
+	for (size_t i = 0; i < organisms.size(); ++i)
 	{
-		plankton[i]->Update();
-	}
-
-	for (size_t i = 0; i < fish.size(); ++i)
-	{
-		fish[i]->Update();
-	}
-
-	for (size_t i = 0; i < shark.size(); ++i)
-	{
-		shark[i]->Update();
+		organisms[i]->Update();
 	}
 }
 
@@ -76,24 +42,15 @@ void Aquarium::MoveAnimals()
 {
 	sf::Vector2f position;
 	sf::Vector2f direction;
-	for (auto pl = plankton.begin(); pl != plankton.end(); ++pl)
+	for (auto org = organisms.begin(); org != organisms.end(); ++org)
 	{
-		position = (*pl)->GetPosition();
-		direction = (*pl)->GetDirection();
-		(*pl)->SetPosition(position + sf::Vector2f(direction.x * bioparametres->planktonSpeed * *timeScale, direction.y * bioparametres->planktonSpeed * *timeScale));
-	}
-
-	for (auto f = fish.begin(); f != fish.end(); ++f)
-	{
-		position = (*f)->GetPosition();
-		direction = (*f)->GetDirection();
-		(*f)->SetPosition(position + sf::Vector2f(direction.x * bioparametres->fishSpeed * *timeScale, direction.y * bioparametres->fishSpeed * *timeScale));
-	}
-
-	for (auto sh = shark.begin(); sh != shark.end(); ++sh)
-	{
-		position = (*sh)->GetPosition();
-		direction = (*sh)->GetDirection();
-		(*sh)->SetPosition(position + sf::Vector2f(direction.x * bioparametres->sharkSpeed * *timeScale, direction.y * bioparametres->sharkSpeed * *timeScale));
+		position = (*org)->GetPosition();
+		direction = (*org)->GetDirection();
+		if ((*org)->GetType() == OrganismTypes::PLANKTON)
+			(*org)->SetPosition(position + sf::Vector2f(direction.x * bioparametres->planktonSpeed * *timeScale, direction.y * bioparametres->planktonSpeed * *timeScale));
+		else if ((*org)->GetType() == OrganismTypes::FISH)
+			(*org)->SetPosition(position + sf::Vector2f(direction.x * bioparametres->fishSpeed * *timeScale, direction.y * bioparametres->fishSpeed * *timeScale));
+		else
+			(*org)->SetPosition(position + sf::Vector2f(direction.x * bioparametres->sharkSpeed * *timeScale, direction.y * bioparametres->sharkSpeed * *timeScale));
 	}
 }

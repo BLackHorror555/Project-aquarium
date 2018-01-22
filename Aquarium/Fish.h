@@ -1,8 +1,5 @@
 #pragma once
 #include "Organism.h"
-//#include "Plankton.h"
-//class Plankton;
-//class Shark;
 
 class Fish : public Organism
 {

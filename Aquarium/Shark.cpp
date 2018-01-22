@@ -9,8 +9,8 @@
 
 void Shark::Death()
 {
-	auto it = std::find(sharks->begin(), sharks->end(), this);
-	if (it != sharks->end()) sharks->erase(it);
+	auto it = std::find(organisms->begin(), organisms->end(), this);
+	if (it != organisms->end()) organisms->erase(it);
 	delete this;
 }
 
@@ -19,8 +19,8 @@ void Shark::Reproduction()
 	if ((age % bioparametres->sharkReproductionPeriod == 0) && (age > 0))
 	{
 		Shark* newShark = new Shark(bioparametres, aquariumSize, 0, timeScale, position);
-		newShark->SetOrganisms(fishs, sharks);
-		sharks->push_back(newShark);
+		newShark->SetOrganisms(organisms);
+		organisms->push_back(newShark);
 	}
 }
 
@@ -32,6 +32,7 @@ void Shark::Update()
 	{
 		moveAngle = plancPos.x;
 	}
+	int a = bioparametres->sharkLifetime;
 	if ((age >= bioparametres->sharkLifetime) || (timeWithoutEat >= bioparametres->sharkHungerLifetime))
 	{
 		Death();
@@ -71,19 +72,26 @@ void Shark::Update()
 	age++;
 }
 
+OrganismTypes Shark::GetType()
+{
+	return OrganismTypes::SHARK;
+}
+
 sf::Vector2f Shark::FindFish()
 {
 	nearestFish = 1300;
-	for (auto i = fishs->begin(); i != fishs->end(); ++i)
+	for (auto i = organisms->begin(); i != organisms->end(); ++i)
 	{
-
-		if (nearestFish > sqrt(pow(position.x - (*i)->GetPosition().x, 2)
-			+ pow(position.y - (*i)->GetPosition().y, 2)))
+		if ((*i)->GetType() == OrganismTypes::SHARK)
 		{
-			nearestFish = sqrt(pow(position.x - (*i)->GetPosition().x, 2)
-				+ pow(position.y - (*i)->GetPosition().y, 2)); \
+			if (nearestFish > sqrt(pow(position.x - (*i)->GetPosition().x, 2)
+				+ pow(position.y - (*i)->GetPosition().y, 2)))
+			{
+				nearestFish = sqrt(pow(position.x - (*i)->GetPosition().x, 2)
+					+ pow(position.y - (*i)->GetPosition().y, 2)); \
 
-				targetFish = i;
+					targetFish = i;
+			}
 		}
 	}
 	if (nearestFish == 1300)
@@ -139,10 +147,9 @@ Shark::~Shark()
 {
 }
 
-void Shark::SetOrganisms(std::vector<Fish*>* fishs_, std::vector<Shark*>* sharks_)
+void Shark::SetOrganisms(std::vector<Organism*>* organisms_)
 {
-	fishs = fishs_;
-	sharks = sharks_;
+	organisms = organisms_;
 }
 
 
