@@ -18,9 +18,23 @@ Visualizer::Visualizer(int width, int height, Controller* controller_, Resources
 	background.setTexture(resources->background);
 	background.setPosition(0, 0);
 
+	//спрайты рыб
 	planktonSprite.setTexture(resources->plankton);
-	fishSprite.setTexture(resources->fish);
-	sharkSprite.setTexture(resources->shark);
+	fishSprite.setTexture(resources->fishTex2);
+	sharkSprite.setTexture(resources->sharkTex2);
+
+	planktonSprite.setScale(0.75, 0.75);
+	fishSprite.setScale(1.75, 1.75);
+	sharkSprite.setScale(2.5, 2.5);
+
+	planktonSprite.setOrigin(resources->plankton.getSize().x / 2, resources->plankton.getSize().y / 2);
+	fishSprite.setOrigin(resources->fish.getSize().x / 2, resources->fish.getSize().y / 2);
+	sharkSprite.setOrigin(resources->shark.getSize().x / 2, resources->shark.getSize().y / 2);
+
+	//анимация
+	millisTimer = &(controller->millisTimer);
+	animationSpeed = 3;
+	frameTime = 1.0 / animationSpeed * 1000;
 }
 
 Visualizer::~Visualizer()
@@ -42,15 +56,34 @@ void Visualizer::Start()
 		//события
 
 		//вычисления
+		if (*millisTimer - lastFrame >= frameTime)
+		{
+			SwitchFrames();
+		}
+
 		Update();
 
 		//отрисовка
 		window->draw(background);
-		//planktonSprite.setPosition(100, 100);
-		//window->draw(planktonSprite);
 		DrawAll();
 		Display();
 	}
+}
+
+void Visualizer::SwitchFrames()
+{
+	if (animationCounter % 2 == 0)
+	{
+		fishSprite.setTexture(resources->fishTex1);
+		sharkSprite.setTexture(resources->sharkTex1);
+	}
+	else
+	{
+		fishSprite.setTexture(resources->fishTex2);
+		sharkSprite.setTexture(resources->sharkTex2);
+	}
+	lastFrame = *millisTimer;
+	animationCounter++;
 }
 
 void Visualizer::Display()
@@ -74,14 +107,28 @@ void Visualizer::DrawAll()
 		}
 		else if ((*organisms)[i]->GetType() == OrganismTypes::FISH)
 		{
+			fishSprite.setRotation(CalculateAngle((*organisms)[i]->GetDirection()));
 			fishSprite.setPosition((*organisms)[i]->GetPosition());
 			window->draw(fishSprite);
 		} 
 		else if ((*organisms)[i]->GetType() == OrganismTypes::SHARK)
 		{
+			sharkSprite.setRotation(57 * CalculateAngle((*organisms)[i]->GetDirection()));
 			sharkSprite.setPosition((*organisms)[i]->GetPosition());
 			window->draw(sharkSprite);
 		}
 	}
 
+}
+
+float Visualizer::CalculateAngle(sf::Vector2f dir)
+{
+	float angle1 = acos(dir.x);
+	float angle2 = asin(dir.y);
+	if (dir.y >= 0)
+		return angle1;
+	else if (dir.x > 0)
+		return angle2;
+	else
+		return 3 * 3.14 - angle2;
 }

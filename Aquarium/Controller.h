@@ -8,9 +8,8 @@ class Controller
 {
 	SYSTEMTIME sysTime;
 	int startTime;       // время запуска программы
-	int millisTimer = 0; // отсчет времени в миллисекундах
+	int tickTimer = 0; // отсчет времени в тиках
 	int deltaTime;       // время прошедшее между предыдущей и настоящей итерацией игрового цикла
-	int tickTimer   = 0; // отсчет времени в тиках
 	int frequency;       // частота обновления состояния биологической системы (количество тиков в секунду)
 	float tickDuration;  // длительность тика
 	float timeScale = 1; // общая скорость работы программы (все скорости передвижений домножать на это)
@@ -21,7 +20,8 @@ class Controller
 	void FillAquarium(int planctonNumber, int fishNumber, int sharkNumber);
 	//void Tick();  //вызывается в соответствии с параметром frequency из метода Update()
 public:
-	
+	int millisTimer = 0; // отсчет времени в миллисекундах
+
 	Controller( int frequency, 
 				int planktonNumber, int fishNumber, int sharkNumber,
 				int aquariumWidth, int aquariumHeight );
