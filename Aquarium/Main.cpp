@@ -23,7 +23,7 @@ void main()
 		controller.SetMoveRange(50, 30, 20);
 		controller.SetReproductionPeriod(40, 60, 71);
 		controller.SetSpeed(0.12, 0.17, 0.2);
-		controller.SetViewDistance(50, 120, 120);
+		controller.SetViewDistance(50, 120, 120, 50);
 		visualizer.Start();
 	}
 	

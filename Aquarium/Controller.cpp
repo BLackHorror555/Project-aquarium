@@ -30,11 +30,12 @@ void Controller::SetHungerLifetime(int fishHungerLifetime_, int sharkHungerLifet
 	bioparametres.sharkHungerLifetime = sharkHungerLifetime_;
 }
 
-void Controller::SetViewDistance(int planktonViewDistance_, int fishViewDistance_, int sharkViewDistance_)
+void Controller::SetViewDistance(int planktonViewDistance_, int fishViewDistance_, int sharkViewDistance_, int fishRunningDistance_)
 {
 	bioparametres.planktonViewDistance = planktonViewDistance_;
 	bioparametres.fishViewDistance = fishViewDistance_;
 	bioparametres.sharkViewDistance = sharkViewDistance_;
+	bioparametres.fishRunningDistance = fishRunningDistance_;
 }
 
 void Controller::SetEatingDistance(int fishEatingDistance_, int sharkEatingDistance_)

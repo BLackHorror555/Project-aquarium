@@ -24,6 +24,7 @@ struct Bioparametres
 	int sharkViewDistance;
 	//расстояние, с которого хищник может броситься на жертву
 	int fishEatingDistance;
+	int fishRunningDistance;
 	int sharkEatingDistance;
 	//угол, на который может измениться направление движения за один тик при свободним движении 
 	int planktonMoveRange;
