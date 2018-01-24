@@ -5,14 +5,12 @@
 
 class Plankton: public Organism
 {
-	//std::vector<Plankton*> * planktons;
-	//std::vector<Fish*> * fishs;
 	std::vector<Organism*> * organisms;
 
 	std::vector<Organism*>::iterator nearestFish;
 
 	//TODO
-	sf::Vector2f FindFish(); // если нашла, возвращает позицию ближайшей, иначе нулевой вектор 
+	sf::Vector2f FindFish(); // если нашла, возвращает новое направление, 0
 public:
 	Plankton(Bioparametres* bioparametres_, sf::Vector2i aquariumSize_, int index_, float* timeScale_, sf::Vector2f position_);
 	~Plankton();
