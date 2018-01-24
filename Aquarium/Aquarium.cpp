@@ -47,21 +47,17 @@ void Aquarium::MoveAnimals()
 		position = (*org)->GetPosition();
 		direction = (*org)->GetDirection();
 
-		int plankSpeed = bioparametres->planktonSpeed * *timeScale;
-		int fishSpeed = bioparametres->fishSpeed * *timeScale;
-		int sharkSpeed = bioparametres->sharkSpeed * *timeScale;
-
 		if ((*org)->GetType() == OrganismTypes::PLANKTON)
 		{
-			(*org)->SetPosition(position + sf::Vector2f(direction.x * plankSpeed, direction.y * plankSpeed));
+			(*org)->SetPosition(position + sf::Vector2f(direction.x * bioparametres->planktonSpeed * *timeScale, direction.y * bioparametres->planktonSpeed * *timeScale));
 		}
 		else if ((*org)->GetType() == OrganismTypes::FISH)
 		{
-			(*org)->SetPosition(position + sf::Vector2f(direction.x * fishSpeed, direction.y * fishSpeed));
+			(*org)->SetPosition(position + sf::Vector2f(direction.x * bioparametres->fishSpeed * *timeScale, direction.y * bioparametres->fishSpeed * *timeScale));
 		}
 		else
 		{
-			(*org)->SetPosition(position + sf::Vector2f(direction.x * sharkSpeed, direction.y * sharkSpeed));
+			(*org)->SetPosition(position + sf::Vector2f(direction.x * bioparametres->sharkSpeed * *timeScale, direction.y * bioparametres->sharkSpeed * *timeScale));
 		}
 	}
 }

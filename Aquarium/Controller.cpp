@@ -56,13 +56,13 @@ void Controller::FillAquarium(int planktonNumber, int fishNumber, int sharkNumbe
 	srand(time(0));
 	for (int i = 0; i < planktonNumber; i++)
 	{
-		Plankton* newPlankton = new Plankton(&bioparametres, aquarium.GetSize(),0, &timeScale, sf::Vector2f(rand() % 1240 + 40, rand() % 700 + 20));
+		Plankton* newPlankton = new Plankton(&bioparametres, aquarium.GetSize(), 0, &timeScale, sf::Vector2f(rand() % 1240 + 40, rand() % 700 + 20));
 		newPlankton->SetOrganisms(aquarium.GetOrganisms());
 		aquarium.GetOrganisms()->push_back(newPlankton);
 	}
 	for (int i = 0; i < fishNumber; i++)
 	{
-		Fish* newFish = new Fish(&bioparametres, aquarium.GetSize(),0, &timeScale, sf::Vector2f(rand() % 1240 + 40, rand() % 700 + 20));
+		Fish* newFish = new Fish(&bioparametres, aquarium.GetSize(), 0, &timeScale, sf::Vector2f(rand() % 1240 + 40, rand() % 700 + 20));
 		newFish->SetOrganisms(aquarium.GetOrganisms());
 		aquarium.GetOrganisms()->push_back(newFish);
 	}
