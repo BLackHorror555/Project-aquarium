@@ -74,12 +74,12 @@ void Visualizer::DrawAll()
 		}
 		else if ((*organisms)[i]->GetType() == OrganismTypes::FISH)
 		{
-			planktonSprite.setPosition((*organisms)[i]->GetPosition());
+			fishSprite.setPosition((*organisms)[i]->GetPosition());
 			window->draw(fishSprite);
 		} 
 		else if ((*organisms)[i]->GetType() == OrganismTypes::SHARK)
 		{
-			planktonSprite.setPosition((*organisms)[i]->GetPosition());
+			sharkSprite.setPosition((*organisms)[i]->GetPosition());
 			window->draw(sharkSprite);
 		}
 	}
