@@ -7,18 +7,20 @@ class Fish : public Organism
 
 
 	std::vector<Organism*>::iterator targetPlankton;
-	std::vector<Organism*>::iterator nearestShark;
+	std::vector<Organism*>::iterator dungerShark;
 
-	float nearestPlankton = 1000;
+	float nearestShark;
+	float nearestPlankton;
 	float timeWithoutEat = 0;
 
 	//используются в Update 
 	float FindPlankton(); // если нашла, возвращает новое направление, иначе 0
 	//TODO
-	sf::Vector2f FindShark(); // если нашла, возвращает позицию ближайшей, иначе нулевой вектор 
+	float FindShark(); // если нашла, возвращает новое направление, иначе 0
 public:
 
 	Fish(Bioparametres* bioparametres_, sf::Vector2i aquariumSize_, int index_, float* timeScale_, sf::Vector2f position_);
+	Fish(Bioparametres* bioparametres_, sf::Vector2i aquariumSize_, int index_, float* timeScale_, sf::Vector2f position_, float moveAngle_);
 	~Fish();
 
 	void SetOrganisms(std::vector<Organism*>* organisms_);

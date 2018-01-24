@@ -13,6 +13,7 @@ class Shark: public Organism
 
 public:
 	Shark(Bioparametres* bioparametres_, sf::Vector2i aquariumSize_, int index_, float* timeScale_, sf::Vector2f position_);
+	Shark(Bioparametres* bioparametres_, sf::Vector2i aquariumSize_, int index_, float* timeScale_, sf::Vector2f position_, float moveAngle_);
 	~Shark();
 
 	void SetOrganisms(std::vector<Organism*>* organisms_);

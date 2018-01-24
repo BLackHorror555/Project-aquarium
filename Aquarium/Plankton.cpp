@@ -25,7 +25,7 @@ void Plankton::Reproduction()
 {
 	if ((age % bioparametres->planktonReproductionPeriod == 0) && (age > 0))
 	{
-		Plankton* newPlankton = new Plankton(bioparametres, aquariumSize, 0, timeScale, position);
+		Plankton* newPlankton = new Plankton(bioparametres, aquariumSize, 0, timeScale, position, moveAngle + 170 + rand() % 20);
 		newPlankton->SetOrganisms(organisms);
 		organisms->push_back(newPlankton);
 	}
@@ -45,19 +45,19 @@ void Plankton::Update()
 
 	if (position.x <= 0)
 	{
-		moveAngle = 0;
+		moveAngle = 0 + rand() % 20 - 10;
 	}
 	else if (position.x >= GetAquariumSize().x - FRAME)
 	{
-		moveAngle = 180;
+		moveAngle = 180 + rand() % 20 - 10;
 	}
 	else if (position.y <= 0)
 	{
-		moveAngle = 90;
+		moveAngle = 90 + rand() % 20 - 10;
 	}
 	else if (position.y >= GetAquariumSize().y - FRAME)
 	{
-		moveAngle = 270;
+		moveAngle = 270 + rand() % 20 - 10;
 	}
 	else
 	{
@@ -87,6 +87,13 @@ Plankton::Plankton(Bioparametres* bioparametres_, sf::Vector2i aquariumSize_, in
 	age = 0;
 	moveAngle = rand() % 360;
 
+}
+
+Plankton::Plankton(Bioparametres * bioparametres_, sf::Vector2i aquariumSize_, int index_, float * timeScale_, sf::Vector2f position_, float moveAngle_)
+	: Organism(bioparametres_, aquariumSize_, index_, timeScale_, position_)
+{
+	age = 0;
+	moveAngle = moveAngle_;
 }
 
 Plankton::~Plankton()

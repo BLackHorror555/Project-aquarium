@@ -22,7 +22,7 @@ void Fish::Reproduction()
 {
 	if ((age % bioparametres->fishReproductionPeriod == 0) && (age > 0))
 	{
-		Fish* newFish = new Fish(bioparametres, aquariumSize, 0, timeScale, position);
+		Fish* newFish = new Fish(bioparametres, aquariumSize, 0, timeScale, position, moveAngle + 170 + rand() % 20);
 		newFish->SetOrganisms(organisms);
 		organisms->push_back(newFish);
 	}
@@ -32,9 +32,31 @@ void Fish::Reproduction()
 void Fish::Update()
 {
 	float newAngle = FindPlankton();
+	if ((newAngle != 0) && (age > 10))
+	{
+		moveAngle = newAngle + rand() % 20 - 10;
+	}
+	newAngle = FindShark();
 	if (newAngle != 0)
 	{
-		moveAngle = newAngle;
+		moveAngle = newAngle + rand() % 20 - 10;
+	}
+	//чтоб не выплывали за стенки
+	if (position.x <= 0)
+	{
+		moveAngle = 0 + rand() % 20 - 10;
+	}
+	if (position.x >= GetAquariumSize().x - FRAME)
+	{
+		moveAngle = 180 + rand() % 20 - 10;
+	}
+	if (position.y <= 0)
+	{
+		moveAngle = 90 + rand() % 20 - 10;
+	}
+	if (position.y >= GetAquariumSize().y - FRAME)
+	{
+		moveAngle = 270 + rand() % 20 - 10;
 	}
 	if ((age >= bioparametres->fishLifetime) || (timeWithoutEat >= bioparametres->fishHungerLifetime))
 	{
@@ -45,26 +67,7 @@ void Fish::Update()
 	direction.x = 1 * cos(moveAngle * PI / 180);
 	direction.y = 1 * sin(moveAngle * PI / 180);
 
-	if (position.x <= 0)
-	{
-		moveAngle = 0;
-	}
-	else if (position.x >= GetAquariumSize().x - FRAME)
-	{
-		moveAngle = 180;
-	}
-	else if (position.y <= 0)
-	{
-		moveAngle = 90;
-	}
-	else if (position.y >= GetAquariumSize().y - FRAME)
-	{
-		moveAngle = 270;
-	}
-	else
-	{
-		moveAngle += rand() % bioparametres->fishMoveRange - bioparametres->sharkMoveRange / 2;
-	}
+	moveAngle += rand() % bioparametres->fishMoveRange - bioparametres->fishMoveRange / 2;
 
 	if (moveAngle >= 360)
 		moveAngle -= 360;
@@ -88,6 +91,13 @@ Fish::Fish(Bioparametres * bioparametres_, sf::Vector2i aquariumSize_, int index
 	moveAngle = rand() % 360;
 }
 
+Fish::Fish(Bioparametres * bioparametres_, sf::Vector2i aquariumSize_, int index_, float * timeScale_, sf::Vector2f position_, float moveAngle_)
+	:Organism(bioparametres_, aquariumSize_, index_, timeScale_, position_)
+{
+	age = 0;
+	moveAngle = moveAngle_;
+}
+
 Fish::~Fish()
 {
 }
@@ -109,11 +119,7 @@ float Fish::FindPlankton()
 			}
 		}
 	}
-	if (nearestPlankton == 1300)
-	{
-		return 0;
-	}
-	if (nearestPlankton >= bioparametres->fishViewDistance)
+	if ((nearestPlankton == 1300) || (nearestPlankton >= bioparametres->fishViewDistance))
 	{
 		return 0;
 	}
@@ -121,10 +127,6 @@ float Fish::FindPlankton()
 	{
 		(*targetPlankton)->Death();
 		timeWithoutEat = 0;
-		return 0;
-	}
-	else if (nearestPlankton == 1300)
-	{
 		return 0;
 	}
 	else
@@ -146,8 +148,47 @@ float Fish::FindPlankton()
 			}
 			return 180 - atan(abs(plPos.y - position.y) / abs(plPos.x - position.x)) * 180 / PI;
 		}
-			
-		
+	}
+}
+
+float Fish::FindShark()
+{
+	nearestShark = 1300;
+	for (auto i = organisms->begin(); i != organisms->end(); ++i)
+	{
+		if ((*i)->GetType() == OrganismTypes::SHARK)
+		{
+			if (nearestShark >= sqrt(pow(position.x - (*i)->GetPosition().x, 2)
+				+ pow(position.y - (*i)->GetPosition().y, 2)))
+			{
+				nearestShark = sqrt(pow(position.x - (*i)->GetPosition().x, 2)
+					+ pow(position.y - (*i)->GetPosition().y, 2)); \
+
+					dungerShark = i;
+			}
+		}
+	}
+	if ((nearestShark > bioparametres->fishViewDistance) || (nearestShark == 1300))
+	{
+		return 0;
+	}
+
+	sf::Vector2f shPos = (*dungerShark)->GetPosition();
+	if (shPos.x >= position.x)
+	{
+		if (shPos.y <= position.y)
+		{
+			return 180 - atan(abs(shPos.y - position.y) / abs(shPos.x - position.x)) * 180 / PI;
+		}
+		return atan(abs(shPos.y - position.y) / abs(shPos.x - position.x)) * 180 / PI;
+	}
+	if (shPos.x < position.x)
+	{
+		if (shPos.y <= position.y)
+		{
+			return atan(abs(shPos.y - position.y) / abs(shPos.x - position.x)) * 180 / PI;
+		}
+		return atan(abs(shPos.y - position.y) / abs(shPos.x - position.x)) * 180 / PI;
 	}
 }
 

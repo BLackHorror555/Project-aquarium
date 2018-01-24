@@ -9,10 +9,10 @@ class Plankton: public Organism
 
 	std::vector<Organism*>::iterator nearestFish;
 
-	//TODO
-	sf::Vector2f FindFish(); // если нашла, возвращает новое направление, 0
+	
 public:
 	Plankton(Bioparametres* bioparametres_, sf::Vector2i aquariumSize_, int index_, float* timeScale_, sf::Vector2f position_);
+	Plankton(Bioparametres* bioparametres_, sf::Vector2i aquariumSize_, int index_, float* timeScale_, sf::Vector2f position_, float moveAngle_);
 	~Plankton();
 
 	void SetOrganisms(std::vector<Organism*>* organisms_);

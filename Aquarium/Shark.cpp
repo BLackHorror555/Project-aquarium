@@ -18,7 +18,7 @@ void Shark::Reproduction()
 {
 	if ((age % bioparametres->sharkReproductionPeriod == 0) && (age > 0))
 	{
-		Shark* newShark = new Shark(bioparametres, aquariumSize, 0, timeScale, position);
+		Shark* newShark = new Shark(bioparametres, aquariumSize, 0, timeScale, position, moveAngle + 170 + rand() % 20);
 		newShark->SetOrganisms(organisms);
 		organisms->push_back(newShark);
 	}
@@ -28,7 +28,7 @@ void Shark::Reproduction()
 void Shark::Update()
 {
 	float newAngle = FindFish();
-	if (newAngle != 0)
+	if ((newAngle != 0) && (age > 10))
 	{
 		moveAngle = newAngle;
 	}
@@ -37,30 +37,28 @@ void Shark::Update()
 		Death();
 		return;
 	}
+	if (position.x <= 0)
+	{
+		moveAngle = 0 + rand() % 20 - 10;
+	}
+	if (position.x >= GetAquariumSize().x - FRAME)
+	{
+		moveAngle = 180 + rand() % 20 - 10;
+	}
+	if (position.y <= 0)
+	{
+		moveAngle = 90 + rand() % 20 - 10;
+	}
+	if (position.y >= GetAquariumSize().y - FRAME)
+	{
+		moveAngle = 270 + rand() % 20 - 10;
+	}
 	Reproduction();
 	direction.x = 1 * cos(moveAngle * PI / 180);
 	direction.y = 1 * sin(moveAngle * PI / 180);
 
-	if (position.x <= 0)
-	{
-		moveAngle = 0;
-	}
-	else if (position.x >= GetAquariumSize().x - FRAME)
-	{
-		moveAngle = 180;
-	}
-	else if (position.y <= 0)
-	{
-		moveAngle = 90;
-	}
-	else if (position.y >= GetAquariumSize().y - FRAME)
-	{
-		moveAngle = 270;
-	}
-	else
-	{
-		moveAngle += rand() % bioparametres->sharkMoveRange - bioparametres->sharkMoveRange / 2;
-	}
+	
+	moveAngle += rand() % bioparametres->sharkMoveRange - bioparametres->sharkMoveRange / 2;
 
 	if (moveAngle >= 360)
 		moveAngle -= 360;
@@ -140,6 +138,13 @@ Shark::Shark(Bioparametres * bioparametres_, sf::Vector2i aquariumSize_, int ind
 {
 	age = 0;
 	moveAngle = rand() % 360;
+}
+
+Shark::Shark(Bioparametres * bioparametres_, sf::Vector2i aquariumSize_, int index_, float * timeScale_, sf::Vector2f position_, float moveAngle_)
+	:Organism(bioparametres_, aquariumSize_, index_, timeScale_, position_)
+{
+	age = 0;
+	moveAngle = moveAngle_;
 }
 
 Shark::~Shark()
