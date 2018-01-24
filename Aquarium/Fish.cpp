@@ -31,10 +31,10 @@ void Fish::Reproduction()
 
 void Fish::Update()
 {
-	sf::Vector2f plancPos = FindPlankton();
-	if (plancPos.x != 0)
+	float newAngle = FindPlankton();
+	if (newAngle != 0)
 	{
-		moveAngle = plancPos.x;
+		moveAngle = newAngle;
 	}
 	if ((age >= bioparametres->fishLifetime) || (timeWithoutEat >= bioparametres->fishHungerLifetime))
 	{
@@ -92,7 +92,7 @@ Fish::~Fish()
 {
 }
 
-sf::Vector2f Fish::FindPlankton()
+float Fish::FindPlankton()
 {
 	nearestPlankton = 1300;
 	for (auto i = organisms->begin(); i != organisms->end(); ++i)
@@ -111,21 +111,21 @@ sf::Vector2f Fish::FindPlankton()
 	}
 	if (nearestPlankton == 1300)
 	{
-		return sf::Vector2f(0, 0);
+		return 0;
 	}
 	if (nearestPlankton >= bioparametres->fishViewDistance)
 	{
-		return sf::Vector2f(0, 0);
+		return 0;
 	}
 	if (nearestPlankton <= bioparametres->fishEatingDistance)
 	{
 		(*targetPlankton)->Death();
 		timeWithoutEat = 0;
-		return sf::Vector2f(0, 0);
+		return 0;
 	}
 	else if (nearestPlankton == 1300)
 	{
-		return sf::Vector2f(0, 0);
+		return 0;
 	}
 	else
 	{
@@ -134,17 +134,17 @@ sf::Vector2f Fish::FindPlankton()
 		{
 			if (plPos.y <= position.y)
 			{
-				return sf::Vector2f(360 - atan(abs(plPos.y - position.y) / abs(plPos.x - position.x)) * 180 / PI, 0);
+				return 360 - atan(abs(plPos.y - position.y) / abs(plPos.x - position.x)) * 180 / PI;
 			}
-			return sf::Vector2f(atan(abs(plPos.y - position.y) / abs(plPos.x - position.x)) * 180 / PI, 0);
+			return atan(abs(plPos.y - position.y) / abs(plPos.x - position.x)) * 180 / PI;
 		}
 		if (plPos.x < position.x)
 		{
 			if (plPos.y <= position.y)
 			{
-				return sf::Vector2f(180 + atan(abs(plPos.y - position.y) / abs(plPos.x - position.x)) * 180 / PI, 0);
+				return 180 + atan(abs(plPos.y - position.y) / abs(plPos.x - position.x)) * 180 / PI;
 			}
-			return sf::Vector2f(180 - atan(abs(plPos.y - position.y) / abs(plPos.x - position.x)) * 180 / PI, 0);
+			return 180 - atan(abs(plPos.y - position.y) / abs(plPos.x - position.x)) * 180 / PI;
 		}
 			
 		

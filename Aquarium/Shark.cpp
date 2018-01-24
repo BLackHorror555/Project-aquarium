@@ -27,12 +27,11 @@ void Shark::Reproduction()
 
 void Shark::Update()
 {
-	sf::Vector2f plancPos = FindFish();
-	if (plancPos.x != 0)
+	float newAngle = FindFish();
+	if (newAngle != 0)
 	{
-		moveAngle = plancPos.x;
+		moveAngle = newAngle;
 	}
-	int a = bioparametres->sharkLifetime;
 	if ((age >= bioparametres->sharkLifetime) || (timeWithoutEat >= bioparametres->sharkHungerLifetime))
 	{
 		Death();
@@ -77,14 +76,14 @@ OrganismTypes Shark::GetType()
 	return OrganismTypes::SHARK;
 }
 
-sf::Vector2f Shark::FindFish()
+float Shark::FindFish()
 {
 	nearestFish = 1300;
 	for (auto i = organisms->begin(); i != organisms->end(); ++i)
 	{
-		if ((*i)->GetType() == OrganismTypes::SHARK)
+		if ((*i)->GetType() == OrganismTypes::FISH)
 		{
-			if (nearestFish > sqrt(pow(position.x - (*i)->GetPosition().x, 2)
+			if (nearestFish >= sqrt(pow(position.x - (*i)->GetPosition().x, 2)
 				+ pow(position.y - (*i)->GetPosition().y, 2)))
 			{
 				nearestFish = sqrt(pow(position.x - (*i)->GetPosition().x, 2)
@@ -96,21 +95,21 @@ sf::Vector2f Shark::FindFish()
 	}
 	if (nearestFish == 1300)
 	{
-		return sf::Vector2f(0, 0);
+		return 0;
 	}
 	if (nearestFish >= bioparametres->sharkViewDistance)
 	{
-		return sf::Vector2f(0, 0);
+		return 0;
 	}
 	if (nearestFish <= bioparametres->sharkEatingDistance)
 	{
 		(*targetFish)->Death();
 		timeWithoutEat = 0;
-		return sf::Vector2f(0, 0);
+		return 0;
 	}
 	else if (nearestFish == 1300)
 	{
-		return sf::Vector2f(0, 0);
+		return 0;
 	}
 	else
 	{
@@ -119,17 +118,17 @@ sf::Vector2f Shark::FindFish()
 		{
 			if (plPos.y <= position.y)
 			{
-				return sf::Vector2f(360 - atan(abs(plPos.y - position.y) / abs(plPos.x - position.x)) * 180 / PI, 0);
+				return 360 - atan(abs(plPos.y - position.y) / abs(plPos.x - position.x)) * 180 / PI;
 			}
-			return sf::Vector2f(atan(abs(plPos.y - position.y) / abs(plPos.x - position.x)) * 180 / PI, 0);
+			return atan(abs(plPos.y - position.y) / abs(plPos.x - position.x)) * 180 / PI;
 		}
 		if (plPos.x < position.x)
 		{
 			if (plPos.y <= position.y)
 			{
-				return sf::Vector2f(180 + atan(abs(plPos.y - position.y) / abs(plPos.x - position.x)) * 180 / PI, 0);
+				return 180 + atan(abs(plPos.y - position.y) / abs(plPos.x - position.x)) * 180 / PI;
 			}
-			return sf::Vector2f(180 - atan(abs(plPos.y - position.y) / abs(plPos.x - position.x)) * 180 / PI, 0);
+			return 180 - atan(abs(plPos.y - position.y) / abs(plPos.x - position.x)) * 180 / PI;
 		}
 
 

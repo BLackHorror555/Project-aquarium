@@ -3,23 +3,6 @@
 #include <ctime>
 
 
-/*
-Controller::Controller(int frequency,
-	int planktonNumber, int fishNumber, int sharkNumber
-	int aquariumWidth, int aquariumHeight)
-{
-	this->frequency = frequency;
-	tickDuration = 1 / frequency;
-
-	visualizer = Visualizer(windowWidth, windowHeight, res);
-	aquarium = Aquarium(sf::Vector3i(windowWidth, windowHeight, 0));
-	aquarium.planctonAmount = planktonNumber;
-	aquarium.fishAmount = fishNumber;
-	aquarium.sharkAmount = sharkNumber;
-	FillAquarium();
-}*/
-
-
 void Controller::SetLifeTime(int planktonLifetime_, int fishLifetime_, int sharkLifetime_)
 {
 	bioparametres.planktonLifetime = planktonLifetime_;

@@ -13,7 +13,7 @@ class Fish : public Organism
 	float timeWithoutEat = 0;
 
 	//используются в Update 
-	sf::Vector2f FindPlankton(); // если нашла, возвращает позицию ближайшего, иначе нулевой вектор 
+	float FindPlankton(); // если нашла, возвращает новое направление, иначе 0
 	//TODO
 	sf::Vector2f FindShark(); // если нашла, возвращает позицию ближайшей, иначе нулевой вектор 
 public:

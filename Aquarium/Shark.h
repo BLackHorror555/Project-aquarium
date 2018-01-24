@@ -3,14 +3,13 @@
 
 class Shark: public Organism
 {
-	//std::vector<Fish*>* fishs;
-	//std::vector<Shark*>* sharks;
+	std::vector<Organism*>* organisms;
 
 	std::vector<Organism*>::iterator targetFish;
 	float nearestFish;
 	float timeWithoutEat = 0;
 
-	sf::Vector2f FindFish();
+	float FindFish();
 
 public:
 	Shark(Bioparametres* bioparametres_, sf::Vector2i aquariumSize_, int index_, float* timeScale_, sf::Vector2f position_);
