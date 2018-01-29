@@ -1,6 +1,5 @@
 #include "Shark.h"
 #include <cmath>
-#include <random>
 
 #define PI 3.14159265
 
@@ -28,7 +27,7 @@ void Shark::Reproduction()
 void Shark::Update()
 {
 	float newAngle = FindFish();
-	if ((newAngle != 0) && (age > 10))
+	if ((newAngle != 0) && (age > 100))
 	{
 		moveAngle = newAngle;
 	}

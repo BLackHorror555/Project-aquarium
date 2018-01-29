@@ -6,7 +6,6 @@
 class Plankton: public Organism
 {
 	std::vector<Organism*> * organisms;
-
 	std::vector<Organism*>::iterator nearestFish;
 
 	

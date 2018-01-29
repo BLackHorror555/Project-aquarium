@@ -1,6 +1,5 @@
 #include "Plankton.h"
-#include <random>
-#include <cmath>
+
 
 
 #define FRAME 20
@@ -70,8 +69,6 @@ void Plankton::Update()
 	{
 		moveAngle += 360;
 	}
-
-
 	age++;
 }
 
