@@ -20,10 +20,11 @@ void Fish::Death()
 
 void Fish::Reproduction()
 {
-	if ((age % bioparametres->fishReproductionPeriod == 0) && (age > 0))
+	if ((age % bioparametres->fishReproductionPeriod == 0) && (age > 0) && (isHungry == false))
 	{
 		Fish* newFish = new Fish(bioparametres, aquariumSize, 0, timeScale, position, moveAngle + 170 + rand() % 20);
 		newFish->SetOrganisms(organisms);
+		isHungry = true;
 		organisms->push_back(newFish);
 	}
 }
@@ -126,6 +127,7 @@ float Fish::FindPlankton()
 	if (nearestPlankton <= bioparametres->fishEatingDistance)
 	{
 		(*targetPlankton)->Death();
+		isHungry = false;
 		timeWithoutEat = 0;
 		return 0;
 	}
