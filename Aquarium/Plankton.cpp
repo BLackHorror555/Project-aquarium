@@ -24,7 +24,7 @@ void Plankton::Reproduction()
 {
 	if ((age % bioparametres->planktonReproductionPeriod == 0) && (age > 0))
 	{
-		Plankton* newPlankton = new Plankton(bioparametres, aquariumSize, 0, timeScale, position, moveAngle + 170 + rand() % 20);
+		Plankton* newPlankton = new Plankton(bioparametres, aquariumSize, 0, timeScale, position, moveAngle + 160 + rand() % 40);
 		newPlankton->SetOrganisms(organisms);
 		organisms->push_back(newPlankton);
 	}
@@ -38,9 +38,10 @@ void Plankton::Update()
 		Death();
 		return;
 	}
-	Reproduction();
 	direction.x = 1 * cos(moveAngle * PI / 180);
 	direction.y = 1 * sin(moveAngle * PI / 180);
+
+	Reproduction();
 
 	if (position.x <= 0)
 	{
