@@ -9,6 +9,8 @@ class Shark: public Organism
 	float nearestFish;
 	float timeWithoutEat = 0;
 
+	bool isHungry = true;
+
 	float FindFish();
 
 public:

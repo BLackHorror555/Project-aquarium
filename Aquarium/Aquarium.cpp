@@ -53,7 +53,7 @@ void Aquarium::MoveAnimals()
 		}
 		else if ((*org)->GetType() == OrganismTypes::FISH)
 		{
-			(*org)->SetPosition(position + sf::Vector2f(direction.x * bioparametres->fishSpeed * *timeScale, direction.y * bioparametres->fishSpeed * *timeScale));
+			(*org)->SetPosition(position + sf::Vector2f(direction.x * bioparametres->fishSpeed * (*timeScale), direction.y * bioparametres->fishSpeed * (*timeScale)));
 		}
 		else
 		{

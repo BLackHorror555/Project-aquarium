@@ -1,6 +1,5 @@
 #include "Shark.h"
 #include <cmath>
-#include <random>
 
 #define PI 3.14159265
 
@@ -16,10 +15,11 @@ void Shark::Death()
 
 void Shark::Reproduction()
 {
-	if ((age % bioparametres->sharkReproductionPeriod == 0) && (age > 0))
+	if ((age % bioparametres->sharkReproductionPeriod == 0) && (age > 0) && (isHungry == false))
 	{
 		Shark* newShark = new Shark(bioparametres, aquariumSize, 0, timeScale, position, moveAngle + 170 + rand() % 20);
 		newShark->SetOrganisms(organisms);
+		isHungry = true;
 		organisms->push_back(newShark);
 	}
 }
@@ -28,7 +28,7 @@ void Shark::Reproduction()
 void Shark::Update()
 {
 	float newAngle = FindFish();
-	if ((newAngle != 0) && (age > 10))
+	if ((newAngle != 0) && (age > 100))
 	{
 		moveAngle = newAngle;
 	}
@@ -67,6 +67,7 @@ void Shark::Update()
 		moveAngle += 360;
 	}
 	age++;
+	timeWithoutEat++;
 }
 
 OrganismTypes Shark::GetType()
@@ -102,6 +103,7 @@ float Shark::FindFish()
 	if (nearestFish <= bioparametres->sharkEatingDistance)
 	{
 		(*targetFish)->Death();
+		isHungry = false;
 		timeWithoutEat = 0;
 		return 0;
 	}

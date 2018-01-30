@@ -20,10 +20,11 @@ void Fish::Death()
 
 void Fish::Reproduction()
 {
-	if ((age % bioparametres->fishReproductionPeriod == 0) && (age > 0))
+	if ((age % bioparametres->fishReproductionPeriod == 0) && (age > 0) && (isHungry == false))
 	{
 		Fish* newFish = new Fish(bioparametres, aquariumSize, 0, timeScale, position, moveAngle + 170 + rand() % 20);
 		newFish->SetOrganisms(organisms);
+		isHungry = true;
 		organisms->push_back(newFish);
 	}
 }
@@ -44,19 +45,19 @@ void Fish::Update()
 	//чтоб не выплывали за стенки
 	if (position.x <= 0)
 	{
-		moveAngle = 0 + rand() % 20 - 10;
+		moveAngle = 0 + rand() % 40 - 20;
 	}
 	if (position.x >= GetAquariumSize().x - FRAME)
 	{
-		moveAngle = 180 + rand() % 20 - 10;
+		moveAngle = 180 + rand() % 40 - 20;
 	}
 	if (position.y <= 0)
 	{
-		moveAngle = 90 + rand() % 20 - 10;
+		moveAngle = 90 + rand() % 40 - 20;
 	}
 	if (position.y >= GetAquariumSize().y - FRAME)
 	{
-		moveAngle = 270 + rand() % 20 - 10;
+		moveAngle = 270 + rand() % 40 - 20;
 	}
 	if ((age >= bioparametres->fishLifetime) || (timeWithoutEat >= bioparametres->fishHungerLifetime))
 	{
@@ -126,6 +127,7 @@ float Fish::FindPlankton()
 	if (nearestPlankton <= bioparametres->fishEatingDistance)
 	{
 		(*targetPlankton)->Death();
+		isHungry = false;
 		timeWithoutEat = 0;
 		return 0;
 	}
@@ -168,7 +170,7 @@ float Fish::FindShark()
 			}
 		}
 	}
-	if ((nearestShark > bioparametres->fishViewDistance) || (nearestShark == 1300))
+	if ((nearestShark > bioparametres->fishRunningDistance) || (nearestShark == 1300))
 	{
 		return 0;
 	}

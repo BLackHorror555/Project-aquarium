@@ -12,7 +12,8 @@ class Fish : public Organism
 	float nearestShark;
 	float nearestPlankton;
 	float timeWithoutEat = 0;
-
+	
+	bool isHungry = true;
 	//используются в Update 
 	float FindPlankton(); // если нашла, возвращает новое направление, иначе 0
 	//TODO
