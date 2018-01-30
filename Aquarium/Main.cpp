@@ -11,9 +11,9 @@ using namespace sf;
 
 void main()
 {
-	Resources res("background.jpg", "plankton.png", "fish.png", "shark.png", "fish1.png", "fish2.png",
-		"shark1.png", "shark2.png");
-	Controller controller(15, 15, 10, 3, WIDTH, HEIGHT);
+	Resources res("background.jpg", "noise.png", "bubble.png", "plankton.png", 
+				  "fish1.png", "fish2.png", "shark1.png", "shark2.png");
+	Controller controller(15, 15, 25, 2, WIDTH, HEIGHT);
 	Visualizer visualizer(WIDTH, HEIGHT, &controller, &res);
 	controller.SetTimeScale(3);
 	//установка параметров системы
