@@ -1,6 +1,5 @@
 #include "Visualizer.h"
 
-
 Visualizer::Visualizer(int width, int height, Controller* controller_, Resources* resources_)
 {
 	//инициализация
@@ -9,9 +8,6 @@ Visualizer::Visualizer(int width, int height, Controller* controller_, Resources
 	window = new sf::RenderWindow(sf::VideoMode(width, height), "Aquarium");
 
 	controller = controller_;
-	//plankton = controller->GetAquarium()->GetPlanktons();
-	//fish = controller->GetAquarium()->GetFishs();
-	//shark = controller->GetAquarium()->GetSharks();
 	organisms = controller->GetAquarium()->GetOrganisms();
 
 	//фон
@@ -35,6 +31,8 @@ Visualizer::Visualizer(int width, int height, Controller* controller_, Resources
 	millisTimer = &(controller->millisTimer);
 	animationSpeed = 3;
 	frameTime = 1.0 / animationSpeed * 1000;
+
+	effects = Effects(millisTimer, window, resources);
 }
 
 Visualizer::~Visualizer()
@@ -50,6 +48,7 @@ void Visualizer::Start()
 	GetSystemTime(&st);
 	int startTime = st.wMilliseconds + st.wSecond * 1000 + st.wMinute * 60000 + st.wHour * 3600000;
 	controller->SetStartTime(startTime);
+	effects.Start(); //инициализация системы эффектов
 
 	while (window->isOpen())
 	{
@@ -66,6 +65,7 @@ void Visualizer::Start()
 		//отрисовка
 		window->draw(background);
 		DrawAll();
+		effects.Update();
 		Display();
 	}
 }

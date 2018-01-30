@@ -15,7 +15,7 @@ void main()
 				  "fish1.png", "fish2.png", "shark1.png", "shark2.png");
 	Controller controller(15, 15, 25, 2, WIDTH, HEIGHT);
 	Visualizer visualizer(WIDTH, HEIGHT, &controller, &res);
-	controller.SetTimeScale(3);
+	controller.SetTimeScale(1);
 	//установка параметров системы
 	{
 		controller.SetEatingDistance(5, 15);
@@ -23,7 +23,7 @@ void main()
 		controller.SetLifeTime(325, 600, 1000);
 		controller.SetMoveRange(30, 30, 25);
 		controller.SetReproductionPeriod(160, 100, 300);
-		controller.SetSpeed(0.09, 0.07, 0.1);
+		controller.SetSpeed(0.07, 0.09, 0.1);
 		controller.SetViewDistance(50, 300, 400, 100);
 		visualizer.Start();
 	}
