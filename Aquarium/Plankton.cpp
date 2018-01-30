@@ -22,7 +22,8 @@ void Plankton::Death()
 
 void Plankton::Reproduction()
 {
-	if ((age % bioparametres->planktonReproductionPeriod == 0) && (age > 0))
+	if ((age % bioparametres->planktonReproductionPeriod == 0) && (age > 0) 
+		&& (bioparametres->planktonMaxQuantity > std::count_if(organisms->begin(), organisms->end(), [](auto p) {return p->GetType() == OrganismTypes::PLANKTON; })))
 	{
 		Plankton* newPlankton = new Plankton(bioparametres, aquariumSize, 0, timeScale, position, moveAngle + 160 + rand() % 40);
 		newPlankton->SetOrganisms(organisms);

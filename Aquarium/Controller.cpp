@@ -87,6 +87,13 @@ Controller::Controller(int frequency_,
 }
 
 
+void Controller::SetMaxAnimals(int planktonMaxQuantity_, int fishMaxQuantity_, int sharkMaxQuantity_)
+{
+	bioparametres.planktonMaxQuantity = planktonMaxQuantity_;
+	bioparametres.fishMaxQuantity = fishMaxQuantity_;
+	bioparametres.sharkMaxQuantity = sharkMaxQuantity_;
+}
+
 void Controller::Update()
 {
 	//обновляем таймеры

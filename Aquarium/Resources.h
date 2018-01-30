@@ -1,20 +1,22 @@
 #pragma once
 #include <SFML\Graphics.hpp>
 
+using sf::Texture;
+using std::string;
 
 class Resources
 {
 public :
-	sf::Texture background;
-	sf::Texture plankton;
-	sf::Texture fish;
-	sf::Texture shark;
+	Texture background;
+	Texture noise;
+	Texture bubble;
 	
-	sf::Texture fishTex1;
-	sf::Texture fishTex2;
-	sf::Texture sharkTex1;
-	sf::Texture sharkTex2;
+	Texture plankton;
+	Texture fish1;
+	Texture fish2;
+	Texture shark1;
+	Texture shark2;
 
-	Resources(std::string background, std::string plankton, std::string fish, std::string shark,
-		std::string fish1, std::string fish2, std::string shark1, std::string shark2);
+	Resources(string background, string noise, string bubble, string plankton,
+		string fish1, string fish2, string shark1, string shark2);
 };

@@ -36,6 +36,7 @@ public:
 	void SetEatingDistance(int fishEatingDistance_, int sharkEatingDistanse_);
 	void SetMoveRange(int planktonMoveRange_, int fishMoveRange_, int sharkMoveRange_);
 
+	void SetMaxAnimals(int planktonMaxQuantity_, int fishMaxQuantity_, int sharkMaxQuantity_);
 	void Update();
 	void SetStartTime(int startTime_);
 	void SetTimeScale(float timeScale_);

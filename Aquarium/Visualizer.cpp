@@ -20,16 +20,16 @@ Visualizer::Visualizer(int width, int height, Controller* controller_, Resources
 
 	//спрайты рыб
 	planktonSprite.setTexture(resources->plankton);
-	fishSprite.setTexture(resources->fishTex2);
-	sharkSprite.setTexture(resources->sharkTex2);
+	fishSprite.setTexture(resources->fish2);
+	sharkSprite.setTexture(resources->shark2);
 
 	planktonSprite.setScale(0.75, 0.75);
 	fishSprite.setScale(1.75, 1.75);
 	sharkSprite.setScale(2.5, 2.5);
 
 	planktonSprite.setOrigin(resources->plankton.getSize().x / 2, resources->plankton.getSize().y / 2);
-	fishSprite.setOrigin(resources->fish.getSize().x / 2, resources->fish.getSize().y / 2);
-	sharkSprite.setOrigin(resources->shark.getSize().x / 2, resources->shark.getSize().y / 2);
+	fishSprite.setOrigin(resources->fish1.getSize().x / 2, resources->fish1.getSize().y / 2);
+	sharkSprite.setOrigin(resources->shark1.getSize().x / 2, resources->shark1.getSize().y / 2);
 
 	//анимация
 	millisTimer = &(controller->millisTimer);
@@ -74,13 +74,13 @@ void Visualizer::SwitchFrames()
 {
 	if (animationCounter % 2 == 0)
 	{
-		fishSprite.setTexture(resources->fishTex1);
-		sharkSprite.setTexture(resources->sharkTex1);
+		fishSprite.setTexture(resources->fish1);
+		sharkSprite.setTexture(resources->shark1);
 	}
 	else
 	{
-		fishSprite.setTexture(resources->fishTex2);
-		sharkSprite.setTexture(resources->sharkTex2);
+		fishSprite.setTexture(resources->fish2);
+		sharkSprite.setTexture(resources->shark2);
 	}
 	lastFrame = *millisTimer;
 	animationCounter++;
@@ -107,13 +107,13 @@ void Visualizer::DrawAll()
 		}
 		else if ((*organisms)[i]->GetType() == OrganismTypes::FISH)
 		{
-			//fishSprite.setRotation(CalculateAngle((*organisms)[i]->GetDirection()));
+			fishSprite.setRotation(57 * CalculateAngle((*organisms)[i]->GetDirection()));
 			fishSprite.setPosition((*organisms)[i]->GetPosition());
 			window->draw(fishSprite);
 		} 
 		else if ((*organisms)[i]->GetType() == OrganismTypes::SHARK)
 		{
-			//sharkSprite.setRotation(57 * CalculateAngle((*organisms)[i]->GetDirection()));
+			sharkSprite.setRotation(57 * CalculateAngle((*organisms)[i]->GetDirection()));
 			sharkSprite.setPosition((*organisms)[i]->GetPosition());
 			window->draw(sharkSprite);
 		}

@@ -30,5 +30,10 @@ struct Bioparametres
 	int planktonMoveRange;
 	int fishMoveRange;
 	int sharkMoveRange;
+
+	//максимальное количество животных в аквариуме
+	int planktonMaxQuantity;
+	int fishMaxQuantity;
+	int sharkMaxQuantity;
 };
 
