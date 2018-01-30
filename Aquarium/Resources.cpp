@@ -1,15 +1,15 @@
 #include "Resources.h"
 
-Resources::Resources(std::string background, std::string plankton, std::string fish, std::string shark,
-					 std::string fish1, std::string fish2, std::string shark1, std::string shark2)
+Resources::Resources(std::string background_, string noise_, string bubble_, std::string plankton_,
+					 std::string fish1_, std::string fish2_, std::string shark1_, std::string shark2_)
 {
-	this->background.loadFromFile(background);
-	this->plankton.loadFromFile(plankton);
-	this->fish.loadFromFile(fish);
-	this->shark.loadFromFile(shark);
+	background.loadFromFile(background_);
+	noise.loadFromFile(noise_);
+	bubble.loadFromFile(bubble_);
 
-	fishTex1.loadFromFile(fish1);
-	fishTex2.loadFromFile(fish2);
-	sharkTex1.loadFromFile(shark1);
-	sharkTex2.loadFromFile(shark2);
+	plankton.loadFromFile(plankton_);
+	fish1.loadFromFile(fish1_);
+	fish2.loadFromFile(fish2_);
+	shark1.loadFromFile(shark1_);
+	shark2.loadFromFile(shark2_);
 }
