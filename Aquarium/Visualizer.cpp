@@ -107,13 +107,13 @@ void Visualizer::DrawAll()
 		}
 		else if ((*organisms)[i]->GetType() == OrganismTypes::FISH)
 		{
-			fishSprite.setRotation(CalculateAngle((*organisms)[i]->GetDirection()));
+			//fishSprite.setRotation(CalculateAngle((*organisms)[i]->GetDirection()));
 			fishSprite.setPosition((*organisms)[i]->GetPosition());
 			window->draw(fishSprite);
 		} 
 		else if ((*organisms)[i]->GetType() == OrganismTypes::SHARK)
 		{
-			sharkSprite.setRotation(57 * CalculateAngle((*organisms)[i]->GetDirection()));
+			//sharkSprite.setRotation(57 * CalculateAngle((*organisms)[i]->GetDirection()));
 			sharkSprite.setPosition((*organisms)[i]->GetPosition());
 			window->draw(sharkSprite);
 		}
