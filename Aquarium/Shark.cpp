@@ -3,7 +3,7 @@
 
 #define PI 3.14159265
 
-#define FRAME 55
+#define FRAME 30
 
 
 void Shark::Death()
@@ -28,16 +28,16 @@ void Shark::Reproduction()
 void Shark::Update()
 {
 	float newAngle = FindFish();
-	if ((newAngle != 0) && (age > 100))
+	if ((newAngle != 0) && (age > 20))
 	{
 		moveAngle = newAngle;
 	}
-	if ((age >= bioparametres->sharkLifetime) || (timeWithoutEat >= bioparametres->sharkHungerLifetime))
+	if ((age >= bioparametres->sharkLifetime + rand() % 25) || (timeWithoutEat >= bioparametres->sharkHungerLifetime))
 	{
 		Death();
 		return;
 	}
-	if (position.x <= 0)
+	if (position.x <= FRAME)
 	{
 		moveAngle = 0 + rand() % 20 - 10;
 	}
@@ -45,7 +45,7 @@ void Shark::Update()
 	{
 		moveAngle = 180 + rand() % 20 - 10;
 	}
-	if (position.y <= 0)
+	if (position.y <= FRAME)
 	{
 		moveAngle = 90 + rand() % 20 - 10;
 	}

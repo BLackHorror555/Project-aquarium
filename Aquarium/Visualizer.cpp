@@ -53,7 +53,12 @@ void Visualizer::Start()
 	while (window->isOpen())
 	{
 		//события
-
+		sf::Event event;
+		while (window->pollEvent(event))
+		{
+			if (event.type == sf::Event::Closed)
+				window->close();
+		}
 		//вычисления
 		if (*millisTimer - lastFrame >= frameTime)
 		{

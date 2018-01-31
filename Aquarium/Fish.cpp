@@ -3,7 +3,7 @@
 
 #define PI 3.14159265
 
-#define FRAME 45
+#define FRAME 20
 
 
 void Fish::SetOrganisms(std::vector<Organism*>* organisms_)
@@ -33,7 +33,7 @@ void Fish::Reproduction()
 void Fish::Update()
 {
 	float newAngle = FindPlankton();
-	if ((newAngle != 0) && (age > 10))
+	if ((newAngle != 0) && (age > 15))
 	{
 		moveAngle = newAngle + rand() % 20 - 10;
 	}
@@ -43,7 +43,7 @@ void Fish::Update()
 		moveAngle = newAngle + rand() % 20 - 10;
 	}
 	//чтоб не выплывали за стенки
-	if (position.x <= 0)
+	if (position.x <= FRAME)
 	{
 		moveAngle = 0 + rand() % 40 - 20;
 	}
@@ -51,7 +51,7 @@ void Fish::Update()
 	{
 		moveAngle = 180 + rand() % 40 - 20;
 	}
-	if (position.y <= 0)
+	if (position.y <= FRAME)
 	{
 		moveAngle = 90 + rand() % 40 - 20;
 	}
@@ -59,7 +59,7 @@ void Fish::Update()
 	{
 		moveAngle = 270 + rand() % 40 - 20;
 	}
-	if ((age >= bioparametres->fishLifetime) || (timeWithoutEat >= bioparametres->fishHungerLifetime))
+	if ((age >= bioparametres->fishLifetime + rand() % 15) || (timeWithoutEat >= bioparametres->fishHungerLifetime))
 	{
 		Death();
 		return;

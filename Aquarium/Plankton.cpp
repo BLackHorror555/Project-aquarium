@@ -2,7 +2,7 @@
 
 
 
-#define FRAME 20
+#define FRAME 5
 
 #define PI 3.14159265
 
@@ -34,7 +34,7 @@ void Plankton::Reproduction()
 
 void Plankton::Update()
 {
-	if (age >= bioparametres->planktonLifetime)
+	if (age >= bioparametres->planktonLifetime + rand() % 10)
 	{
 		Death();
 		return;
@@ -44,7 +44,7 @@ void Plankton::Update()
 
 	Reproduction();
 
-	if (position.x <= 0)
+	if (position.x <= FRAME)
 	{
 		moveAngle = 0 + rand() % 20 - 10;
 	}
@@ -52,7 +52,7 @@ void Plankton::Update()
 	{
 		moveAngle = 180 + rand() % 20 - 10;
 	}
-	else if (position.y <= 0)
+	else if (position.y <= FRAME)
 	{
 		moveAngle = 90 + rand() % 20 - 10;
 	}
