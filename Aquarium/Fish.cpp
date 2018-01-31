@@ -76,6 +76,7 @@ void Fish::Update()
 	{
 		moveAngle += 360;
 	}
+
 	age++;
 	timeWithoutEat++;
 }
@@ -180,17 +181,17 @@ float Fish::FindShark()
 	{
 		if (shPos.y <= position.y)
 		{
-			return 180 - atan(abs(shPos.y - position.y) / abs(shPos.x - position.x)) * 180 / PI;
+			return 180 - atan(abs(shPos.y - position.y) / abs(shPos.x - position.x)) * 180 / PI + rand() % 30 - 15;
 		}
-		return atan(abs(shPos.y - position.y) / abs(shPos.x - position.x)) * 180 / PI;
+		return atan(abs(shPos.y - position.y) / abs(shPos.x - position.x)) * 180 / PI + rand() % 30 - 15;
 	}
 	if (shPos.x < position.x)
 	{
 		if (shPos.y <= position.y)
 		{
-			return atan(abs(shPos.y - position.y) / abs(shPos.x - position.x)) * 180 / PI;
+			return atan(abs(shPos.y - position.y) / abs(shPos.x - position.x)) * 180 / PI + rand() % 30 - 15;
 		}
-		return atan(abs(shPos.y - position.y) / abs(shPos.x - position.x)) * 180 / PI;
+		return atan(abs(shPos.y - position.y) / abs(shPos.x - position.x)) * 180 / PI + rand() % 30 - 15;
 	}
 }
 

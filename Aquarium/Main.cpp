@@ -13,19 +13,19 @@ void main()
 {
 	Resources res("background.jpg", "noise.png", "bubble.png", "plankton.png", 
 				  "fish1.png", "fish2.png", "shark1.png", "shark2.png");
-	Controller controller(15, 15, 25, 2, WIDTH, HEIGHT);
+	Controller controller(8, 40, 25, 5, WIDTH, HEIGHT);
 	Visualizer visualizer(WIDTH, HEIGHT, &controller, &res);
 	controller.SetTimeScale(1);
 	//установка параметров системы
 	{
 		controller.SetEatingDistance(5, 15);
-		controller.SetHungerLifetime(300, 500);
-		controller.SetLifeTime(325, 600, 1000);
-		controller.SetMoveRange(30, 30, 25);
-		controller.SetReproductionPeriod(160, 100, 300);
+		controller.SetHungerLifetime(130, 150);
+		controller.SetLifeTime(99, 159, 199);
+		controller.SetMoveRange(20, 17, 20);
+		controller.SetReproductionPeriod(35, 80, 80);
 		controller.SetSpeed(0.07, 0.09, 0.1);
 		controller.SetViewDistance(50, 300, 400, 100);
-		controller.SetMaxAnimals(100, 0, 0); //робит только для планктона
+		controller.SetMaxAnimals(250, 0, 0); //робит только для планктона
 		visualizer.Start();
 	}
 	

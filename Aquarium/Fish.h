@@ -12,6 +12,8 @@ class Fish : public Organism
 	float nearestShark;
 	float nearestPlankton;
 	float timeWithoutEat = 0;
+
+	float realAngle;
 	
 	bool isHungry = true;
 	//используются в Update 
