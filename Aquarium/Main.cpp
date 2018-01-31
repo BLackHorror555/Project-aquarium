@@ -25,6 +25,7 @@ void main()
 		controller.SetReproductionPeriod(160, 100, 300);
 		controller.SetSpeed(0.09, 0.07, 0.1);
 		controller.SetViewDistance(50, 300, 400, 100);
+		controller.SetMaxAnimals(100, 0, 0); //робит только для планктона
 		visualizer.Start();
 	}
 	
